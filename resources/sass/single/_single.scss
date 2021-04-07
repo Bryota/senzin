@@ -1,0 +1,50 @@
+.single {
+    background-color: $bg-color;
+    padding-bottom: 30px;
+
+    &__title {
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+        padding: 50px 0 20px;
+    }
+
+    &__category {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    %__icon {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    &__icon--food {
+        @extend %__icon;
+        color: #dd3737;
+    }
+
+    &__content {
+        font-size: 25px;
+        line-height: 60px;
+        margin: 80px auto 0;
+        width: 80%;
+    }
+
+    &__button {
+        background-color: #fff;
+        border-radius: 30px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        color: $font-color;
+        text-align: center;
+        margin-top: 60px;
+        padding: 10px 20px;
+        width: 40%;
+    }
+
+    &__button:active {
+        box-shadow: none;
+        transform: translateY(2px);
+    }
+}
