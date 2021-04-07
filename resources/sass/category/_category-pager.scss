@@ -1,0 +1,17 @@
+.category-pager {
+    padding: 30px 0 50px 0;
+    text-align: center;
+
+    &__wrap {
+        background-color: #fff;
+        margin: 0 auto;
+        width: 15%;
+    }
+
+    &__num {
+        color: $font-color;
+        border: 2px solid #000;
+        font-size: 30px;
+        padding: 0 15px;
+    }
+}

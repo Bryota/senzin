@@ -6,7 +6,7 @@ const Header:React.FC = () => {
             <div className="container"> 
                 <div className="row">
                     <div className="col-md-5 col-9">
-                        <h1 className="header__title">先人の知恵</h1>
+                        <h2 className="header__title">先人の知恵</h2>
                     </div>
                     <div className="col-md-7 col-3">
                         <nav className="pc__nav">

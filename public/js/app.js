@@ -32688,14 +32688,103 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var Top_1 = __importDefault(__webpack_require__(/*! ./components/Top */ "./resources/ts/components/Top.tsx"));
+var Category_1 = __importDefault(__webpack_require__(/*! ./components/Category */ "./resources/ts/components/Category.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(react_router_dom_1.Switch, null,
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }))));
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/category", exact: true, component: Category_1.default }))));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
 }
+
+
+/***/ }),
+
+/***/ "./resources/ts/components/Category.tsx":
+/*!**********************************************!*\
+  !*** ./resources/ts/components/Category.tsx ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
+var Category = function () {
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(Header_1.default, null),
+        react_1.default.createElement("div", { className: "category" },
+            react_1.default.createElement("h1", { className: "category__title" },
+                react_1.default.createElement("span", { className: "category__icon--food" },
+                    react_1.default.createElement("i", { className: "fas fa-utensils" })),
+                "\u98DF\u3079\u7269"),
+            react_1.default.createElement("div", { className: "category-ideas" },
+                react_1.default.createElement("div", { className: "container" },
+                    react_1.default.createElement("div", { className: "row category-ideas__items" },
+                        react_1.default.createElement("div", { className: "category-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
+                        react_1.default.createElement("div", { className: "category-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
+                        react_1.default.createElement("div", { className: "category-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"))),
+                    react_1.default.createElement("div", { className: "row category__ideas--items" },
+                        react_1.default.createElement("div", { className: "category-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
+                        react_1.default.createElement("div", { className: "category-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
+                        react_1.default.createElement("div", { className: "category-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"))))),
+            react_1.default.createElement("div", { className: "category-pager" },
+                react_1.default.createElement("div", { className: "category-pager__wrap" },
+                    react_1.default.createElement("span", { className: "category-pager__num" }, "1"),
+                    react_1.default.createElement("span", { className: "category-pager__num" }, "2"),
+                    react_1.default.createElement("span", { className: "category-pager__num" }, "3"),
+                    react_1.default.createElement("span", { className: "category-pager__num" }, "4"))))));
+};
+exports.default = Category;
 
 
 /***/ }),
@@ -32719,7 +32808,7 @@ var Header = function () {
         react_1.default.createElement("div", { className: "container" },
             react_1.default.createElement("div", { className: "row" },
                 react_1.default.createElement("div", { className: "col-md-5 col-9" },
-                    react_1.default.createElement("h1", { className: "header__title" }, "\u5148\u4EBA\u306E\u77E5\u6075")),
+                    react_1.default.createElement("h2", { className: "header__title" }, "\u5148\u4EBA\u306E\u77E5\u6075")),
                 react_1.default.createElement("div", { className: "col-md-7 col-3" },
                     react_1.default.createElement("nav", { className: "pc__nav" },
                         react_1.default.createElement("ul", { className: "header__nav" },

@@ -11617,6 +11617,7 @@ template {
   margin: 10px 45px;
 }
 
+.top-category .category__icon--food,
 .top-category .top-category__icon--other,
 .top-category .top-category__icon--machine,
 .top-category .top-category__icon--sport,
@@ -11670,5 +11671,106 @@ template {
   font-size: 25px;
   margin: 0 auto 20px;
   width: 45%;
+}
+
+.category {
+  background-color: #ddcaaf;
+}
+
+.category__title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 50px 0;
+}
+
+.category .category__icon--food,
+.category .top-category__icon--food,
+.category .top-category__icon--clean,
+.category .top-category__icon--health,
+.category .top-category__icon--sport,
+.category .top-category__icon--machine,
+.category .top-category__icon--other {
+  font-size: 45px;
+  margin-right: 40px;
+}
+
+.category__icon--food {
+  color: #dd3737;
+}
+
+.category-ideas {
+  padding: 50px 0;
+}
+
+.category-ideas__item {
+  text-align: center;
+}
+
+.category-ideas__item--balloon {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 0 5px;
+  width: 250px;
+  height: 250px;
+  color: #000;
+  font-size: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.category-ideas__item--balloon::before {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  margin-left: -30px;
+  border: 30px solid transparent;
+  border-top: 30px solid #fff;
+  z-index: 0;
+}
+
+.category-ideas__item--title {
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.category-ideas__item--category {
+  font-size: 15px;
+}
+
+.category-ideas__item--content {
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.category-ideas__item--icon {
+  color: #fff;
+}
+
+.category-ideas__item--username {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.category-pager {
+  padding: 30px 0 50px 0;
+  text-align: center;
+}
+
+.category-pager__wrap {
+  background-color: #fff;
+  margin: 0 auto;
+  width: 15%;
+}
+
+.category-pager__num {
+  color: #6f6152;
+  border: 2px solid #000;
+  font-size: 30px;
+  padding: 0 15px;
 }
 
