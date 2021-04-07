@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Top from './components/Top';
 import Category from './components/Category';
 import Form from './components/Form';
+import Search from './components/Search';
 
 const App: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
                 <Route path="/" exact component={Top} />
                 <Route path="/category" exact component={Category} />
                 <Route path="/post" exact component={Form} />
+                <Route path="/search" exact component={Search} />
             </Switch>
         </BrowserRouter>
     )
