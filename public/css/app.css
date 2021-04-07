@@ -12071,3 +12071,169 @@ template {
   transform: translateY(2px);
 }
 
+.login {
+  background-color: #eee;
+  padding-bottom: 30px;
+}
+
+.login__title {
+  color: #6f6152;
+  font-size: 48px;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.login__wrap {
+  background-color: #ddcaaf;
+  margin: 0 auto 30px;
+  width: 85%;
+}
+
+.login__items {
+  margin: 0 auto;
+  padding: 30px 0;
+  width: 60%;
+}
+
+.login__item {
+  margin-bottom: 50px;
+}
+
+.login__label {
+  font-size: 28px;
+}
+
+.login__required {
+  color: red;
+  font-size: 23px;
+  margin-left: 5px;
+}
+
+.login__input {
+  background-color: #fff;
+  border-radius: 30px;
+  margin-left: 145px;
+  padding: 5px 15px;
+  width: 50%;
+}
+
+.login__input--password {
+  background-color: #fff;
+  border-radius: 30px;
+  margin-left: 195px;
+  padding: 5px 15px;
+  width: 50%;
+}
+
+.login__button {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: #6f6152;
+  text-align: center;
+  margin-top: 60px;
+  padding: 10px 20px;
+  width: 40%;
+}
+
+.login__button:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+.login__register {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.register {
+  background-color: #eee;
+  padding-bottom: 30px;
+}
+
+.register__title {
+  color: #6f6152;
+  font-size: 48px;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.register__wrap {
+  background-color: #ddcaaf;
+  margin: 0 auto 30px;
+  width: 85%;
+}
+
+.register__items {
+  margin: 0 auto;
+  padding: 30px 0;
+  width: 60%;
+}
+
+.register__item {
+  margin-bottom: 50px;
+}
+
+.register__label {
+  font-size: 28px;
+}
+
+.register__required {
+  color: red;
+  font-size: 23px;
+  margin-left: 5px;
+}
+
+.register__input {
+  background-color: #fff;
+  border-radius: 30px;
+  margin-left: 145px;
+  padding: 5px 15px;
+  width: 50%;
+}
+
+.register__input--username {
+  background-color: #fff;
+  border-radius: 30px;
+  margin-left: 195px;
+  padding: 5px 15px;
+  width: 50%;
+}
+
+.register__input--password {
+  background-color: #fff;
+  border-radius: 30px;
+  margin-left: 195px;
+  padding: 5px 15px;
+  width: 50%;
+}
+
+.register__input--passwordComfire {
+  background-color: #fff;
+  border-radius: 30px;
+  margin-left: 137px;
+  padding: 5px 15px;
+  width: 50%;
+}
+
+.register__button {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: #6f6152;
+  text-align: center;
+  margin-top: 60px;
+  padding: 10px 20px;
+  width: 40%;
+}
+
+.register__button:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+.register__register {
+  text-align: center;
+  margin-top: 10px;
+}
+

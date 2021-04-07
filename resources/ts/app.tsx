@@ -7,6 +7,8 @@ import Form from './components/Form';
 import Search from './components/Search';
 import Result from './components/Result';
 import Single from './components/Single';
+import Login from './components/Login';
+import Register from './components/Register';
 
 const App: React.FC = () => {
     return (
@@ -16,7 +18,9 @@ const App: React.FC = () => {
                 <Route path="/category" exact component={Category} />
                 <Route path="/post" exact component={Form} />
                 <Route path="/search" exact component={Search} />
+                <Route path="/result" exact component={Result} />
                 <Route path="/single" exact component={Single} />
+                <Route path="/register" exact component={Register} />
             </Switch>
         </BrowserRouter>
     )

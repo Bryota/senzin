@@ -1,4 +1,4 @@
-.search {
+.login {
     background-color: #eee;
     padding-bottom: 30px;
 
@@ -35,20 +35,18 @@
         margin-left: 5px;
     }
 
-    &__select{
-        background-color: #fff;
-        border-radius: 30px;
-        margin-left: 150px;
-        padding: 5px 15px;
-        width: 50%;
-        -moz-appearance: menulist;
-        -webkit-appearance: menulist;
-    }
-
     &__input {
         background-color: #fff;
         border-radius: 30px;
         margin-left: 145px;
+        padding: 5px 15px;
+        width: 50%;
+    }
+
+    &__input--password {
+        background-color: #fff;
+        border-radius: 30px;
+        margin-left: 195px;
         padding: 5px 15px;
         width: 50%;
     }
@@ -69,4 +67,8 @@
         transform: translateY(2px);
     }
 
+    &__register {
+        text-align: center;
+        margin-top: 10px;
+    }
 }
