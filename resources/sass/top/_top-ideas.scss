@@ -1,26 +1,12 @@
-.top__bgimg {
-    background-image: url("/images/bgimg.png");
-    background-size: cover;
-    background-position-y: center;
-    height: 60vh;
-
-    &__title {
-        color: #fff;
-        font-size: 96px;
-        font-family: serif;
-        text-align: center;
-        padding: 20vh 0;
-    }
-}
-
-.top__ideas {
+.top-ideas {
     background-color: $bg-color;
-    height: 60vh;
+    height: 75vh;
+    padding: 50px 0;
 
     &__item {
         text-align: center;
 
-        &__balloon {
+        &--balloon {
                 position: relative;
                 display: inline-block;
                 margin: 1.5em 0;
@@ -33,7 +19,7 @@
                 border-radius: 50%;
                 box-sizing: border-box;              
         }
-        &__balloon::before {
+        &--balloon::before {
             content: "";
             position: absolute;
             bottom: -50px;
@@ -44,26 +30,26 @@
             z-index: 0;
         }
 
-        &__title {
+        &--title {
             font-weight: bold;
             margin-top: 30px;
         }
 
-        &__category {
+        &--category {
             font-size: 15px;
         }
 
-        &__content {
+        &--content {
             font-size: 18px;
             margin-top: 20px;
             padding: 0 20px;
         }
 
-        &__icon {
+        &--icon {
             color: #fff;
         }
 
-        &__username {
+        &--username {
             font-weight: bold;
             margin-top: 10px;
         }

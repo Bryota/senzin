@@ -11521,14 +11521,14 @@ template {
   line-height: 76px;
 }
 
-.top__bgimg {
+.top-bgimg {
   background-image: url("/images/bgimg.png");
   background-size: cover;
   background-position-y: center;
   height: 60vh;
 }
 
-.top__bgimg__title {
+.top-bgimg__title {
   color: #fff;
   font-size: 96px;
   font-family: serif;
@@ -11536,16 +11536,17 @@ template {
   padding: 20vh 0;
 }
 
-.top__ideas {
+.top-ideas {
   background-color: #ddcaaf;
-  height: 60vh;
+  height: 75vh;
+  padding: 50px 0;
 }
 
-.top__ideas__item {
+.top-ideas__item {
   text-align: center;
 }
 
-.top__ideas__item__balloon {
+.top-ideas__item--balloon {
   position: relative;
   display: inline-block;
   margin: 1.5em 0;
@@ -11559,7 +11560,7 @@ template {
   box-sizing: border-box;
 }
 
-.top__ideas__item__balloon::before {
+.top-ideas__item--balloon::before {
   content: "";
   position: absolute;
   bottom: -50px;
@@ -11570,27 +11571,104 @@ template {
   z-index: 0;
 }
 
-.top__ideas__item__title {
+.top-ideas__item--title {
   font-weight: bold;
   margin-top: 30px;
 }
 
-.top__ideas__item__category {
+.top-ideas__item--category {
   font-size: 15px;
 }
 
-.top__ideas__item__content {
+.top-ideas__item--content {
   font-size: 18px;
   margin-top: 20px;
   padding: 0 20px;
 }
 
-.top__ideas__item__icon {
+.top-ideas__item--icon {
   color: #fff;
 }
 
-.top__ideas__item__username {
+.top-ideas__item--username {
   font-weight: bold;
   margin-top: 10px;
+}
+
+.top-category {
+  background-color: #eee;
+  padding: 80px 0;
+}
+
+.top-category__title {
+  text-align: center;
+  font-size: 35px;
+}
+
+.top-category__items {
+  margin-top: 50px;
+}
+
+.top-category__item {
+  background-color: #fff;
+  border-radius: 30px;
+  text-align: center;
+  padding: 30px 50px;
+  margin: 10px 45px;
+}
+
+.top-category .top-category__icon--other,
+.top-category .top-category__icon--machine,
+.top-category .top-category__icon--sport,
+.top-category .top-category__icon--health,
+.top-category .top-category__icon--clean,
+.top-category .top-category__icon--food {
+  font-size: 85px;
+}
+
+.top-category__icon--food {
+  color: #dd3737;
+}
+
+.top-category__icon--clean {
+  color: #0d9f0c;
+}
+
+.top-category__icon--health {
+  color: #00509d;
+}
+
+.top-category__icon--sport {
+  color: #eeac00;
+}
+
+.top-category__icon--machine {
+  color: #663e8c;
+}
+
+.top-category__icon--other {
+  color: #000;
+}
+
+.top-category__name {
+  font-size: 22px;
+}
+
+.top-use {
+  background-color: #eee;
+  padding: 0 0 80px;
+}
+
+.top-use__title {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 50px;
+}
+
+.top-use__content {
+  text-align: left;
+  font-size: 25px;
+  margin: 0 auto 20px;
+  width: 45%;
 }
 

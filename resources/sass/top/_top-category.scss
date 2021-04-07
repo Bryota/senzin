@@ -1,0 +1,59 @@
+.top-category {
+    background-color: #eee;
+    padding: 80px 0;
+
+    &__title {
+        text-align: center;
+        font-size: 35px;
+    }
+
+    &__items {
+        margin-top: 50px;
+    }
+
+    &__item {
+        background-color: #fff;
+        border-radius: 30px;
+        text-align: center;
+        padding: 30px 50px;
+        margin: 10px 45px;
+    }
+
+    %__icon {
+        font-size: 85px;
+    }
+
+    &__icon--food {
+        @extend %__icon;
+        color: #dd3737;
+    }
+
+    &__icon--clean {
+        @extend %__icon;
+        color: #0d9f0c;
+    }
+
+    &__icon--health {
+        @extend %__icon;
+        color: #00509d;
+    }
+
+    &__icon--sport {
+        @extend %__icon;
+        color: #eeac00;
+    }
+
+    &__icon--machine {
+        @extend %__icon;
+        color: #663e8c;
+    }
+
+    &__icon--other {
+        @extend %__icon;
+        color: #000;
+    }
+
+    &__name {
+        font-size: 22px;
+    }
+}

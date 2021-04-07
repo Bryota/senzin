@@ -1,0 +1,17 @@
+.top-use {
+    background-color: #eee;
+    padding: 0 0 80px;
+
+    &__title {
+        text-align: center;
+        font-size: 35px;
+        margin-bottom: 50px;
+    }
+
+    &__content {
+        text-align: left;
+        font-size: 25px;
+        margin: 0 auto 20px;
+        width: 45%;
+    }
+}

@@ -1,0 +1,14 @@
+.top-bgimg {
+    background-image: url("/images/bgimg.png");
+    background-size: cover;
+    background-position-y: center;
+    height: 60vh;
+
+    &__title {
+        color: #fff;
+        font-size: 96px;
+        font-family: serif;
+        text-align: center;
+        padding: 20vh 0;
+    }
+}
