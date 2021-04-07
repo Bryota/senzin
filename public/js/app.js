@@ -32689,11 +32689,13 @@ var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_m
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var Top_1 = __importDefault(__webpack_require__(/*! ./components/Top */ "./resources/ts/components/Top.tsx"));
 var Category_1 = __importDefault(__webpack_require__(/*! ./components/Category */ "./resources/ts/components/Category.tsx"));
+var Form_1 = __importDefault(__webpack_require__(/*! ./components/Form */ "./resources/ts/components/Form.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(react_router_dom_1.Switch, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/category", exact: true, component: Category_1.default }))));
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/category", exact: true, component: Category_1.default }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/post", exact: true, component: Form_1.default }))));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
@@ -32785,6 +32787,55 @@ var Category = function () {
                     react_1.default.createElement("span", { className: "category-pager__num" }, "4"))))));
 };
 exports.default = Category;
+
+
+/***/ }),
+
+/***/ "./resources/ts/components/Form.tsx":
+/*!******************************************!*\
+  !*** ./resources/ts/components/Form.tsx ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
+var Form = function () {
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(Header_1.default, null),
+        react_1.default.createElement("div", { className: "form" },
+            react_1.default.createElement("h1", { className: "form__title" }, "\u6295\u7A3F\u30D5\u30A9\u30FC\u30E0"),
+            react_1.default.createElement("form", { className: "form__wrap" },
+                react_1.default.createElement("div", { className: "form__items" },
+                    react_1.default.createElement("div", { className: "form__item" },
+                        react_1.default.createElement("label", { htmlFor: "category", className: "form__label" },
+                            "\u30AB\u30C6\u30B4\u30EA",
+                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
+                        react_1.default.createElement("select", { name: "category", id: "category", className: "form__select" },
+                            react_1.default.createElement("option", { value: "food" }, "\u98DF\u3079\u7269"),
+                            react_1.default.createElement("option", { value: "clean" }, "\u6383\u9664"),
+                            react_1.default.createElement("option", { value: "health" }, "\u5065\u5EB7"),
+                            react_1.default.createElement("option", { value: "sport" }, "\u30B9\u30DD\u30FC\u30C4"),
+                            react_1.default.createElement("option", { value: "machine" }, "\u6A5F\u68B0"),
+                            react_1.default.createElement("option", { value: "other" }, "\u305D\u306E\u4ED6"))),
+                    react_1.default.createElement("div", { className: "form__item" },
+                        react_1.default.createElement("label", { htmlFor: "name", className: "form__label" }, "\u6295\u7A3F\u8005\u540D"),
+                        react_1.default.createElement("input", { type: "text", id: "name", className: "form__input" })),
+                    react_1.default.createElement("div", { className: "form__item" },
+                        react_1.default.createElement("label", { htmlFor: "content", className: "form__label" },
+                            "\u5185\u5BB9",
+                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
+                        react_1.default.createElement("textarea", { name: "content", id: "content", className: "form__textarea" })),
+                    react_1.default.createElement("div", { className: "text-center" },
+                        react_1.default.createElement("input", { type: "button", value: "\u6295\u7A3F\u3059\u308B", className: "form__button" })))))));
+};
+exports.default = Form;
 
 
 /***/ }),

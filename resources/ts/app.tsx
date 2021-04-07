@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Top from './components/Top';
 import Category from './components/Category';
+import Form from './components/Form';
 
 const App: React.FC = () => {
     return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
             <Switch>
                 <Route path="/" exact component={Top} />
                 <Route path="/category" exact component={Category} />
+                <Route path="/post" exact component={Form} />
             </Switch>
         </BrowserRouter>
     )
