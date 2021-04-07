@@ -1,0 +1,10 @@
+.result {
+    background-color: $bg-color;
+
+    &__title {
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        padding: 50px 0;
+    }
+}

@@ -32691,13 +32691,15 @@ var Top_1 = __importDefault(__webpack_require__(/*! ./components/Top */ "./resou
 var Category_1 = __importDefault(__webpack_require__(/*! ./components/Category */ "./resources/ts/components/Category.tsx"));
 var Form_1 = __importDefault(__webpack_require__(/*! ./components/Form */ "./resources/ts/components/Form.tsx"));
 var Search_1 = __importDefault(__webpack_require__(/*! ./components/Search */ "./resources/ts/components/Search.tsx"));
+var Result_1 = __importDefault(__webpack_require__(/*! ./components/Result */ "./resources/ts/components/Result.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(react_router_dom_1.Switch, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/category", exact: true, component: Category_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/post", exact: true, component: Form_1.default }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/search", exact: true, component: Search_1.default }))));
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/search", exact: true, component: Search_1.default }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/result", exact: true, component: Result_1.default }))));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
@@ -32877,6 +32879,90 @@ var Header = function () {
                         react_1.default.createElement("i", { className: "fas fa-bars fa-3x" })))))));
 };
 exports.default = Header;
+
+
+/***/ }),
+
+/***/ "./resources/ts/components/Result.tsx":
+/*!********************************************!*\
+  !*** ./resources/ts/components/Result.tsx ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
+var Result = function () {
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(Header_1.default, null),
+        react_1.default.createElement("div", { className: "result" },
+            react_1.default.createElement("h1", { className: "result__title" }, "\u691C\u7D22\u7D50\u679C"),
+            react_1.default.createElement("div", { className: "result-ideas" },
+                react_1.default.createElement("div", { className: "container" },
+                    react_1.default.createElement("div", { className: "row result-ideas__items" },
+                        react_1.default.createElement("div", { className: "result-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
+                        react_1.default.createElement("div", { className: "result-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
+                        react_1.default.createElement("div", { className: "result-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"))),
+                    react_1.default.createElement("div", { className: "row result__ideas--items" },
+                        react_1.default.createElement("div", { className: "result-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
+                        react_1.default.createElement("div", { className: "result-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
+                        react_1.default.createElement("div", { className: "result-ideas__item col-4" },
+                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
+                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
+                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("div", null,
+                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
+                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"))))),
+            react_1.default.createElement("div", { className: "result-pager" },
+                react_1.default.createElement("div", { className: "result-pager__wrap" },
+                    react_1.default.createElement("span", { className: "result-pager__num" }, "1"),
+                    react_1.default.createElement("span", { className: "result-pager__num" }, "2"),
+                    react_1.default.createElement("span", { className: "result-pager__num" }, "3"),
+                    react_1.default.createElement("span", { className: "result-pager__num" }, "4"))))));
+};
+exports.default = Result;
 
 
 /***/ }),
