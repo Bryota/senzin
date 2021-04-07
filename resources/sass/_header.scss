@@ -1,0 +1,44 @@
+.header__wrap {
+    background-color: #fff;
+    padding: 20px 0;
+
+    .header__title {
+        align-items: center;
+        color: $font-color;
+        font-family: serif;
+        font-size: 48px;
+        @include sp {
+            font-size: 35px;
+            height: 76px;
+            line-height: 90px;
+        }
+    }
+
+    .pc__nav {
+        @include sp {
+            display: none;
+        }
+    }
+
+    .sp__nav {
+        color: $font-color;
+        display: none;
+        height: 76px;
+        line-height: 76px;
+        text-align: center;
+        @include sp {
+            display: block;
+        }
+    }
+
+    .header__nav {
+        color: $font-color;
+        display: flex;
+        font-family: serif;
+        font-size: 20px;
+        height: 76px;
+        justify-content: space-between;
+        line-height: 76px;
+    }
+
+}
