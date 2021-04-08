@@ -11944,6 +11944,12 @@ template {
   width: 60%;
 }
 
+@media only screen and (max-width: 1025px) {
+  .form__items {
+    width: 80%;
+  }
+}
+
 .form__item {
   margin-bottom: 30px;
 }
@@ -11968,12 +11974,38 @@ template {
   -webkit-appearance: menulist;
 }
 
+@media only screen and (max-width: 1025px) {
+  .form__select {
+    margin-left: 95px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .form__select {
+    margin-left: 0;
+    width: 90%;
+  }
+}
+
 .form__input {
   background-color: #fff;
   border-radius: 30px;
   margin-left: 198px;
   padding: 5px 15px;
   width: 50%;
+}
+
+@media only screen and (max-width: 1025px) {
+  .form__input {
+    margin-left: 145px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .form__input {
+    margin-left: 0;
+    width: 90%;
+  }
 }
 
 .form__textarea {
@@ -11985,6 +12017,19 @@ template {
   width: 50%;
 }
 
+@media only screen and (max-width: 1025px) {
+  .form__textarea {
+    margin-left: 147px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .form__textarea {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
 .form__button {
   background-color: #fff;
   border-radius: 30px;
@@ -11993,6 +12038,12 @@ template {
   text-align: center;
   padding: 10px 20px;
   width: 40%;
+}
+
+@media only screen and (max-width: 414px) {
+  .form__button {
+    width: 60%;
+  }
 }
 
 .form__button:active {
