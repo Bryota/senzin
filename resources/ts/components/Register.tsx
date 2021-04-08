@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 
 const Register:React.FC = () => {
@@ -28,7 +29,7 @@ const Register:React.FC = () => {
                         <div className="text-center">
                             <input type="button" value="新規登録" className="register__button"/>
                         </div>
-                        <p className="register__register">ログイン</p>
+                        <p className="register__register"><Link to="login">ログイン</Link></p>
                     </div>
                 </form>
             </div>

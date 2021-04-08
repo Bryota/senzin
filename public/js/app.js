@@ -32866,23 +32866,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var Header = function () {
     return (react_1.default.createElement("header", { className: "header__wrap" },
         react_1.default.createElement("div", { className: "container" },
             react_1.default.createElement("div", { className: "row" },
                 react_1.default.createElement("div", { className: "col-md-5 col-9" },
-                    react_1.default.createElement("h2", { className: "header__title" }, "\u5148\u4EBA\u306E\u77E5\u6075")),
+                    react_1.default.createElement("h2", { className: "header__title" },
+                        react_1.default.createElement(react_router_dom_1.Link, { to: "/" }, "\u5148\u4EBA\u306E\u77E5\u6075"))),
                 react_1.default.createElement("div", { className: "col-md-7 col-3" },
                     react_1.default.createElement("nav", { className: "pc__nav" },
                         react_1.default.createElement("ul", { className: "header__nav" },
-                            react_1.default.createElement("li", null, "\u30C8\u30C3\u30D7"),
-                            react_1.default.createElement("li", null, "\u30AB\u30C6\u30B4\u30EA"),
-                            react_1.default.createElement("li", null, "\u6295\u7A3F"),
-                            react_1.default.createElement("li", null, "\u691C\u7D22"),
                             react_1.default.createElement("li", null,
-                                "\u30DE\u30A4\u30EA\u30B9\u30C8",
-                                react_1.default.createElement("span", { className: "ml-3" },
-                                    react_1.default.createElement("i", { className: "fas fa-sign-in-alt" }))))),
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/" }, "\u30C8\u30C3\u30D7")),
+                            react_1.default.createElement("li", null,
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/category" }, "\u30AB\u30C6\u30B4\u30EA")),
+                            react_1.default.createElement("li", null,
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/post" }, "\u6295\u7A3F")),
+                            react_1.default.createElement("li", null,
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/search" }, "\u691C\u7D22")),
+                            react_1.default.createElement("li", null,
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/mylist" }, "\u30DE\u30A4\u30EA\u30B9\u30C8"),
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/login" },
+                                    react_1.default.createElement("span", { className: "ml-3" },
+                                        react_1.default.createElement("i", { className: "fas fa-sign-in-alt" })))))),
                     react_1.default.createElement("div", { className: "sp__nav" },
                         react_1.default.createElement("i", { className: "fas fa-bars fa-3x" })))))));
 };
@@ -32905,6 +32912,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var Login = function () {
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -32921,7 +32929,8 @@ var Login = function () {
                         react_1.default.createElement("input", { type: "password", id: "password", className: "login__input--password" })),
                     react_1.default.createElement("div", { className: "text-center" },
                         react_1.default.createElement("input", { type: "button", value: "\u30ED\u30B0\u30A4\u30F3", className: "login__button" })),
-                    react_1.default.createElement("p", { className: "login__register" }, "\u65B0\u898F\u767B\u9332"))))));
+                    react_1.default.createElement("p", { className: "login__register" },
+                        react_1.default.createElement(react_router_dom_1.Link, { to: "/register" }, "\u65B0\u898F\u767B\u9332")))))));
 };
 exports.default = Login;
 
@@ -33058,6 +33067,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var Register = function () {
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -33080,7 +33090,8 @@ var Register = function () {
                         react_1.default.createElement("input", { type: "password", id: "passwordComfire", className: "register__input--passwordComfire" })),
                     react_1.default.createElement("div", { className: "text-center" },
                         react_1.default.createElement("input", { type: "button", value: "\u65B0\u898F\u767B\u9332", className: "register__button" })),
-                    react_1.default.createElement("p", { className: "register__register" }, "\u30ED\u30B0\u30A4\u30F3"))))));
+                    react_1.default.createElement("p", { className: "register__register" },
+                        react_1.default.createElement(react_router_dom_1.Link, { to: "login" }, "\u30ED\u30B0\u30A4\u30F3")))))));
 };
 exports.default = Register;
 

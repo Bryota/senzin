@@ -11491,6 +11491,11 @@ template {
   }
 }
 
+.header__wrap .header__title a:hover {
+  color: #6f6152;
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 414px) {
   .header__wrap .pc__nav {
     display: none;
@@ -11519,6 +11524,11 @@ template {
   height: 76px;
   justify-content: space-between;
   line-height: 76px;
+}
+
+.header__wrap .header__nav a:hover {
+  color: #6f6152;
+  text-decoration: none;
 }
 
 .top-bgimg {

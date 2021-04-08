@@ -14,6 +14,11 @@
         }
     }
 
+    .header__title a:hover {
+        color: $font-color;
+        text-decoration: none;
+    }
+
     .pc__nav {
         @include sp {
             display: none;
@@ -39,6 +44,11 @@
         height: 76px;
         justify-content: space-between;
         line-height: 76px;
+    }
+
+    .header__nav a:hover {
+        color: $font-color;
+        text-decoration: none;
     }
 
 }
