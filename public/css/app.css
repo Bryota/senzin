@@ -11617,6 +11617,12 @@ template {
   margin: 10px 45px;
 }
 
+.top-category .mylist-nav__icon--other,
+.top-category .mylist-nav__icon--machine,
+.top-category .mylist-nav__icon--sport,
+.top-category .mylist-nav__icon--health,
+.top-category .mylist-nav__icon--clean,
+.top-category .mylist-nav__icon--food,
 .top-category .single__icon--food,
 .top-category .category__icon--food,
 .top-category .top-category__icon--other,
@@ -11685,6 +11691,12 @@ template {
   padding: 50px 0;
 }
 
+.category .mylist-nav__icon--other,
+.category .mylist-nav__icon--machine,
+.category .mylist-nav__icon--sport,
+.category .mylist-nav__icon--health,
+.category .mylist-nav__icon--clean,
+.category .mylist-nav__icon--food,
 .category .single__icon--food,
 .category .category__icon--food,
 .category .top-category__icon--food,
@@ -12032,6 +12044,12 @@ template {
   text-align: center;
 }
 
+.single .mylist-nav__icon--other,
+.single .mylist-nav__icon--machine,
+.single .mylist-nav__icon--sport,
+.single .mylist-nav__icon--health,
+.single .mylist-nav__icon--clean,
+.single .mylist-nav__icon--food,
 .single .single__icon--food,
 .single .top-category__icon--food,
 .single .top-category__icon--clean,
@@ -12235,5 +12253,145 @@ template {
 .register__register {
   text-align: center;
   margin-top: 10px;
+}
+
+.mylist {
+  background-color: #ddcaaf;
+}
+
+.mylist__title {
+  text-align: center;
+  font-size: 48px;
+  padding: 20px 0;
+}
+
+.mylist-nav {
+  background-color: #fff;
+  padding: 10px 0;
+}
+
+.mylist-nav__items {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mylist-nav__title {
+  font-size: 28px;
+}
+
+.mylist-nav .mylist-nav__icon--other,
+.mylist-nav .mylist-nav__icon--machine,
+.mylist-nav .mylist-nav__icon--sport,
+.mylist-nav .mylist-nav__icon--health,
+.mylist-nav .mylist-nav__icon--clean,
+.mylist-nav .mylist-nav__icon--food,
+.mylist-nav .top-category__icon--food,
+.mylist-nav .top-category__icon--clean,
+.mylist-nav .top-category__icon--health,
+.mylist-nav .top-category__icon--sport,
+.mylist-nav .top-category__icon--machine,
+.mylist-nav .top-category__icon--other,
+.mylist-nav .category__icon--food,
+.mylist-nav .single__icon--food {
+  margin-right: 10px;
+}
+
+.mylist-nav__icon--food {
+  color: #dd3737;
+}
+
+.mylist-nav__icon--clean {
+  color: #0d9f0c;
+}
+
+.mylist-nav__icon--health {
+  color: #00509d;
+}
+
+.mylist-nav__icon--sport {
+  color: #eeac00;
+}
+
+.mylist-nav__icon--machine {
+  color: #663e8c;
+}
+
+.mylist-nav__icon--other {
+  color: #000;
+}
+
+.mylist-ideas {
+  padding: 50px 0;
+}
+
+.mylist-ideas__item {
+  text-align: center;
+}
+
+.mylist-ideas__item--balloon {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 0 5px;
+  width: 250px;
+  height: 250px;
+  color: #000;
+  font-size: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.mylist-ideas__item--balloon::before {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  margin-left: -30px;
+  border: 30px solid transparent;
+  border-top: 30px solid #fff;
+  z-index: 0;
+}
+
+.mylist-ideas__item--title {
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.mylist-ideas__item--category {
+  font-size: 15px;
+}
+
+.mylist-ideas__item--content {
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.mylist-ideas__item--icon {
+  color: #fff;
+}
+
+.mylist-ideas__item--username {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.mylist-pager {
+  padding: 30px 0 50px 0;
+  text-align: center;
+}
+
+.mylist-pager__wrap {
+  background-color: #fff;
+  margin: 0 auto;
+  width: 15%;
+}
+
+.mylist-pager__num {
+  color: #6f6152;
+  border: 2px solid #000;
+  font-size: 30px;
+  padding: 0 15px;
 }
 

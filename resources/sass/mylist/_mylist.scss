@@ -1,0 +1,9 @@
+.mylist {
+    background-color: $bg-color;
+
+    &__title {
+        text-align: center;
+        font-size: 48px;
+        padding: 20px 0;
+    }
+}

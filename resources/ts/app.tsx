@@ -9,6 +9,7 @@ import Result from './components/Result';
 import Single from './components/Single';
 import Login from './components/Login';
 import Register from './components/Register';
+import MyList from './components/MyList';
 
 const App: React.FC = () => {
     return (
@@ -20,7 +21,9 @@ const App: React.FC = () => {
                 <Route path="/search" exact component={Search} />
                 <Route path="/result" exact component={Result} />
                 <Route path="/single" exact component={Single} />
+                <Route path="/login" exact component={Login} />
                 <Route path="/register" exact component={Register} />
+                <Route path="/mylist" exact component={MyList} />
             </Switch>
         </BrowserRouter>
     )

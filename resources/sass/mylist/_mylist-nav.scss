@@ -1,0 +1,47 @@
+.mylist-nav {
+    background-color: #fff;
+    padding: 10px 0;
+
+    &__items {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__title {
+        font-size: 28px;
+    }
+
+    %__icon {
+        margin-right: 10px;
+    }
+
+    &__icon--food {
+        @extend %__icon;
+        color: #dd3737;
+    }
+
+    &__icon--clean {
+        @extend %__icon;
+        color: #0d9f0c;
+    }
+
+    &__icon--health {
+        @extend %__icon;
+        color: #00509d;
+    }
+
+    &__icon--sport {
+        @extend %__icon;
+        color: #eeac00;
+    }
+
+    &__icon--machine {
+        @extend %__icon;
+        color: #663e8c;
+    }
+
+    &__icon--other {
+        @extend %__icon;
+        color: #000;
+    }
+}
