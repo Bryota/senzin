@@ -12501,6 +12501,12 @@ template {
   width: 60%;
 }
 
+@media only screen and (max-width: 1025px) {
+  .register__items {
+    width: 80%;
+  }
+}
+
 .register__item {
   margin-bottom: 50px;
 }
@@ -12523,12 +12529,38 @@ template {
   width: 50%;
 }
 
+@media only screen and (max-width: 1025px) {
+  .register__input {
+    margin-left: 65px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .register__input {
+    margin-left: 0;
+    width: 90%;
+  }
+}
+
 .register__input--username {
   background-color: #fff;
   border-radius: 30px;
   margin-left: 195px;
   padding: 5px 15px;
   width: 50%;
+}
+
+@media only screen and (max-width: 1025px) {
+  .register__input--username {
+    margin-left: 120px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .register__input--username {
+    margin-left: 0;
+    width: 90%;
+  }
 }
 
 .register__input--password {
@@ -12539,12 +12571,38 @@ template {
   width: 50%;
 }
 
+@media only screen and (max-width: 1025px) {
+  .register__input--password {
+    margin-left: 120px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .register__input--password {
+    margin-left: 0;
+    width: 90%;
+  }
+}
+
 .register__input--passwordComfire {
   background-color: #fff;
   border-radius: 30px;
   margin-left: 137px;
   padding: 5px 15px;
   width: 50%;
+}
+
+@media only screen and (max-width: 1025px) {
+  .register__input--passwordComfire {
+    margin-left: 63px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .register__input--passwordComfire {
+    margin-left: 0;
+    width: 90%;
+  }
 }
 
 .register__button {
@@ -12556,6 +12614,12 @@ template {
   margin-top: 60px;
   padding: 10px 20px;
   width: 40%;
+}
+
+@media only screen and (max-width: 414px) {
+  .register__button {
+    width: 60%;
+  }
 }
 
 .register__button:active {
