@@ -19,6 +19,9 @@
         margin: 0 auto;
         padding: 30px 0;
         width: 60%;
+        @include tab {
+            width: 80%;
+        }
     }
 
     &__item {
@@ -43,6 +46,13 @@
         width: 50%;
         -moz-appearance: menulist;
         -webkit-appearance: menulist;
+        @include tab {
+            margin-left: 95px;
+        }
+        @include sp {
+            margin-left: 0;
+            width: 90%;
+        }
     }
 
     &__input {
@@ -51,6 +61,13 @@
         margin-left: 145px;
         padding: 5px 15px;
         width: 50%;
+        @include tab {
+            margin-left: 89px;
+        }
+        @include sp {
+            margin-left: 0;
+            width: 90%;
+        }
     }
 
     &__button {
@@ -62,6 +79,9 @@
         margin-top: 60px;
         padding: 10px 20px;
         width: 40%;
+        @include sp {
+            width: 60%;
+        }
     }
 
     &__button:active {

@@ -12075,6 +12075,12 @@ template {
   width: 60%;
 }
 
+@media only screen and (max-width: 1025px) {
+  .search__items {
+    width: 80%;
+  }
+}
+
 .search__item {
   margin-bottom: 50px;
 }
@@ -12099,12 +12105,38 @@ template {
   -webkit-appearance: menulist;
 }
 
+@media only screen and (max-width: 1025px) {
+  .search__select {
+    margin-left: 95px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .search__select {
+    margin-left: 0;
+    width: 90%;
+  }
+}
+
 .search__input {
   background-color: #fff;
   border-radius: 30px;
   margin-left: 145px;
   padding: 5px 15px;
   width: 50%;
+}
+
+@media only screen and (max-width: 1025px) {
+  .search__input {
+    margin-left: 89px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .search__input {
+    margin-left: 0;
+    width: 90%;
+  }
 }
 
 .search__button {
@@ -12116,6 +12148,12 @@ template {
   margin-top: 60px;
   padding: 10px 20px;
   width: 40%;
+}
+
+@media only screen and (max-width: 414px) {
+  .search__button {
+    width: 60%;
+  }
 }
 
 .search__button:active {
