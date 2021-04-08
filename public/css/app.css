@@ -11842,6 +11842,13 @@ template {
   box-sizing: border-box;
 }
 
+@media only screen and (max-width: 1025px) {
+  .category-ideas__item--balloon {
+    width: 210px;
+    height: 210px;
+  }
+}
+
 .category-ideas__item--balloon::before {
   content: "";
   position: absolute;
@@ -11868,6 +11875,12 @@ template {
   padding: 0 20px;
 }
 
+@media only screen and (max-width: 1025px) {
+  .category-ideas__item--content {
+    font-size: 14px;
+  }
+}
+
 .category-ideas__item--icon {
   color: #fff;
 }
@@ -11886,6 +11899,18 @@ template {
   background-color: #fff;
   margin: 0 auto;
   width: 15%;
+}
+
+@media only screen and (max-width: 1025px) {
+  .category-pager__wrap {
+    width: 27%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .category-pager__wrap {
+    width: 55%;
+  }
 }
 
 .category-pager__num {

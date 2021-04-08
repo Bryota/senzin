@@ -10,7 +10,7 @@ const Category:React.FC = () => {
                 <div className="category-ideas">
                     <div className="container">
                         <div className="row category-ideas__items">
-                            <div className="category-ideas__item col-4">
+                            <div className="category-ideas__item col-12 col-md-4">
                                 <div className="category-ideas__item--balloon">
                                     <p className="category-ideas__item--title">テスト投稿</p>
                                     <p className="category-ideas__item--category">食べ物</p>
@@ -21,7 +21,7 @@ const Category:React.FC = () => {
                                 </div>
                                 <p className="category-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="category-ideas__item col-4">
+                            <div className="category-ideas__item col-12 col-md-4">
                                 <div className="category-ideas__item--balloon">
                                     <p className="category-ideas__item--title">テスト投稿</p>
                                     <p className="category-ideas__item--category">食べ物</p>
@@ -32,7 +32,7 @@ const Category:React.FC = () => {
                                 </div>
                                 <p className="category-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="category-ideas__item col-4">
+                            <div className="category-ideas__item col-12 col-md-4">
                                 <div className="category-ideas__item--balloon">
                                     <p className="category-ideas__item--title">テスト投稿</p>
                                     <p className="category-ideas__item--category">食べ物</p>
@@ -45,7 +45,7 @@ const Category:React.FC = () => {
                             </div>
                         </div>
                         <div className="row category__ideas--items">
-                            <div className="category-ideas__item col-4">
+                            <div className="category-ideas__item col-12 col-md-4">
                                 <div className="category-ideas__item--balloon">
                                     <p className="category-ideas__item--title">テスト投稿</p>
                                     <p className="category-ideas__item--category">食べ物</p>
@@ -56,7 +56,7 @@ const Category:React.FC = () => {
                                 </div>
                                 <p className="category-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="category-ideas__item col-4">
+                            <div className="category-ideas__item col-12 col-md-4">
                                 <div className="category-ideas__item--balloon">
                                     <p className="category-ideas__item--title">テスト投稿</p>
                                     <p className="category-ideas__item--category">食べ物</p>
@@ -67,7 +67,7 @@ const Category:React.FC = () => {
                                 </div>
                                 <p className="category-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="category-ideas__item col-4">
+                            <div className="category-ideas__item col-12 col-md-4">
                                 <div className="category-ideas__item--balloon">
                                     <p className="category-ideas__item--title">テスト投稿</p>
                                     <p className="category-ideas__item--category">食べ物</p>
