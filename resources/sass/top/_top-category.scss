@@ -2,6 +2,19 @@
     background-color: #eee;
     padding: 80px 0;
 
+    .pc {
+        @include sp {
+            display: none;
+        }
+    }
+
+    .sp {
+        display: none;
+        @include sp {
+            display: block;
+        }
+    }
+
     &__title {
         text-align: center;
         font-size: 35px;
@@ -17,6 +30,9 @@
         text-align: center;
         padding: 30px 50px;
         margin: 10px 45px;
+        @include tab {
+            margin: 10px 20px;
+        }
     }
 
     %__icon {
@@ -46,6 +62,9 @@
     &__icon--machine {
         @extend %__icon;
         color: #663e8c;
+        @include tab {
+            margin-left: -10px
+        }
     }
 
     &__icon--other {
@@ -55,5 +74,8 @@
 
     &__name {
         font-size: 22px;
+        @include tab {
+            font-size: 20px;
+        }
     }
 }

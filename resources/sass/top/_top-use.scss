@@ -13,5 +13,12 @@
         font-size: 25px;
         margin: 0 auto 20px;
         width: 45%;
+        @include tab {
+            width: 70%;
+        }
+        @include sp {
+            font-size: 20px;
+            width: 85%;
+        }
     }
 }

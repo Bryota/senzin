@@ -3,6 +3,9 @@
     background-size: cover;
     background-position-y: center;
     height: 60vh;
+    @include tab {
+        height: 40vh;
+    }
 
     &__title {
         color: #fff;
@@ -10,5 +13,12 @@
         font-family: serif;
         text-align: center;
         padding: 20vh 0;
+        @include tab {
+            font-size: 80px;
+            padding: 15vh 0;
+        }
+        @include sp {
+            font-size: 50px;
+        }
     }
 }
