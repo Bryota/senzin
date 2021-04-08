@@ -12650,10 +12650,34 @@ template {
 .mylist-nav__items {
   display: flex;
   justify-content: space-around;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 414px) {
+  .mylist-nav__items {
+    justify-content: start;
+  }
+}
+
+.mylist-nav__item {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 414px) {
+  .mylist-nav__item {
+    margin-right: 15px;
+  }
 }
 
 .mylist-nav__title {
   font-size: 28px;
+}
+
+@media only screen and (max-width: 1025px) {
+  .mylist-nav__title {
+    font-size: 25px;
+  }
 }
 
 .mylist-nav .mylist-nav__icon--other,
@@ -12719,6 +12743,13 @@ template {
   box-sizing: border-box;
 }
 
+@media only screen and (max-width: 1025px) {
+  .mylist-ideas__item--balloon {
+    width: 210px;
+    height: 210px;
+  }
+}
+
 .mylist-ideas__item--balloon::before {
   content: "";
   position: absolute;
@@ -12745,6 +12776,12 @@ template {
   padding: 0 20px;
 }
 
+@media only screen and (max-width: 1025px) {
+  .mylist-ideas__item--content {
+    font-size: 14px;
+  }
+}
+
 .mylist-ideas__item--icon {
   color: #fff;
 }
@@ -12763,6 +12800,18 @@ template {
   background-color: #fff;
   margin: 0 auto;
   width: 15%;
+}
+
+@media only screen and (max-width: 1025px) {
+  .mylist-pager__wrap {
+    width: 27%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .mylist-pager__wrap {
+    width: 56%;
+  }
 }
 
 .mylist-pager__num {

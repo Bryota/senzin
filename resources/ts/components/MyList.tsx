@@ -32,7 +32,7 @@ const MyList: React.FC = () => {
                 <div className="mylist-ideas">
                     <div className="container">
                         <div className="row mylist-ideas__items">
-                            <div className="mylist-ideas__item col-4">
+                            <div className="mylist-ideas__item col-12 col-md-4">
                                 <div className="mylist-ideas__item--balloon">
                                     <p className="mylist-ideas__item--title">テスト投稿</p>
                                     <p className="mylist-ideas__item--category">食べ物</p>
@@ -43,7 +43,7 @@ const MyList: React.FC = () => {
                                 </div>
                                 <p className="mylist-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="mylist-ideas__item col-4">
+                            <div className="mylist-ideas__item col-12 col-md-4">
                                 <div className="mylist-ideas__item--balloon">
                                     <p className="mylist-ideas__item--title">テスト投稿</p>
                                     <p className="mylist-ideas__item--category">食べ物</p>
@@ -54,7 +54,7 @@ const MyList: React.FC = () => {
                                 </div>
                                 <p className="mylist-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="mylist-ideas__item col-4">
+                            <div className="mylist-ideas__item col-12 col-md-4">
                                 <div className="mylist-ideas__item--balloon">
                                     <p className="mylist-ideas__item--title">テスト投稿</p>
                                     <p className="mylist-ideas__item--category">食べ物</p>
@@ -67,7 +67,7 @@ const MyList: React.FC = () => {
                             </div>
                         </div>
                         <div className="row mylist__ideas--items">
-                            <div className="mylist-ideas__item col-4">
+                            <div className="mylist-ideas__item col-12 col-md-4">
                                 <div className="mylist-ideas__item--balloon">
                                     <p className="mylist-ideas__item--title">テスト投稿</p>
                                     <p className="mylist-ideas__item--category">食べ物</p>
@@ -78,7 +78,7 @@ const MyList: React.FC = () => {
                                 </div>
                                 <p className="mylist-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="mylist-ideas__item col-4">
+                            <div className="mylist-ideas__item col-12 col-md-4">
                                 <div className="mylist-ideas__item--balloon">
                                     <p className="mylist-ideas__item--title">テスト投稿</p>
                                     <p className="mylist-ideas__item--category">食べ物</p>
@@ -89,7 +89,7 @@ const MyList: React.FC = () => {
                                 </div>
                                 <p className="mylist-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="mylist-ideas__item col-4">
+                            <div className="mylist-ideas__item col-12 col-md-4">
                                 <div className="mylist-ideas__item--balloon">
                                     <p className="mylist-ideas__item--title">テスト投稿</p>
                                     <p className="mylist-ideas__item--category">食べ物</p>

@@ -5,10 +5,25 @@
     &__items {
         display: flex;
         justify-content: space-around;
+        overflow-x: auto;
+        white-space: nowrap;
+        @include sp {
+            justify-content: start;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        @include sp {
+            margin-right: 15px;
+        }
     }
 
     &__title {
         font-size: 28px;
+        @include tab {
+            font-size: 25px;
+        }
     }
 
     %__icon {
