@@ -6,7 +6,7 @@ const Single:React.FC = () => {
         <>
             <Header />
             <div className="single">
-                <h1 className="single__title">テスト投稿/テストユーザー</h1>
+                <h1 className="single__title">テスト投稿<br className="sp"/>/テストユーザー</h1>
                 <p className="single__category"><span className="single__icon--food"><i className="fas fa-utensils"></i></span>食べ物</p>
                 <p className="single__content">
                     テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト

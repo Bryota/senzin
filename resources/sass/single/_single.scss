@@ -2,11 +2,21 @@
     background-color: $bg-color;
     padding-bottom: 30px;
 
+    .sp {
+        display: none;
+        @include sp {
+            display: block;
+        }
+    }
+
     &__title {
         font-size: 48px;
         font-weight: bold;
         text-align: center;
         padding: 50px 0 20px;
+        @include sp {
+            font-size: 35px;
+        }
     }
 
     &__category {
@@ -30,6 +40,10 @@
         line-height: 60px;
         margin: 80px auto 0;
         width: 80%;
+        @include sp {
+            font-size: 18px;
+            line-height: 45px;
+        }
     }
 
     &__button {
@@ -41,6 +55,9 @@
         margin-top: 60px;
         padding: 10px 20px;
         width: 40%;
+        @include sp {
+            width: 60%;
+        }
     }
 
     &__button:active {

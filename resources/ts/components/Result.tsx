@@ -10,7 +10,7 @@ const Result:React.FC = () => {
                 <div className="result-ideas">
                     <div className="container">
                         <div className="row result-ideas__items">
-                            <div className="result-ideas__item col-4">
+                            <div className="result-ideas__item col-12 col-md-4">
                                 <div className="result-ideas__item--balloon">
                                     <p className="result-ideas__item--title">テスト投稿</p>
                                     <p className="result-ideas__item--result">食べ物</p>
@@ -21,7 +21,7 @@ const Result:React.FC = () => {
                                 </div>
                                 <p className="result-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="result-ideas__item col-4">
+                            <div className="result-ideas__item col-12 col-md-4">
                                 <div className="result-ideas__item--balloon">
                                     <p className="result-ideas__item--title">テスト投稿</p>
                                     <p className="result-ideas__item--result">食べ物</p>
@@ -32,7 +32,7 @@ const Result:React.FC = () => {
                                 </div>
                                 <p className="result-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="result-ideas__item col-4">
+                            <div className="result-ideas__item col-12 col-md-4">
                                 <div className="result-ideas__item--balloon">
                                     <p className="result-ideas__item--title">テスト投稿</p>
                                     <p className="result-ideas__item--result">食べ物</p>
@@ -45,7 +45,7 @@ const Result:React.FC = () => {
                             </div>
                         </div>
                         <div className="row result__ideas--items">
-                            <div className="result-ideas__item col-4">
+                            <div className="result-ideas__item col-12 col-md-4">
                                 <div className="result-ideas__item--balloon">
                                     <p className="result-ideas__item--title">テスト投稿</p>
                                     <p className="result-ideas__item--result">食べ物</p>
@@ -56,7 +56,7 @@ const Result:React.FC = () => {
                                 </div>
                                 <p className="result-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="result-ideas__item col-4">
+                            <div className="result-ideas__item col-12 col-md-4">
                                 <div className="result-ideas__item--balloon">
                                     <p className="result-ideas__item--title">テスト投稿</p>
                                     <p className="result-ideas__item--result">食べ物</p>
@@ -67,7 +67,7 @@ const Result:React.FC = () => {
                                 </div>
                                 <p className="result-ideas__item--username">テストユーザー</p>
                             </div>
-                            <div className="result-ideas__item col-4">
+                            <div className="result-ideas__item col-12 col-md-4">
                                 <div className="result-ideas__item--balloon">
                                     <p className="result-ideas__item--title">テスト投稿</p>
                                     <p className="result-ideas__item--result">食べ物</p>

@@ -12194,6 +12194,13 @@ template {
   box-sizing: border-box;
 }
 
+@media only screen and (max-width: 1025px) {
+  .result-ideas__item--balloon {
+    width: 210px;
+    height: 210px;
+  }
+}
+
 .result-ideas__item--balloon::before {
   content: "";
   position: absolute;
@@ -12220,6 +12227,12 @@ template {
   padding: 0 20px;
 }
 
+@media only screen and (max-width: 1025px) {
+  .result-ideas__item--content {
+    font-size: 14px;
+  }
+}
+
 .result-ideas__item--icon {
   color: #fff;
 }
@@ -12240,6 +12253,18 @@ template {
   width: 15%;
 }
 
+@media only screen and (max-width: 1025px) {
+  .result-pager__wrap {
+    width: 27%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .result-pager__wrap {
+    width: 56%;
+  }
+}
+
 .result-pager__num {
   color: #6f6152;
   border: 2px solid #000;
@@ -12252,11 +12277,27 @@ template {
   padding-bottom: 30px;
 }
 
+.single .sp {
+  display: none;
+}
+
+@media only screen and (max-width: 414px) {
+  .single .sp {
+    display: block;
+  }
+}
+
 .single__title {
   font-size: 48px;
   font-weight: bold;
   text-align: center;
   padding: 50px 0 20px;
+}
+
+@media only screen and (max-width: 414px) {
+  .single__title {
+    font-size: 35px;
+  }
 }
 
 .single__category {
@@ -12294,6 +12335,13 @@ template {
   width: 80%;
 }
 
+@media only screen and (max-width: 414px) {
+  .single__content {
+    font-size: 18px;
+    line-height: 45px;
+  }
+}
+
 .single__button {
   background-color: #fff;
   border-radius: 30px;
@@ -12303,6 +12351,12 @@ template {
   margin-top: 60px;
   padding: 10px 20px;
   width: 40%;
+}
+
+@media only screen and (max-width: 414px) {
+  .single__button {
+    width: 60%;
+  }
 }
 
 .single__button:active {

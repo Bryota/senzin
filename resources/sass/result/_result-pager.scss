@@ -6,6 +6,12 @@
         background-color: #fff;
         margin: 0 auto;
         width: 15%;
+        @include tab {
+            width: 27%;
+        }
+        @include sp {
+            width: 56%;
+        }
     }
 
     &__num {
