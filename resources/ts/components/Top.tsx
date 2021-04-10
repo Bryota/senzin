@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Slider from 'react-slick';
 import Header from './Header';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+interface PostListType {
+    title: string;
+    post_id: number
+    category_id: number;
+    username: string;
+    content: string;
+    category: {
+        category_id: number,
+        category_name: string
+    }
+}
 
 const Top:React.FC = () => {
+    const [postList, setPostList] = useState<PostListType[]>();
+    useEffect(() => {
+        axios.get('/api/getPostData')
+        .then((res) => {
+            setPostList(res.data);
+        })
+    },[]);
+    const sliderSettings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay:true,
+        autoplaySpeed: 2000,
+    }
     return (
         <>
             <Header />
@@ -11,41 +42,24 @@ const Top:React.FC = () => {
             </div>
             <div className="top-ideas">
                 <div className="container">
-                    <div className="row top-ideas__items pc">
-                        <div className="top-ideas__item col-4">
-                            <div className="top-ideas__item--balloon">
-                                <p className="top-ideas__item--title">テスト投稿</p>
-                                <p className="top-ideas__item--category">食べ物</p>
-                                <p className="top-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                            </div>
-                            <div>
-                                <i className="far fa-user fa-5x top-ideas__item--icon"></i>
-                            </div>
-                            <p className="top-ideas__item--username">テストユーザー</p>
-                        </div>
-                        <div className="top-ideas__item col-4">
-                            <div className="top-ideas__item--balloon">
-                                <p className="top-ideas__item--title">テスト投稿</p>
-                                <p className="top-ideas__item--category">食べ物</p>
-                                <p className="top-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                            </div>
-                            <div>
-                                <i className="far fa-user fa-5x top-ideas__item--icon"></i>
-                            </div>
-                            <p className="top-ideas__item--username">テストユーザー</p>
-                        </div>
-                        <div className="top-ideas__item col-4">
-                            <div className="top-ideas__item--balloon">
-                                <p className="top-ideas__item--title">テスト投稿</p>
-                                <p className="top-ideas__item--category">食べ物</p>
-                                <p className="top-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                            </div>
-                            <div>
-                                <i className="far fa-user fa-5x top-ideas__item--icon"></i>
-                            </div>
-                            <p className="top-ideas__item--username">テストユーザー</p>
-                        </div>
-                    </div>
+                    <Slider className="row top-ideas__items pc" { ...sliderSettings }>
+                        {postList?.map((post) => {
+                            console.log(post);
+                            return (
+                                <div className="top-ideas__item" key={post.post_id}>
+                                    <div className="top-ideas__item--balloon">
+                                        <p className="top-ideas__item--title">{post.title}</p>
+                                        <p className="top-ideas__item--category">{post.category.category_name}</p>
+                                        <p className="top-ideas__item--content">{post.content}</p>
+                                    </div>
+                                    <div>
+                                        <i className="far fa-user fa-5x top-ideas__item--icon"></i>
+                                    </div>
+                                    <p className="top-ideas__item--username">{post.username}</p>
+                                </div>
+                            )
+                        })}
+                    </Slider>
                     <div className="row top-ideas__items sp">
                         <div className="top-ideas__item col-12">
                             <div className="top-ideas__item--balloon">

@@ -11567,7 +11567,6 @@ template {
 
 .top-ideas {
   background-color: #ddcaaf;
-  height: 75vh;
   padding: 50px 0;
 }
 
@@ -11997,24 +11996,39 @@ template {
   }
 }
 
-.form__input {
+.form .form__input--username,
+.form .form__input--title {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 198px;
   padding: 5px 15px;
   width: 50%;
 }
 
-@media only screen and (max-width: 1025px) {
-  .form__input {
-    margin-left: 145px;
+@media only screen and (max-width: 414px) {
+  .form .form__input--username,
+  .form .form__input--title {
+    margin-left: 0;
+    width: 90%;
   }
 }
 
-@media only screen and (max-width: 414px) {
-  .form__input {
-    margin-left: 0;
-    width: 90%;
+.form__input--title {
+  margin-left: 95px;
+}
+
+@media only screen and (max-width: 1025px) {
+  .form__input--title {
+    margin-left: 40px;
+  }
+}
+
+.form__input--username {
+  margin-left: 145px;
+}
+
+@media only screen and (max-width: 1025px) {
+  .form__input--username {
+    margin-left: 90px;
   }
 }
 

@@ -55,18 +55,30 @@
         }
     }
 
-    &__input {
+    %__input {
         background-color: #fff;
         border-radius: 30px;
-        margin-left: 198px;
         padding: 5px 15px;
         width: 50%;
-        @include tab {
-            margin-left: 145px;
-        }
         @include sp {
             margin-left: 0;
             width: 90%;
+        }
+    }
+
+    &__input--title {
+        @extend %__input;
+        margin-left: 95px;
+        @include tab {
+            margin-left: 40px;
+        }
+    }
+
+    &__input--username {
+        @extend %__input;
+        margin-left: 145px;
+        @include tab {
+            margin-left: 90px;
         }
     }
 

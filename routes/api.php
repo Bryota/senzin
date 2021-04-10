@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/category', 'CategoryController@getCategoryList');
 
+Route::get('/getPostData', 'PostController@getPostData');
 Route::post('/setPostData', 'PostController@setPostData');
