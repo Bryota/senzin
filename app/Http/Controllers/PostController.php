@@ -22,4 +22,9 @@ class PostController extends Controller
         $post->save();
         return redirect('api/setPostData');
     }
+
+    public function getPostDataInCategory($category_id) {
+        $postData = Post::where('category_id', $category_id)->simplePaginate(6);
+        dd($postData);
+    }
 }

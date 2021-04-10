@@ -8,13 +8,8 @@
         padding: 50px 0;
     }
 
-    %__icon {
+    &__icon {
         font-size: 45px;
         margin-right: 40px;
-    }
-
-    &__icon--food {
-        @extend %__icon;
-        color: #dd3737;
     }
 }

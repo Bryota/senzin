@@ -40262,7 +40262,7 @@ var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(react_router_dom_1.Switch, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/category", exact: true, component: Category_1.default }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/category/:category_id", exact: true, component: Category_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/post", exact: true, component: Form_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/search", exact: true, component: Search_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/result", exact: true, component: Result_1.default }),
@@ -40287,20 +40287,51 @@ if (document.getElementById('app')) {
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
-var Category = function () {
+var CategoryIcon_1 = __importDefault(__webpack_require__(/*! ../util/CategoryIcon */ "./resources/ts/util/CategoryIcon.ts"));
+var Category = function (props) {
+    var category_id = { category_id: props.match.params.category_id };
+    var _a = react_1.useState(), categoryIcon = _a[0], setCategoryIcon = _a[1];
+    var _b = react_1.useState(), categoryName = _b[0], setCategoryName = _b[1];
+    react_1.useEffect(function () {
+        axios_1.default.get("/api/getCategoryName/" + category_id.category_id)
+            .then(function (res) {
+            setCategoryName(res.data.category_name);
+        });
+        setCategoryIcon(CategoryIcon_1.default(category_id.category_id));
+    }, []);
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement("div", { className: "category" },
             react_1.default.createElement("h1", { className: "category__title" },
-                react_1.default.createElement("span", { className: "category__icon--food" },
-                    react_1.default.createElement("i", { className: "fas fa-utensils" })),
-                "\u98DF\u3079\u7269"),
+                react_1.default.createElement("span", { className: "category__icon" },
+                    react_1.default.createElement("i", { className: categoryIcon })),
+                categoryName),
             react_1.default.createElement("div", { className: "category-ideas" },
                 react_1.default.createElement("div", { className: "container" },
                     react_1.default.createElement("div", { className: "row category-ideas__items" },
@@ -40964,6 +40995,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_slick_1 = __importDefault(__webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
@@ -41017,11 +41049,11 @@ var Top = function () {
                 react_1.default.createElement("h2", { className: "top-category__title" }, "\uFF1C\u30AB\u30C6\u30B4\u30EA\uFF1E"),
                 react_1.default.createElement("div", { className: "top-category__items pc" },
                     react_1.default.createElement("div", { className: "row justify-content-between" },
-                        react_1.default.createElement("div", { className: "col-2 col-md-3 top-category__item" },
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-2 col-md-3 top-category__item", to: "/category/1" },
                             react_1.default.createElement("p", { className: "top-category__icon--food" },
                                 react_1.default.createElement("i", { className: "fas fa-utensils" })),
                             react_1.default.createElement("p", { className: "top-category__name" }, "\u98DF\u3079\u7269")),
-                        react_1.default.createElement("div", { className: "col-2 col-md-3 top-category__item" },
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-2 col-md-3 top-category__item", to: "/category/2" },
                             react_1.default.createElement("p", { className: "top-category__icon--clean" },
                                 react_1.default.createElement("i", { className: "fas fa-broom" })),
                             react_1.default.createElement("p", { className: "top-category__name" }, "\u6383\u9664")),
@@ -41064,6 +41096,39 @@ var Top = function () {
                 react_1.default.createElement("br", null)))));
 };
 exports.default = Top;
+
+
+/***/ }),
+
+/***/ "./resources/ts/util/CategoryIcon.ts":
+/*!*******************************************!*\
+  !*** ./resources/ts/util/CategoryIcon.ts ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var getCategoryIcon = function (category_id) {
+    switch (category_id) {
+        case '1':
+            return "fas fa-utensils icon__food";
+        case '2':
+            return "fas fa-broom icon__clean";
+        case '3':
+            return "fas fa-plus-square icon__health";
+        case '4':
+            return "fas fa-running icon__sport";
+        case '5':
+            return "fas fa-tv icon__machine";
+        case '6':
+            return "fas fa-ellipsis-h icon__other";
+        default:
+            return;
+    }
+};
+exports.default = getCategoryIcon;
 
 
 /***/ }),

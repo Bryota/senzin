@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
+import axios from 'axios';
 import Header from './Header';
+import getCategoryIcon from '../util/CategoryIcon';
 
-const Category:React.FC = () => {
+type PropsType = RouteComponentProps<{
+    category_id: string;
+}>;
+
+const Category: React.FC<PropsType> = (props) => {
+    const category_id = {category_id: props.match.params.category_id};
+    const [categoryIcon, setCategoryIcon] = useState<string>();
+    const [categoryName, setCategoryName] = useState<string>();
+
+    useEffect(() => {
+        axios.get(`/api/getCategoryName/${category_id.category_id}`)
+        .then((res) => {
+            setCategoryName(res.data.category_name);
+        });
+        setCategoryIcon(getCategoryIcon(category_id.category_id));
+    },[]);
     return (
         <>
             <Header />
             <div className="category">
-                <h1 className="category__title"><span className="category__icon--food"><i className="fas fa-utensils"></i></span>食べ物</h1>
+                <h1 className="category__title"><span className="category__icon"><i className={categoryIcon}></i></span>{categoryName}</h1>
                 <div className="category-ideas">
                     <div className="container">
                         <div className="row category-ideas__items">

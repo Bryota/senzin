@@ -16,7 +16,7 @@ const App: React.FC = () => {
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Top} />
-                <Route path="/category" exact component={Category} />
+                <Route path="/category/:category_id" exact component={Category} />
                 <Route path="/post" exact component={Form} />
                 <Route path="/search" exact component={Search} />
                 <Route path="/result" exact component={Result} />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Slider from 'react-slick';
 import Header from './Header';
@@ -80,14 +81,14 @@ const Top:React.FC = () => {
                     <h2 className="top-category__title">＜カテゴリ＞</h2>
                     <div className="top-category__items pc">
                         <div className="row justify-content-between">
-                            <div className="col-2 col-md-3 top-category__item">
+                            <Link className="col-2 col-md-3 top-category__item" to="/category/1">
                                 <p className="top-category__icon--food"><i className="fas fa-utensils"></i></p>
                                 <p className="top-category__name">食べ物</p>
-                            </div>
-                            <div className="col-2 col-md-3 top-category__item">
+                            </Link>
+                            <Link className="col-2 col-md-3 top-category__item" to="/category/2">
                                 <p className="top-category__icon--clean"><i className="fas fa-broom"></i></p>
                                 <p className="top-category__name">掃除</p>
-                            </div>
+                            </Link>
                             <div className="col-2 col-md-3 top-category__item">
                                 <p className="top-category__icon--health"><i className="fas fa-plus-square"></i></p>
                                 <p className="top-category__name">健康</p>

@@ -35,6 +35,11 @@
         }
     }
 
+    &__item:hover {
+        color: #000;
+        text-decoration: none;
+    }
+
     %__icon {
         font-size: 85px;
     }
@@ -77,5 +82,10 @@
         @include tab {
             font-size: 20px;
         }
+    }
+
+    &__name:hover {
+        color: #000;
+        text-decoration: none;
     }
 }
