@@ -21,4 +21,5 @@ Route::get('/getPostData', 'PostController@getPostData');
 Route::post('/setPostData', 'PostController@setPostData');
 
 Route::get('/getCategoryName/{category_id}', 'CategoryController@getCategoryName');
+Route::get('/getPostDataTotalNumInCategory/{category_id}', 'PostController@getPostDataTotalNumInCategory');
 Route::get('/getPostDataInCategory/{category_id}', 'PostController@getPostDataInCategory');

@@ -2,22 +2,21 @@
     padding: 30px 0 50px 0;
     text-align: center;
 
-    &__wrap {
-        background-color: #fff;
-        margin: 0 auto;
-        width: 15%;
-        @include tab {
-            width: 27%;
-        }
-        @include sp {
-            width: 55%;
-        }
+    .pagination {
+        display: block;
     }
 
-    &__num {
-        color: $font-color;
-        border: 2px solid #000;
-        font-size: 30px;
-        padding: 0 15px;
+    .page-item, .page-link {
+        display: inline-block !important;
+    }
+
+    .page-link {
+        color: #6f6152 !important;
+    }
+
+    .page-item.active .page-link {
+        background-color: #6f6152 !important;
+        border-color: #6f6152 !important;
+        color: #fff !important;
     }
 }

@@ -23,8 +23,15 @@ class PostController extends Controller
         return redirect('api/setPostData');
     }
 
+    public function getPostDataTotalNumInCategory($category_id) {
+        $totalDataNum = Post::where('category_id', $category_id)->get('post_id');
+        $totalDataNum = $totalDataNum->toArray();
+        $totalDataNum = count($totalDataNum);
+        return $totalDataNum;
+    }
+
     public function getPostDataInCategory($category_id) {
         $postData = Post::where('category_id', $category_id)->simplePaginate(6);
-        dd($postData);
+        return $postData;
     }
 }

@@ -25,7 +25,6 @@ const Form = (props: PropsType) => {
     const sendPostDataToDB = async(data: PostType) => {
         await axios.post('/api/setPostData', data)
         .then(() => {
-            console.log('yyy');
             setTitle('');
             setCotegory('');
             setUsername('');

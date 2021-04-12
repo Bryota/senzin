@@ -45,7 +45,6 @@ const Top:React.FC = () => {
                 <div className="container">
                     <Slider className="row top-ideas__items pc" { ...sliderSettings }>
                         {postList?.map((post) => {
-                            console.log(post);
                             return (
                                 <div className="top-ideas__item" key={post.post_id}>
                                     <div className="top-ideas__item--balloon">
@@ -89,24 +88,24 @@ const Top:React.FC = () => {
                                 <p className="top-category__icon--clean"><i className="fas fa-broom"></i></p>
                                 <p className="top-category__name">掃除</p>
                             </Link>
-                            <div className="col-2 col-md-3 top-category__item">
+                            <Link className="col-2 col-md-3 top-category__item" to="/category/3">
                                 <p className="top-category__icon--health"><i className="fas fa-plus-square"></i></p>
                                 <p className="top-category__name">健康</p>
-                            </div>
+                            </Link>
                         </div>
                         <div className="row justify-content-between">
-                            <div className="col-2 col-md-3 top-category__item">
+                            <Link className="col-2 col-md-3 top-category__item" to="/category/4">
                                 <p className="top-category__icon--sport"><i className="fas fa-running"></i></p>
                                 <p className="top-category__name">スポーツ</p>
-                            </div>
-                            <div className="col-2 col-md-3 top-category__item">
+                            </Link>
+                            <Link className="col-2 col-md-3 top-category__item" to="/category/5">
                                 <p className="top-category__icon--machine"><i className="fas fa-tv"></i></p>
                                 <p className="top-category__name">機械</p>
-                            </div>
-                            <div className="col-2 col-md-3 top-category__item">
+                            </Link>
+                            <Link className="col-2 col-md-3 top-category__item" to="/category/6">
                                 <p className="top-category__icon--other"><i className="fas fa-ellipsis-h"></i></p>
                                 <p className="top-category__name">その他</p>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                     <div className="top-category__items sp">

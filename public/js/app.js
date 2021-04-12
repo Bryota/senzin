@@ -4378,6 +4378,105 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /***/ }),
 
+/***/ "./node_modules/paginator/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/paginator/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = Paginator;
+
+// Paginator constructor
+//
+// `per_page` is the number of results per page, `length` is the number of
+// pages to display. They default to `25` and `10` respectively.
+function Paginator(per_page, length) {
+  // You really should be calling this with `new Paginator`, but WHATEVER.
+  if (!(this instanceof Paginator)) {
+    return new Paginator(per_page, length);
+  }
+
+  // Woo, defaults!
+  this.per_page = per_page || 25;
+  this.length = length || 10;
+}
+
+// Build an object with all the necessary information for outputting pagination
+// controls.
+//
+// (new Paginator(paginator.build(100, 2)
+Paginator.prototype.build = function(total_results, current_page) {
+  // We want the number of pages, rounded up to the nearest page.
+  var total_pages = Math.ceil(total_results / this.per_page);
+
+  // Ensure both total_results and current_page are treated as Numbers
+  total_results = parseInt(total_results, 10);
+  current_page  = parseInt(current_page, 10) || 1;
+
+  // Obviously we can't be on a negative or 0 page.
+  if (current_page < 1) { current_page = 1; }
+  // If the user has done something like /page/99999 we want to clamp that back
+  // down.
+  if (current_page > total_pages) { current_page = total_pages; }
+
+  // This is the first page to be displayed as a numbered link.
+  var first_page = Math.max(1, current_page - Math.floor(this.length / 2));
+
+  // And here's the last page to be displayed specifically.
+  var last_page = Math.min(total_pages, current_page + Math.floor(this.length / 2));
+
+  // This is triggered if we're at or near one of the extremes; we won't have
+  // enough page links. We need to adjust our bounds accordingly.
+  if (last_page - first_page + 1 < this.length) {
+    if (current_page < (total_pages / 2)) {
+      last_page = Math.min(total_pages, last_page + (this.length - (last_page - first_page)));
+    } else {
+      first_page = Math.max(1, first_page - (this.length - (last_page - first_page)));
+    }
+  }
+
+  // This can be triggered if the user wants an odd number of pages.
+  if (last_page - first_page + 1 > this.length) {
+    // We want to move towards whatever extreme we're closest to at the time.
+    if (current_page > (total_pages / 2)) {
+      first_page++;
+    } else {
+      last_page--;
+    }
+  }
+
+  // First result on the page. This, along with the field below, can be used to
+  // do "showing x to y of z results" style things.
+  var first_result = this.per_page * (current_page - 1);
+  if (first_result < 0) { first_result = 0; }
+
+  // Last result on the page.
+  var last_result = (this.per_page * current_page) - 1;
+  if (last_result < 0) { last_result = 0; }
+  if (last_result > Math.max(total_results - 1, 0)) { last_result = Math.max(total_results - 1, 0); }
+
+  // GIMME THAT OBJECT
+  return {
+    total_pages: total_pages,
+    pages: Math.min(last_page - first_page + 1, total_pages),
+    current_page: current_page,
+    first_page: first_page,
+    last_page: last_page,
+    previous_page: current_page - 1,
+    next_page: current_page + 1,
+    has_previous_page: current_page > 1,
+    has_next_page: current_page < total_pages,
+    total_results: total_results,
+    results: Math.min(last_result - first_result + 1, total_results),
+    first_result: first_result,
+    last_result: last_result,
+  };
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -30619,6 +30718,404 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-js-pagination/dist/Page.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-js-pagination/dist/Page.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Page =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Page, _Component);
+
+  function Page() {
+    _classCallCheck(this, Page);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Page).apply(this, arguments));
+  }
+
+  _createClass(Page, [{
+    key: "handleClick",
+    value: function handleClick(e) {
+      var _this$props = this.props,
+          isDisabled = _this$props.isDisabled,
+          pageNumber = _this$props.pageNumber;
+      e.preventDefault();
+
+      if (isDisabled) {
+        return;
+      }
+
+      this.props.onClick(pageNumber);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _cx;
+
+      var _this$props2 = this.props,
+          pageText = _this$props2.pageText,
+          pageNumber = _this$props2.pageNumber,
+          activeClass = _this$props2.activeClass,
+          itemClass = _this$props2.itemClass,
+          linkClass = _this$props2.linkClass,
+          activeLinkClass = _this$props2.activeLinkClass,
+          disabledClass = _this$props2.disabledClass,
+          isActive = _this$props2.isActive,
+          isDisabled = _this$props2.isDisabled,
+          href = _this$props2.href,
+          ariaLabel = _this$props2.ariaLabel;
+      var css = (0, _classnames["default"])(itemClass, (_cx = {}, _defineProperty(_cx, activeClass, isActive), _defineProperty(_cx, disabledClass, isDisabled), _cx));
+      var linkCss = (0, _classnames["default"])(linkClass, _defineProperty({}, activeLinkClass, isActive));
+      return _react["default"].createElement("li", {
+        className: css,
+        onClick: this.handleClick.bind(this)
+      }, _react["default"].createElement("a", {
+        className: linkCss,
+        href: href,
+        "aria-label": ariaLabel
+      }, pageText));
+    }
+  }]);
+
+  return Page;
+}(_react.Component);
+
+exports["default"] = Page;
+
+_defineProperty(Page, "propTypes", {
+  pageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  pageNumber: _propTypes["default"].number.isRequired,
+  onClick: _propTypes["default"].func.isRequired,
+  isActive: _propTypes["default"].bool.isRequired,
+  isDisabled: _propTypes["default"].bool,
+  activeClass: _propTypes["default"].string,
+  activeLinkClass: _propTypes["default"].string,
+  itemClass: _propTypes["default"].string,
+  linkClass: _propTypes["default"].string,
+  disabledClass: _propTypes["default"].string,
+  href: _propTypes["default"].string
+});
+
+_defineProperty(Page, "defaultProps", {
+  activeClass: "active",
+  disabledClass: "disabled",
+  itemClass: undefined,
+  linkClass: undefined,
+  activeLinkCLass: undefined,
+  isActive: false,
+  isDisabled: false,
+  href: "#"
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-js-pagination/dist/Pagination.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-js-pagination/dist/Pagination.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _paginator = _interopRequireDefault(__webpack_require__(/*! paginator */ "./node_modules/paginator/index.js"));
+
+var _Page = _interopRequireDefault(__webpack_require__(/*! ./Page */ "./node_modules/react-js-pagination/dist/Page.js"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Pagination =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Pagination, _React$Component);
+
+  function Pagination() {
+    _classCallCheck(this, Pagination);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Pagination).apply(this, arguments));
+  }
+
+  _createClass(Pagination, [{
+    key: "isFirstPageVisible",
+    value: function isFirstPageVisible(has_previous_page) {
+      var _this$props = this.props,
+          hideDisabled = _this$props.hideDisabled,
+          hideNavigation = _this$props.hideNavigation,
+          hideFirstLastPages = _this$props.hideFirstLastPages;
+      if (hideFirstLastPages || hideDisabled && !has_previous_page) return false;
+      return true;
+    }
+  }, {
+    key: "isPrevPageVisible",
+    value: function isPrevPageVisible(has_previous_page) {
+      var _this$props2 = this.props,
+          hideDisabled = _this$props2.hideDisabled,
+          hideNavigation = _this$props2.hideNavigation;
+      if (hideNavigation || hideDisabled && !has_previous_page) return false;
+      return true;
+    }
+  }, {
+    key: "isNextPageVisible",
+    value: function isNextPageVisible(has_next_page) {
+      var _this$props3 = this.props,
+          hideDisabled = _this$props3.hideDisabled,
+          hideNavigation = _this$props3.hideNavigation;
+      if (hideNavigation || hideDisabled && !has_next_page) return false;
+      return true;
+    }
+  }, {
+    key: "isLastPageVisible",
+    value: function isLastPageVisible(has_next_page) {
+      var _this$props4 = this.props,
+          hideDisabled = _this$props4.hideDisabled,
+          hideNavigation = _this$props4.hideNavigation,
+          hideFirstLastPages = _this$props4.hideFirstLastPages;
+      if (hideFirstLastPages || hideDisabled && !has_next_page) return false;
+      return true;
+    }
+  }, {
+    key: "buildPages",
+    value: function buildPages() {
+      var pages = [];
+      var _this$props5 = this.props,
+          itemsCountPerPage = _this$props5.itemsCountPerPage,
+          pageRangeDisplayed = _this$props5.pageRangeDisplayed,
+          activePage = _this$props5.activePage,
+          prevPageText = _this$props5.prevPageText,
+          nextPageText = _this$props5.nextPageText,
+          firstPageText = _this$props5.firstPageText,
+          lastPageText = _this$props5.lastPageText,
+          totalItemsCount = _this$props5.totalItemsCount,
+          onChange = _this$props5.onChange,
+          activeClass = _this$props5.activeClass,
+          itemClass = _this$props5.itemClass,
+          itemClassFirst = _this$props5.itemClassFirst,
+          itemClassPrev = _this$props5.itemClassPrev,
+          itemClassNext = _this$props5.itemClassNext,
+          itemClassLast = _this$props5.itemClassLast,
+          activeLinkClass = _this$props5.activeLinkClass,
+          disabledClass = _this$props5.disabledClass,
+          hideDisabled = _this$props5.hideDisabled,
+          hideNavigation = _this$props5.hideNavigation,
+          linkClass = _this$props5.linkClass,
+          linkClassFirst = _this$props5.linkClassFirst,
+          linkClassPrev = _this$props5.linkClassPrev,
+          linkClassNext = _this$props5.linkClassNext,
+          linkClassLast = _this$props5.linkClassLast,
+          hideFirstLastPages = _this$props5.hideFirstLastPages,
+          getPageUrl = _this$props5.getPageUrl;
+      var paginationInfo = new _paginator["default"](itemsCountPerPage, pageRangeDisplayed).build(totalItemsCount, activePage);
+
+      for (var i = paginationInfo.first_page; i <= paginationInfo.last_page; i++) {
+        pages.push(_react["default"].createElement(_Page["default"], {
+          isActive: i === activePage,
+          key: i,
+          href: getPageUrl(i),
+          pageNumber: i,
+          pageText: i + "",
+          onClick: onChange,
+          itemClass: itemClass,
+          linkClass: linkClass,
+          activeClass: activeClass,
+          activeLinkClass: activeLinkClass,
+          ariaLabel: "Go to page number ".concat(i)
+        }));
+      }
+
+      this.isPrevPageVisible(paginationInfo.has_previous_page) && pages.unshift(_react["default"].createElement(_Page["default"], {
+        key: "prev" + paginationInfo.previous_page,
+        href: getPageUrl(paginationInfo.previous_page),
+        pageNumber: paginationInfo.previous_page,
+        onClick: onChange,
+        pageText: prevPageText,
+        isDisabled: !paginationInfo.has_previous_page,
+        itemClass: (0, _classnames["default"])(itemClass, itemClassPrev),
+        linkClass: (0, _classnames["default"])(linkClass, linkClassPrev),
+        disabledClass: disabledClass,
+        ariaLabel: "Go to previous page"
+      }));
+      this.isFirstPageVisible(paginationInfo.has_previous_page) && pages.unshift(_react["default"].createElement(_Page["default"], {
+        key: "first",
+        href: getPageUrl(1),
+        pageNumber: 1,
+        onClick: onChange,
+        pageText: firstPageText,
+        isDisabled: !paginationInfo.has_previous_page,
+        itemClass: (0, _classnames["default"])(itemClass, itemClassFirst),
+        linkClass: (0, _classnames["default"])(linkClass, linkClassFirst),
+        disabledClass: disabledClass,
+        ariaLabel: "Go to first page"
+      }));
+      this.isNextPageVisible(paginationInfo.has_next_page) && pages.push(_react["default"].createElement(_Page["default"], {
+        key: "next" + paginationInfo.next_page,
+        href: getPageUrl(paginationInfo.next_page),
+        pageNumber: paginationInfo.next_page,
+        onClick: onChange,
+        pageText: nextPageText,
+        isDisabled: !paginationInfo.has_next_page,
+        itemClass: (0, _classnames["default"])(itemClass, itemClassNext),
+        linkClass: (0, _classnames["default"])(linkClass, linkClassNext),
+        disabledClass: disabledClass,
+        ariaLabel: "Go to next page"
+      }));
+      this.isLastPageVisible(paginationInfo.has_next_page) && pages.push(_react["default"].createElement(_Page["default"], {
+        key: "last",
+        href: getPageUrl(paginationInfo.total_pages),
+        pageNumber: paginationInfo.total_pages,
+        onClick: onChange,
+        pageText: lastPageText,
+        isDisabled: paginationInfo.current_page === paginationInfo.total_pages,
+        itemClass: (0, _classnames["default"])(itemClass, itemClassLast),
+        linkClass: (0, _classnames["default"])(linkClass, linkClassLast),
+        disabledClass: disabledClass,
+        ariaLabel: "Go to last page"
+      }));
+      return pages;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var pages = this.buildPages();
+      return _react["default"].createElement("ul", {
+        className: this.props.innerClass
+      }, pages);
+    }
+  }]);
+
+  return Pagination;
+}(_react["default"].Component);
+
+exports["default"] = Pagination;
+
+_defineProperty(Pagination, "propTypes", {
+  totalItemsCount: _propTypes["default"].number.isRequired,
+  onChange: _propTypes["default"].func.isRequired,
+  activePage: _propTypes["default"].number,
+  itemsCountPerPage: _propTypes["default"].number,
+  pageRangeDisplayed: _propTypes["default"].number,
+  prevPageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  nextPageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  lastPageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  firstPageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  disabledClass: _propTypes["default"].string,
+  hideDisabled: _propTypes["default"].bool,
+  hideNavigation: _propTypes["default"].bool,
+  innerClass: _propTypes["default"].string,
+  itemClass: _propTypes["default"].string,
+  itemClassFirst: _propTypes["default"].string,
+  itemClassPrev: _propTypes["default"].string,
+  itemClassNext: _propTypes["default"].string,
+  itemClassLast: _propTypes["default"].string,
+  linkClass: _propTypes["default"].string,
+  activeClass: _propTypes["default"].string,
+  activeLinkClass: _propTypes["default"].string,
+  linkClassFirst: _propTypes["default"].string,
+  linkClassPrev: _propTypes["default"].string,
+  linkClassNext: _propTypes["default"].string,
+  linkClassLast: _propTypes["default"].string,
+  hideFirstLastPages: _propTypes["default"].bool,
+  getPageUrl: _propTypes["default"].func
+});
+
+_defineProperty(Pagination, "defaultProps", {
+  itemsCountPerPage: 10,
+  pageRangeDisplayed: 5,
+  activePage: 1,
+  prevPageText: "⟨",
+  firstPageText: "«",
+  nextPageText: "⟩",
+  lastPageText: "»",
+  innerClass: "pagination",
+  itemClass: undefined,
+  linkClass: undefined,
+  activeLinkClass: undefined,
+  hideFirstLastPages: false,
+  getPageUrl: function getPageUrl(i) {
+    return "#";
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/react-router-dom/esm/react-router-dom.js":
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
@@ -40312,19 +40809,38 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var CategoryIcon_1 = __importDefault(__webpack_require__(/*! ../util/CategoryIcon */ "./resources/ts/util/CategoryIcon.ts"));
 var Category = function (props) {
     var category_id = { category_id: props.match.params.category_id };
     var _a = react_1.useState(), categoryIcon = _a[0], setCategoryIcon = _a[1];
     var _b = react_1.useState(), categoryName = _b[0], setCategoryName = _b[1];
+    var _c = react_1.useState(), currentPostList = _c[0], setCurrentPostList = _c[1];
+    var _d = react_1.useState(1), activePage = _d[0], setActivePage = _d[1];
+    var _e = react_1.useState(0), totalItemsCount = _e[0], setTotalItemsCount = _e[1];
     react_1.useEffect(function () {
         axios_1.default.get("/api/getCategoryName/" + category_id.category_id)
             .then(function (res) {
             setCategoryName(res.data.category_name);
         });
         setCategoryIcon(CategoryIcon_1.default(category_id.category_id));
+        axios_1.default.get("/api/getPostDataInCategory/" + category_id.category_id + "?page=" + activePage)
+            .then(function (res) {
+            setCurrentPostList(res.data.data);
+        });
+        axios_1.default.get("/api/getPostDataTotalNumInCategory/" + category_id.category_id)
+            .then(function (res) {
+            setTotalItemsCount(res.data);
+        });
     }, []);
+    var pageChange = function (pageNum) {
+        axios_1.default.get("/api/getPostDataInCategory/" + category_id.category_id + "?page=" + pageNum)
+            .then(function (res) {
+            setCurrentPostList(res.data.data);
+            setActivePage(pageNum);
+        });
+    };
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement("div", { className: "category" },
@@ -40334,62 +40850,17 @@ var Category = function (props) {
                 categoryName),
             react_1.default.createElement("div", { className: "category-ideas" },
                 react_1.default.createElement("div", { className: "container" },
-                    react_1.default.createElement("div", { className: "row category-ideas__items" },
-                        react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4" },
+                    react_1.default.createElement("div", { className: "row category-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (data) {
+                        return (react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4" },
                             react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, data.title),
+                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, data.content)),
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
-                        react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
-                        react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"))),
-                    react_1.default.createElement("div", { className: "row category__ideas--items" },
-                        react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
-                        react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
-                        react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--category" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"))))),
+                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, data.username)));
+                    })))),
             react_1.default.createElement("div", { className: "category-pager" },
-                react_1.default.createElement("div", { className: "category-pager__wrap" },
-                    react_1.default.createElement("span", { className: "category-pager__num" }, "1"),
-                    react_1.default.createElement("span", { className: "category-pager__num" }, "2"),
-                    react_1.default.createElement("span", { className: "category-pager__num" }, "3"),
-                    react_1.default.createElement("span", { className: "category-pager__num" }, "4"))))));
+                react_1.default.createElement(react_js_pagination_1.default, { activePage: activePage, itemsCountPerPage: 6, pageRangeDisplayed: 5, totalItemsCount: totalItemsCount, onChange: pageChange, itemClass: 'page-item', linkClass: 'page-link' })))));
 };
 exports.default = Category;
 
@@ -40477,7 +40948,6 @@ var Form = function (props) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios_1.default.post('/api/setPostData', data)
                         .then(function () {
-                        console.log('yyy');
                         setTitle('');
                         setCotegory('');
                         setUsername('');
@@ -41025,7 +41495,6 @@ var Top = function () {
         react_1.default.createElement("div", { className: "top-ideas" },
             react_1.default.createElement("div", { className: "container" },
                 react_1.default.createElement(react_slick_1.default, __assign({ className: "row top-ideas__items pc" }, sliderSettings), postList === null || postList === void 0 ? void 0 : postList.map(function (post) {
-                    console.log(post);
                     return (react_1.default.createElement("div", { className: "top-ideas__item", key: post.post_id },
                         react_1.default.createElement("div", { className: "top-ideas__item--balloon" },
                             react_1.default.createElement("p", { className: "top-ideas__item--title" }, post.title),
@@ -41057,20 +41526,20 @@ var Top = function () {
                             react_1.default.createElement("p", { className: "top-category__icon--clean" },
                                 react_1.default.createElement("i", { className: "fas fa-broom" })),
                             react_1.default.createElement("p", { className: "top-category__name" }, "\u6383\u9664")),
-                        react_1.default.createElement("div", { className: "col-2 col-md-3 top-category__item" },
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-2 col-md-3 top-category__item", to: "/category/3" },
                             react_1.default.createElement("p", { className: "top-category__icon--health" },
                                 react_1.default.createElement("i", { className: "fas fa-plus-square" })),
                             react_1.default.createElement("p", { className: "top-category__name" }, "\u5065\u5EB7"))),
                     react_1.default.createElement("div", { className: "row justify-content-between" },
-                        react_1.default.createElement("div", { className: "col-2 col-md-3 top-category__item" },
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-2 col-md-3 top-category__item", to: "/category/4" },
                             react_1.default.createElement("p", { className: "top-category__icon--sport" },
                                 react_1.default.createElement("i", { className: "fas fa-running" })),
                             react_1.default.createElement("p", { className: "top-category__name" }, "\u30B9\u30DD\u30FC\u30C4")),
-                        react_1.default.createElement("div", { className: "col-2 col-md-3 top-category__item" },
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-2 col-md-3 top-category__item", to: "/category/5" },
                             react_1.default.createElement("p", { className: "top-category__icon--machine" },
                                 react_1.default.createElement("i", { className: "fas fa-tv" })),
                             react_1.default.createElement("p", { className: "top-category__name" }, "\u6A5F\u68B0")),
-                        react_1.default.createElement("div", { className: "col-2 col-md-3 top-category__item" },
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-2 col-md-3 top-category__item", to: "/category/6" },
                             react_1.default.createElement("p", { className: "top-category__icon--other" },
                                 react_1.default.createElement("i", { className: "fas fa-ellipsis-h" })),
                             react_1.default.createElement("p", { className: "top-category__name" }, "\u305D\u306E\u4ED6")))),

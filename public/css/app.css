@@ -11920,29 +11920,23 @@ template {
   text-align: center;
 }
 
-.category-pager__wrap {
-  background-color: #fff;
-  margin: 0 auto;
-  width: 15%;
+.category-pager .pagination {
+  display: block;
 }
 
-@media only screen and (max-width: 1025px) {
-  .category-pager__wrap {
-    width: 27%;
-  }
+.category-pager .page-item,
+.category-pager .page-link {
+  display: inline-block !important;
 }
 
-@media only screen and (max-width: 414px) {
-  .category-pager__wrap {
-    width: 55%;
-  }
+.category-pager .page-link {
+  color: #6f6152 !important;
 }
 
-.category-pager__num {
-  color: #6f6152;
-  border: 2px solid #000;
-  font-size: 30px;
-  padding: 0 15px;
+.category-pager .page-item.active .page-link {
+  background-color: #6f6152 !important;
+  border-color: #6f6152 !important;
+  color: #fff !important;
 }
 
 .form {
