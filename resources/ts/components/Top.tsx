@@ -46,7 +46,7 @@ const Top:React.FC = () => {
                     <Slider className="row top-ideas__items pc" { ...sliderSettings }>
                         {postList?.map((post) => {
                             return (
-                                <div className="top-ideas__item" key={post.post_id}>
+                                <Link className="top-ideas__item" key={post.post_id} to={'/single/' + post.post_id}>
                                     <div className="top-ideas__item--balloon">
                                         <p className="top-ideas__item--title">{post.title}</p>
                                         <p className="top-ideas__item--category">{post.category.category_name}</p>
@@ -56,7 +56,7 @@ const Top:React.FC = () => {
                                         <i className="far fa-user fa-5x top-ideas__item--icon"></i>
                                     </div>
                                     <p className="top-ideas__item--username">{post.username}</p>
-                                </div>
+                                </Link>
                             )
                         })}
                     </Slider>

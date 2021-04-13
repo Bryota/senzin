@@ -40763,7 +40763,7 @@ var App = function () {
             react_1.default.createElement(react_router_dom_1.Route, { path: "/post", exact: true, component: Form_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/search", exact: true, component: Search_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/result", exact: true, component: Result_1.default }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/single", exact: true, component: Single_1.default }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/single/:id", exact: true, component: Single_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/login", exact: true, component: Login_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/register", exact: true, component: Register_1.default }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/mylist", exact: true, component: MyList_1.default }))));
@@ -40808,6 +40808,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
@@ -40851,7 +40852,7 @@ var Category = function (props) {
             react_1.default.createElement("div", { className: "category-ideas" },
                 react_1.default.createElement("div", { className: "container" },
                     react_1.default.createElement("div", { className: "row category-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (data) {
-                        return (react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4", key: data.post_id },
+                        return (react_1.default.createElement(react_router_dom_1.Link, { className: "category-ideas__item col-12 col-md-4", key: data.post_id, to: '/single/' + data.post_id },
                             react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
                                 react_1.default.createElement("p", { className: "category-ideas__item--title" }, data.title),
                                 react_1.default.createElement("p", { className: "category-ideas__item--content" }, data.content)),
@@ -41288,6 +41289,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
@@ -41323,7 +41325,7 @@ var Result = function (props) {
             react_1.default.createElement("div", { className: "result-ideas" },
                 react_1.default.createElement("div", { className: "container" },
                     react_1.default.createElement("div", { className: "row result-ideas__items" }, currentPostDataList === null || currentPostDataList === void 0 ? void 0 : currentPostDataList.map(function (data) {
-                        return (react_1.default.createElement("div", { className: "result-ideas__item col-12 col-md-4", key: data.post_id },
+                        return (react_1.default.createElement(react_router_dom_1.Link, { className: "result-ideas__item col-12 col-md-4", key: data.post_id, to: '/single/' + data.post_id },
                             react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
                                 react_1.default.createElement("p", { className: "result-ideas__item--title" }, data.title),
                                 react_1.default.createElement("p", { className: "result-ideas__item--result" }, data.category.category_name),
@@ -41423,25 +41425,57 @@ exports.default = Search;
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
-var Single = function () {
+var CategoryIcon_1 = __importDefault(__webpack_require__(/*! ../util/CategoryIcon */ "./resources/ts/util/CategoryIcon.ts"));
+var Single = function (props) {
+    var _a = react_1.useState(), postData = _a[0], setPostData = _a[1];
+    var id = { id: props.match.params.id };
+    var _b = react_1.useState(), categoryIcon = _b[0], setCategoryIcon = _b[1];
+    react_1.useEffect(function () {
+        axios_1.default.get("/api/getSinglePostData/" + id.id)
+            .then(function (res) {
+            setPostData(res.data);
+            setCategoryIcon(CategoryIcon_1.default(res.data.category.category_id.toString()));
+        });
+    }, []);
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement("div", { className: "single" },
-            react_1.default.createElement("h1", { className: "single__title" },
-                "\u30C6\u30B9\u30C8\u6295\u7A3F",
+            react_1.default.createElement("h1", { className: "single__title" }, postData === null || postData === void 0 ? void 0 :
+                postData.title,
                 react_1.default.createElement("br", { className: "sp" }),
-                "/\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"),
+                "/", postData === null || postData === void 0 ? void 0 :
+                postData.username),
             react_1.default.createElement("p", { className: "single__category" },
-                react_1.default.createElement("span", { className: "single__icon--food" },
-                    react_1.default.createElement("i", { className: "fas fa-utensils" })),
-                "\u98DF\u3079\u7269"),
-            react_1.default.createElement("p", { className: "single__content" }, "\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8"),
+                react_1.default.createElement("span", { className: "single__icon" },
+                    react_1.default.createElement("i", { className: categoryIcon })), postData === null || postData === void 0 ? void 0 :
+                postData.category.category_name),
+            react_1.default.createElement("p", { className: "single__content" }, postData === null || postData === void 0 ? void 0 : postData.content),
             react_1.default.createElement("p", { className: "text-center" },
                 react_1.default.createElement("input", { type: "button", className: "single__button", value: "\u30DE\u30A4\u30EA\u30B9\u30C8\u306B\u8FFD\u52A0" })),
             react_1.default.createElement("p", { className: "text-center" },
@@ -41526,7 +41560,7 @@ var Top = function () {
         react_1.default.createElement("div", { className: "top-ideas" },
             react_1.default.createElement("div", { className: "container" },
                 react_1.default.createElement(react_slick_1.default, __assign({ className: "row top-ideas__items pc" }, sliderSettings), postList === null || postList === void 0 ? void 0 : postList.map(function (post) {
-                    return (react_1.default.createElement("div", { className: "top-ideas__item", key: post.post_id },
+                    return (react_1.default.createElement(react_router_dom_1.Link, { className: "top-ideas__item", key: post.post_id, to: '/single/' + post.post_id },
                         react_1.default.createElement("div", { className: "top-ideas__item--balloon" },
                             react_1.default.createElement("p", { className: "top-ideas__item--title" }, post.title),
                             react_1.default.createElement("p", { className: "top-ideas__item--category" }, post.category.category_name),

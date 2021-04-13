@@ -59,4 +59,8 @@
             margin-top: 10px;
         }
     }
+
+    &__item:hover {
+        color: $font-color !important;
+    }
 }

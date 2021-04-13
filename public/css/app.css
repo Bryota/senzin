@@ -11688,6 +11688,10 @@ template {
   margin-top: 10px;
 }
 
+.top-ideas__item:hover {
+  color: #6f6152 !important;
+}
+
 .top-category {
   background-color: #eee;
   padding: 80px 0;
@@ -11743,7 +11747,6 @@ template {
 .top-category .mylist-nav__icon--health,
 .top-category .mylist-nav__icon--clean,
 .top-category .mylist-nav__icon--food,
-.top-category .single__icon--food,
 .top-category .top-category__icon--other,
 .top-category .top-category__icon--machine,
 .top-category .top-category__icon--sport,
@@ -11913,6 +11916,10 @@ template {
 .category-ideas__item--username {
   font-weight: bold;
   margin-top: 10px;
+}
+
+.category-ideas__item:hover {
+  color: #6f6152 !important;
 }
 
 .category-pager {
@@ -12334,25 +12341,9 @@ template {
   text-align: center;
 }
 
-.single .mylist-nav__icon--other,
-.single .mylist-nav__icon--machine,
-.single .mylist-nav__icon--sport,
-.single .mylist-nav__icon--health,
-.single .mylist-nav__icon--clean,
-.single .mylist-nav__icon--food,
-.single .single__icon--food,
-.single .top-category__icon--food,
-.single .top-category__icon--clean,
-.single .top-category__icon--health,
-.single .top-category__icon--sport,
-.single .top-category__icon--machine,
-.single .top-category__icon--other {
-  font-size: 20px;
-  margin-right: 10px;
-}
-
-.single__icon--food {
-  color: #dd3737;
+.single__icon {
+  font-size: 40px;
+  margin-right: 20px;
 }
 
 .single__content {
@@ -12718,8 +12709,7 @@ template {
 .mylist-nav .top-category__icon--health,
 .mylist-nav .top-category__icon--sport,
 .mylist-nav .top-category__icon--machine,
-.mylist-nav .top-category__icon--other,
-.mylist-nav .single__icon--food {
+.mylist-nav .top-category__icon--other {
   margin-right: 10px;
 }
 

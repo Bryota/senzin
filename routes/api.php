@@ -25,3 +25,4 @@ Route::get('/getPostDataTotalNumInCategory/{category_id}', 'PostController@getPo
 Route::get('/getPostDataInCategory/{category_id}', 'PostController@getPostDataInCategory');
 Route::post('/getResultPostDataTotalNum', 'PostController@getResultPostDataTotalNum');
 Route::post('/getResultPostData', 'PostController@getResultPostData');
+Route::get('/getSinglePostData/{id}', 'PostController@getSinglePostData');

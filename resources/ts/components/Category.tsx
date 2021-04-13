@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, Link } from 'react-router-dom';
 import axios from 'axios';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
@@ -58,7 +58,7 @@ const Category: React.FC<PropsType> = (props) => {
                         <div className="row category-ideas__items">
                             {currentPostList?.map((data) => {
                                 return (
-                                    <div className="category-ideas__item col-12 col-md-4" key={data.post_id}>
+                                    <Link className="category-ideas__item col-12 col-md-4" key={data.post_id} to={'/single/' + data.post_id}>
                                         <div className="category-ideas__item--balloon">
                                             <p className="category-ideas__item--title">{data.title}</p>
                                             <p className="category-ideas__item--content">{data.content}</p>
@@ -67,7 +67,7 @@ const Category: React.FC<PropsType> = (props) => {
                                             <i className="far fa-user fa-5x category-ideas__item--icon"></i>
                                         </div>
                                         <p className="category-ideas__item--username">{data.username}</p>
-                                    </div>
+                                    </Link>
                                 )
                             })}
                         </div>

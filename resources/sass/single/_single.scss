@@ -25,14 +25,9 @@
         text-align: center;
     }
 
-    %__icon {
-        font-size: 20px;
-        margin-right: 10px;
-    }
-
-    &__icon--food {
-        @extend %__icon;
-        color: #dd3737;
+    &__icon {
+        font-size: 40px;
+        margin-right: 20px;
     }
 
     &__content {

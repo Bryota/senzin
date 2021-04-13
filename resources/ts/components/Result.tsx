@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
@@ -60,7 +61,7 @@ const Result= (props: PropsType) => {
                         <div className="row result-ideas__items">
                             {currentPostDataList?.map((data) => {
                                 return (
-                                    <div className="result-ideas__item col-12 col-md-4" key={data.post_id}>
+                                    <Link className="result-ideas__item col-12 col-md-4" key={data.post_id} to={'/single/' + data.post_id}>
                                         <div className="result-ideas__item--balloon">
                                             <p className="result-ideas__item--title">{data.title}</p>
                                             <p className="result-ideas__item--result">{data.category.category_name}</p>
@@ -70,7 +71,7 @@ const Result= (props: PropsType) => {
                                             <i className="far fa-user fa-5x result-ideas__item--icon"></i>
                                         </div>
                                         <p className="result-ideas__item--username">{data.username}</p>
-                                    </div>
+                                    </Link>
                                 )
                             })}
                         </div>

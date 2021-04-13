@@ -43,7 +43,7 @@ class PostController extends Controller
     public function getResultPostDataTotalNum(Request $request) {
         $category_id = $request->category_id;
         $freeword = $request->freeword;
-        $resultPostData = Post::where('category_id', $category_id)->where('content', 'like', "%$freeword%")->get();
+        $resultPostData = Post::where('category_id', $category_id)->where('content', 'like', "%$freeword%")->get('post_id');
         $resultPostData = $resultPostData->toArray();
         $resultPostDataTotalNum = count($resultPostData);
         return $resultPostDataTotalNum;
@@ -56,5 +56,13 @@ class PostController extends Controller
         $resultPostData = $resultPostData->toArray();
         $resultPostData = json_encode($resultPostData,JSON_UNESCAPED_UNICODE);
         return $resultPostData;
+    }
+
+    //single
+    public function getSinglePostData($id) {
+        $sinlePostData = Post::where('post_id', $id)->with('category:category_id,category_name')->first(['post_id', 'title', 'category_id', 'username', 'content']);
+        $sinlePostData = $sinlePostData->toArray();
+        $sinlePostData = json_encode($sinlePostData,JSON_UNESCAPED_UNICODE);
+        return $sinlePostData;
     }
 }
