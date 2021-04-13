@@ -40851,7 +40851,7 @@ var Category = function (props) {
             react_1.default.createElement("div", { className: "category-ideas" },
                 react_1.default.createElement("div", { className: "container" },
                     react_1.default.createElement("div", { className: "row category-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (data) {
-                        return (react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4" },
+                        return (react_1.default.createElement("div", { className: "category-ideas__item col-12 col-md-4", key: data.post_id },
                             react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
                                 react_1.default.createElement("p", { className: "category-ideas__item--title" }, data.title),
                                 react_1.default.createElement("p", { className: "category-ideas__item--content" }, data.content)),
@@ -41264,75 +41264,76 @@ exports.default = Register;
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
-var Result = function () {
+var Result = function (props) {
+    var _a = react_1.useState(), currentPostDataList = _a[0], setCurrentPostDataList = _a[1];
+    var _b = react_1.useState(1), activePage = _b[0], setActivePage = _b[1];
+    var _c = react_1.useState(0), totalItemsCount = _c[0], setTotalItemsCount = _c[1];
+    var searchData = {
+        category_id: props.location.state.categoryId,
+        freeword: props.location.state.freeword
+    };
+    react_1.useEffect(function () {
+        axios_1.default.post('api/getResultPostDataTotalNum', searchData)
+            .then(function (res) {
+            setTotalItemsCount(res.data);
+        });
+        axios_1.default.post("api/getResultPostData?page=" + activePage, searchData)
+            .then(function (res) {
+            setCurrentPostDataList(res.data.data);
+        });
+    }, []);
+    var pageChange = function (pageNum) {
+        axios_1.default.post("api/getResultPostData?page=" + pageNum, searchData)
+            .then(function (res) {
+            setCurrentPostDataList(res.data.data);
+            setActivePage(pageNum);
+        });
+    };
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement("div", { className: "result" },
             react_1.default.createElement("h1", { className: "result__title" }, "\u691C\u7D22\u7D50\u679C"),
             react_1.default.createElement("div", { className: "result-ideas" },
                 react_1.default.createElement("div", { className: "container" },
-                    react_1.default.createElement("div", { className: "row result-ideas__items" },
-                        react_1.default.createElement("div", { className: "result-ideas__item col-12 col-md-4" },
+                    react_1.default.createElement("div", { className: "row result-ideas__items" }, currentPostDataList === null || currentPostDataList === void 0 ? void 0 : currentPostDataList.map(function (data) {
+                        return (react_1.default.createElement("div", { className: "result-ideas__item col-12 col-md-4", key: data.post_id },
                             react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, data.title),
+                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, data.category.category_name),
+                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, data.content)),
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
-                        react_1.default.createElement("div", { className: "result-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
-                        react_1.default.createElement("div", { className: "result-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"))),
-                    react_1.default.createElement("div", { className: "row result__ideas--items" },
-                        react_1.default.createElement("div", { className: "result-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
-                        react_1.default.createElement("div", { className: "result-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC")),
-                        react_1.default.createElement("div", { className: "result-ideas__item col-12 col-md-4" },
-                            react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, "\u98DF\u3079\u7269"),
-                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
-                            react_1.default.createElement("div", null,
-                                react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"))))),
+                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, data.username)));
+                    })))),
             react_1.default.createElement("div", { className: "result-pager" },
-                react_1.default.createElement("div", { className: "result-pager__wrap" },
-                    react_1.default.createElement("span", { className: "result-pager__num" }, "1"),
-                    react_1.default.createElement("span", { className: "result-pager__num" }, "2"),
-                    react_1.default.createElement("span", { className: "result-pager__num" }, "3"),
-                    react_1.default.createElement("span", { className: "result-pager__num" }, "4"))))));
+                react_1.default.createElement(react_js_pagination_1.default, { activePage: activePage, itemsCountPerPage: 6, pageRangeDisplayed: 5, totalItemsCount: totalItemsCount, onChange: pageChange, itemClass: 'page-item', linkClass: 'page-link' })))));
 };
 exports.default = Result;
 
@@ -41348,35 +41349,65 @@ exports.default = Result;
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
-var Search = function () {
+var Search = function (props) {
+    var _a = react_1.useState(), categoryId = _a[0], setCategoryId = _a[1];
+    var _b = react_1.useState(), freeword = _b[0], setFreeword = _b[1];
+    var sendSearchDataToResultPage = function () {
+        props.history.push({
+            pathname: '/result',
+            state: {
+                categoryId: categoryId,
+                freeword: freeword
+            }
+        });
+    };
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement("div", { className: "search" },
             react_1.default.createElement("h1", { className: "search__title" }, "\u691C\u7D22"),
-            react_1.default.createElement("form", { className: "search__wrap" },
+            react_1.default.createElement("div", { className: "search__wrap" },
                 react_1.default.createElement("div", { className: "search__items" },
                     react_1.default.createElement("div", { className: "search__item" },
                         react_1.default.createElement("label", { htmlFor: "category", className: "search__label" },
                             "\u30AB\u30C6\u30B4\u30EA",
                             react_1.default.createElement("span", { className: "search__required" }, "\u5FC5\u9808")),
-                        react_1.default.createElement("select", { name: "category", id: "category", className: "search__select" },
-                            react_1.default.createElement("option", { value: "food" }, "\u98DF\u3079\u7269"),
-                            react_1.default.createElement("option", { value: "clean" }, "\u6383\u9664"),
-                            react_1.default.createElement("option", { value: "health" }, "\u5065\u5EB7"),
-                            react_1.default.createElement("option", { value: "sport" }, "\u30B9\u30DD\u30FC\u30C4"),
-                            react_1.default.createElement("option", { value: "machine" }, "\u6A5F\u68B0"),
-                            react_1.default.createElement("option", { value: "other" }, "\u305D\u306E\u4ED6"))),
+                        react_1.default.createElement("select", { name: "category", id: "category", className: "search__select", onChange: function (e) { return setCategoryId(e.target.value); } },
+                            react_1.default.createElement("option", { value: "1" }, "\u98DF\u3079\u7269"),
+                            react_1.default.createElement("option", { value: "2" }, "\u6383\u9664"),
+                            react_1.default.createElement("option", { value: "3" }, "\u5065\u5EB7"),
+                            react_1.default.createElement("option", { value: "4" }, "\u30B9\u30DD\u30FC\u30C4"),
+                            react_1.default.createElement("option", { value: "5" }, "\u6A5F\u68B0"),
+                            react_1.default.createElement("option", { value: "6" }, "\u305D\u306E\u4ED6"))),
                     react_1.default.createElement("div", { className: "search__item" },
                         react_1.default.createElement("label", { htmlFor: "freeword", className: "search__label" }, "\u30D5\u30EA\u30FC\u30EF\u30FC\u30C9"),
-                        react_1.default.createElement("input", { type: "text", id: "freeword", className: "search__input" })),
+                        react_1.default.createElement("input", { type: "text", id: "freeword", value: freeword, className: "search__input", onChange: function (e) { return setFreeword(e.target.value); } })),
                     react_1.default.createElement("div", { className: "text-center" },
-                        react_1.default.createElement("input", { type: "button", value: "\u691C\u7D22\u3059\u308B", className: "search__button" })))))));
+                        react_1.default.createElement("input", { type: "button", value: "\u691C\u7D22\u3059\u308B", className: "search__button", onClick: sendSearchDataToResultPage })))))));
 };
 exports.default = Search;
 

@@ -12281,29 +12281,23 @@ template {
   text-align: center;
 }
 
-.result-pager__wrap {
-  background-color: #fff;
-  margin: 0 auto;
-  width: 15%;
+.result-pager .pagination {
+  display: block;
 }
 
-@media only screen and (max-width: 1025px) {
-  .result-pager__wrap {
-    width: 27%;
-  }
+.result-pager .page-item,
+.result-pager .page-link {
+  display: inline-block !important;
 }
 
-@media only screen and (max-width: 414px) {
-  .result-pager__wrap {
-    width: 56%;
-  }
+.result-pager .page-link {
+  color: #6f6152 !important;
 }
 
-.result-pager__num {
-  color: #6f6152;
-  border: 2px solid #000;
-  font-size: 30px;
-  padding: 0 15px;
+.result-pager .page-item.active .page-link {
+  background-color: #6f6152 !important;
+  border-color: #6f6152 !important;
+  color: #fff !important;
 }
 
 .single {

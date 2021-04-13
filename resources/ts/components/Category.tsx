@@ -58,7 +58,7 @@ const Category: React.FC<PropsType> = (props) => {
                         <div className="row category-ideas__items">
                             {currentPostList?.map((data) => {
                                 return (
-                                    <div className="category-ideas__item col-12 col-md-4">
+                                    <div className="category-ideas__item col-12 col-md-4" key={data.post_id}>
                                         <div className="category-ideas__item--balloon">
                                             <p className="category-ideas__item--title">{data.title}</p>
                                             <p className="category-ideas__item--content">{data.content}</p>

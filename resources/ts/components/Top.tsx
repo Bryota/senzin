@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 interface PostListType {
     title: string;
-    post_id: number
+    post_id: number;
     category_id: number;
     username: string;
     content: string;
