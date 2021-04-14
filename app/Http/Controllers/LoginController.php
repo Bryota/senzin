@@ -1,10 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+
+
 
 class LoginController extends Controller
 {
@@ -36,5 +41,18 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function checkLoginUser (Request $request) {
+        $userData = User::where('email', $request->email)->first();
+        if ($userData) {
+            if (Hash::check($request->password, $userData->password)) {
+                return ['logined', $userData->id];
+            } else {
+                return ['invalid-password'];
+            }
+        } else {
+            return ['invalid-email'];
+        }
     }
 }

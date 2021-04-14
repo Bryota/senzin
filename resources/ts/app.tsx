@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 import Top from './components/Top';
 import Category from './components/Category';
 import Form from './components/Form';
@@ -30,5 +31,9 @@ const App: React.FC = () => {
 }
 
 if (document.getElementById('app')) {
-    ReactDOM.render(<App />, document.getElementById('app'));
+    ReactDOM.render(
+        <CookiesProvider>
+            <App />
+        </CookiesProvider>
+    , document.getElementById('app'));
 }

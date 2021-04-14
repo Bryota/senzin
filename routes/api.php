@@ -26,3 +26,8 @@ Route::get('/getPostDataInCategory/{category_id}', 'PostController@getPostDataIn
 Route::post('/getResultPostDataTotalNum', 'PostController@getResultPostDataTotalNum');
 Route::post('/getResultPostData', 'PostController@getResultPostData');
 Route::get('/getSinglePostData/{id}', 'PostController@getSinglePostData');
+Route::post('/setNewUser', 'RegisterController@create');
+Route::post('/checkLoginUser', 'LoginController@checkLoginUser');
+Route::post('/setMylistData', 'MylistController@setMylistData');
+Route::get('/getMylistDataTotalNum/{user_id}', 'MylistController@getMylistDataTotalNum');
+Route::get('/getMylistData/{user_id}', 'MylistController@getMylistData');

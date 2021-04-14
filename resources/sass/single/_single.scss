@@ -55,6 +55,19 @@
         }
     }
 
+    &__button--disable {
+        background-color: #eee;
+        border-radius: 30px;
+        color: $font-color;
+        text-align: center;
+        margin-top: 60px;
+        padding: 10px 20px;
+        width: 40%;
+        @include sp {
+            width: 60%;
+        }
+    }
+
     &__button:active {
         box-shadow: none;
         transform: translateY(2px);

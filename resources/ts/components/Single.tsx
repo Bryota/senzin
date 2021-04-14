@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import Header from './Header';
 import getCategoryIcon from '../util/CategoryIcon';
@@ -24,6 +25,8 @@ const Single:React.FC<PropsType> = (props) => {
     const [postData, setPostData] = useState<PostDataType>();
     const id = {id: props.match.params.id};
     const [categoryIcon, setCategoryIcon] = useState<string>();
+    const [cookies] = useCookies();
+    const [canSetMylist, setCanSetMylist] = useState<boolean>(false);
 
     useEffect(() => {
         axios.get(`/api/getSinglePostData/${id.id}`)
@@ -31,7 +34,21 @@ const Single:React.FC<PropsType> = (props) => {
             setPostData(res.data);
             setCategoryIcon(getCategoryIcon(res.data.category.category_id.toString()));
         });
+        if (cookies.loginState) {
+            setCanSetMylist(true);
+        }
     },[]);
+
+    const sendMylistDataToDB = () => {
+        axios.post('/api/setMylistData', {
+            postId: id.id,
+            userId: cookies.userId
+        })
+        .then(() => {
+            console.log('hoge');
+            setCanSetMylist(false);
+        })
+    }
     return (
         <>
             <Header />
@@ -42,7 +59,11 @@ const Single:React.FC<PropsType> = (props) => {
                     {postData?.content}
                 </p>
                 <p className="text-center">
-                    <input type="button" className="single__button" value="マイリストに追加"/>
+                    {canSetMylist ?
+                        <input type="button" className="single__button" value="マイリストに追加" onClick={sendMylistDataToDB}/>
+                        :
+                        <input type="button" className="single__button--disable" value="マイリストに追加" disabled/>
+                    }
                 </p>                
                 <p className="text-center">
                     <input type="button" className="single__button" value="戻る"/>

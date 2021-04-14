@@ -1,7 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import axios from 'axios';
+import * as History from 'history';
+import Pagination from 'react-js-pagination';
 import Header from './Header';
 
-const MyList: React.FC = () => {
+interface PropsType {
+    history: History.History;
+}
+
+interface DataListType {
+    mylist_id: number;
+    post_id: number;
+    user_id: number;
+    post: {
+        title: string;
+        post_id: number;
+        category_id: number;
+        username: string;
+        content: string;
+        category: {
+            category_id: number,
+            category_name: string
+        }
+    }
+
+}
+
+const MyList= (props: PropsType) => {
+    const [currentDataList, setCurrentDataList] = useState<DataListType[]>();
+    const [cookies] = useCookies();
+    const [activePage, setActivePage] = useState<number>(1);
+    const [totalItemsCount, setTotalItemsCount] = useState<number>(0);
+
+    useEffect(() => {
+        if (cookies.loginState !== 'logined') {
+            props.history.push('/login');
+        }
+        axios.get(`/api/getMylistDataTotalNum/${cookies.userId}`)
+        .then((res) => {
+            setTotalItemsCount(res.data);
+        })
+        axios.get(`/api/getMylistData/${cookies.userId}?page=${activePage}`)
+        .then((res) => {
+            setCurrentDataList(res.data.data);
+        })
+    },[]);
+
+    const pageChange = (pageNum: number) => {
+        axios.get(`/api/getMylistData/${cookies.userId}}?page=${pageNum}`)
+        .then((res) => {
+            setCurrentDataList(res.data.data);
+            setActivePage(pageNum);
+        });
+    }
     return (
         <>
             <Header />
@@ -32,79 +85,35 @@ const MyList: React.FC = () => {
                 <div className="mylist-ideas">
                     <div className="container">
                         <div className="row mylist-ideas__items">
-                            <div className="mylist-ideas__item col-12 col-md-4">
-                                <div className="mylist-ideas__item--balloon">
-                                    <p className="mylist-ideas__item--title">テスト投稿</p>
-                                    <p className="mylist-ideas__item--category">食べ物</p>
-                                    <p className="mylist-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                                </div>
-                                <div>
-                                    <i className="far fa-user fa-5x mylist-ideas__item--icon"></i>
-                                </div>
-                                <p className="mylist-ideas__item--username">テストユーザー</p>
-                            </div>
-                            <div className="mylist-ideas__item col-12 col-md-4">
-                                <div className="mylist-ideas__item--balloon">
-                                    <p className="mylist-ideas__item--title">テスト投稿</p>
-                                    <p className="mylist-ideas__item--category">食べ物</p>
-                                    <p className="mylist-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                                </div>
-                                <div>
-                                    <i className="far fa-user fa-5x mylist-ideas__item--icon"></i>
-                                </div>
-                                <p className="mylist-ideas__item--username">テストユーザー</p>
-                            </div>
-                            <div className="mylist-ideas__item col-12 col-md-4">
-                                <div className="mylist-ideas__item--balloon">
-                                    <p className="mylist-ideas__item--title">テスト投稿</p>
-                                    <p className="mylist-ideas__item--category">食べ物</p>
-                                    <p className="mylist-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                                </div>
-                                <div>
-                                    <i className="far fa-user fa-5x mylist-ideas__item--icon"></i>
-                                </div>
-                                <p className="mylist-ideas__item--username">テストユーザー</p>
-                            </div>
-                        </div>
-                        <div className="row mylist__ideas--items">
-                            <div className="mylist-ideas__item col-12 col-md-4">
-                                <div className="mylist-ideas__item--balloon">
-                                    <p className="mylist-ideas__item--title">テスト投稿</p>
-                                    <p className="mylist-ideas__item--category">食べ物</p>
-                                    <p className="mylist-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                                </div>
-                                <div>
-                                    <i className="far fa-user fa-5x mylist-ideas__item--icon"></i>
-                                </div>
-                                <p className="mylist-ideas__item--username">テストユーザー</p>
-                            </div>
-                            <div className="mylist-ideas__item col-12 col-md-4">
-                                <div className="mylist-ideas__item--balloon">
-                                    <p className="mylist-ideas__item--title">テスト投稿</p>
-                                    <p className="mylist-ideas__item--category">食べ物</p>
-                                    <p className="mylist-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                                </div>
-                                <div>
-                                    <i className="far fa-user fa-5x mylist-ideas__item--icon"></i>
-                                </div>
-                                <p className="mylist-ideas__item--username">テストユーザー</p>
-                            </div>
-                            <div className="mylist-ideas__item col-12 col-md-4">
-                                <div className="mylist-ideas__item--balloon">
-                                    <p className="mylist-ideas__item--title">テスト投稿</p>
-                                    <p className="mylist-ideas__item--category">食べ物</p>
-                                    <p className="mylist-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                                </div>
-                                <div>
-                                    <i className="far fa-user fa-5x mylist-ideas__item--icon"></i>
-                                </div>
-                                <p className="mylist-ideas__item--username">テストユーザー</p>
-                            </div>
+                            {currentDataList?.map((data) => {
+                                console.log(data);
+                                return (
+                                    <Link className="mylist-ideas__item col-12 col-md-4" to={'/single/' + data.post.post_id} key={data.mylist_id}>
+                                        <div className="mylist-ideas__item--balloon">
+                                            <p className="mylist-ideas__item--title">{data.post.title}</p>
+                                            <p className="mylist-ideas__item--category">{data.post.category.category_name}</p>
+                                            <p className="mylist-ideas__item--content">{data.post.content}</p>
+                                        </div>
+                                        <div>
+                                            <i className="far fa-user fa-5x mylist-ideas__item--icon"></i>
+                                        </div>
+                                        <p className="mylist-ideas__item--username">{data.post.username}</p>
+                                    </Link>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
-                <div className="mylist-pager">
-                    <div className="mylist-pager__wrap"><span className="mylist-pager__num">1</span><span className="mylist-pager__num">2</span><span className="mylist-pager__num">3</span><span className="mylist-pager__num">4</span></div>
+                <div className="category-pager">
+                    <Pagination
+                        activePage={activePage}
+                        itemsCountPerPage={6}
+                        pageRangeDisplayed={5}
+                        totalItemsCount={totalItemsCount}
+                        onChange={pageChange}
+                        itemClass='page-item'
+                        linkClass='page-link'
+                    />
                 </div>
             </div>
         </>
