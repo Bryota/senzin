@@ -19,7 +19,7 @@ interface PostType {
 }
 const Form = (props: PropsType) => {
     const [title, setTitle] = useState<string>();
-    const [category, setCotegory] = useState<CategoryType | string>();
+    const [category, setCotegory] = useState<CategoryType | string>("1");
     const [username, setUsername] = useState<string>('匿名希望');
     const [content, setContent] = useState<string>();
     const sendPostDataToDB = async(data: PostType) => {
@@ -45,7 +45,7 @@ const Form = (props: PropsType) => {
         <>
             <Header />
             <div className="form">
-                <h1 className="form__title">投稿フォーム</h1>
+                <h1 className="form__title">稿フォーム</h1>
                 <form className="form__wrap" onSubmit={(e) => {submitPostData(e)}}>
                     <div className="form__items">
                         <div className="form__item">
@@ -54,7 +54,7 @@ const Form = (props: PropsType) => {
                         </div>
                         <div className="form__item">
                             <label htmlFor="category" className="form__label">カテゴリ<span className="form__required">必須</span></label>
-                            <select name="category" id="category" className="form__select" onChange={e => setCotegory(e.target.value)}>
+                            <select name="category" id="category" className="form__select" onChange={e => setCotegory(e.target.value)} defaultValue="1">
                                 <option value="1">食べ物</option>
                                 <option value="2">掃除</option>
                                 <option value="3">健康</option>

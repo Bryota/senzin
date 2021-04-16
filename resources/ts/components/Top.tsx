@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Slider from 'react-slick';
 import Header from './Header';
+import OmitContent from '../util/OmitContent';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -50,7 +51,7 @@ const Top:React.FC = () => {
                                     <div className="top-ideas__item--balloon">
                                         <p className="top-ideas__item--title">{post.title}</p>
                                         <p className="top-ideas__item--category">{post.category.category_name}</p>
-                                        <p className="top-ideas__item--content">{post.content}</p>
+                                        <p className="top-ideas__item--content">{OmitContent(post.content)}</p>
                                     </div>
                                     <div>
                                         <i className="far fa-user fa-5x top-ideas__item--icon"></i>

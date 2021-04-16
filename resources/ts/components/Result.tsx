@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
+import OmitContent from '../util/OmitContent';
+
 
 interface PropsType {
     location: {
@@ -65,7 +67,7 @@ const Result= (props: PropsType) => {
                                         <div className="result-ideas__item--balloon">
                                             <p className="result-ideas__item--title">{data.title}</p>
                                             <p className="result-ideas__item--result">{data.category.category_name}</p>
-                                            <p className="result-ideas__item--content">{data.content}</p>
+                                            <p className="result-ideas__item--content">{OmitContent(data.content)}</p>
                                         </div>
                                         <div>
                                             <i className="far fa-user fa-5x result-ideas__item--icon"></i>

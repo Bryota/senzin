@@ -41488,6 +41488,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var CategoryIcon_1 = __importDefault(__webpack_require__(/*! ../util/CategoryIcon */ "./resources/ts/util/CategoryIcon.ts"));
+var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
 var Category = function (props) {
     var category_id = { category_id: props.match.params.category_id };
     var _a = react_1.useState(), categoryIcon = _a[0], setCategoryIcon = _a[1];
@@ -41530,7 +41531,7 @@ var Category = function (props) {
                         return (react_1.default.createElement(react_router_dom_1.Link, { className: "category-ideas__item col-12 col-md-4", key: data.post_id, to: '/single/' + data.post_id },
                             react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
                                 react_1.default.createElement("p", { className: "category-ideas__item--title" }, data.title),
-                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, data.content)),
+                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, OmitContent_1.default(data.content))),
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
                             react_1.default.createElement("p", { className: "category-ideas__item--username" }, data.username)));
@@ -41616,7 +41617,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var Form = function (props) {
     var _a = react_1.useState(), title = _a[0], setTitle = _a[1];
-    var _b = react_1.useState(), category = _b[0], setCotegory = _b[1];
+    var _b = react_1.useState("1"), category = _b[0], setCotegory = _b[1];
     var _c = react_1.useState('匿名希望'), username = _c[0], setUsername = _c[1];
     var _d = react_1.useState(), content = _d[0], setContent = _d[1];
     var sendPostDataToDB = function (data) { return __awaiter(void 0, void 0, void 0, function () {
@@ -41648,7 +41649,7 @@ var Form = function (props) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement("div", { className: "form" },
-            react_1.default.createElement("h1", { className: "form__title" }, "\u6295\u7A3F\u30D5\u30A9\u30FC\u30E0"),
+            react_1.default.createElement("h1", { className: "form__title" }, "\u7A3F\u30D5\u30A9\u30FC\u30E0"),
             react_1.default.createElement("form", { className: "form__wrap", onSubmit: function (e) { submitPostData(e); } },
                 react_1.default.createElement("div", { className: "form__items" },
                     react_1.default.createElement("div", { className: "form__item" },
@@ -41660,7 +41661,7 @@ var Form = function (props) {
                         react_1.default.createElement("label", { htmlFor: "category", className: "form__label" },
                             "\u30AB\u30C6\u30B4\u30EA",
                             react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
-                        react_1.default.createElement("select", { name: "category", id: "category", className: "form__select", onChange: function (e) { return setCotegory(e.target.value); } },
+                        react_1.default.createElement("select", { name: "category", id: "category", className: "form__select", onChange: function (e) { return setCotegory(e.target.value); }, defaultValue: "1" },
                             react_1.default.createElement("option", { value: "1" }, "\u98DF\u3079\u7269"),
                             react_1.default.createElement("option", { value: "2" }, "\u6383\u9664"),
                             react_1.default.createElement("option", { value: "3" }, "\u5065\u5EB7"),
@@ -41911,6 +41912,7 @@ var react_cookie_1 = __webpack_require__(/*! react-cookie */ "./node_modules/rea
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
+var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
 var MyList = function (props) {
     var _a = react_1.useState(), currentDataList = _a[0], setCurrentDataList = _a[1];
     var cookies = react_cookie_1.useCookies()[0];
@@ -42021,7 +42023,7 @@ var MyList = function (props) {
                             react_1.default.createElement("div", { className: "mylist-ideas__item--balloon" },
                                 react_1.default.createElement("p", { className: "mylist-ideas__item--title" }, data.post.title),
                                 react_1.default.createElement("p", { className: "mylist-ideas__item--category" }, data.post.category.category_name),
-                                react_1.default.createElement("p", { className: "mylist-ideas__item--content" }, data.post.content)),
+                                react_1.default.createElement("p", { className: "mylist-ideas__item--content" }, OmitContent_1.default(data.post.content))),
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x mylist-ideas__item--icon" })),
                             react_1.default.createElement("p", { className: "mylist-ideas__item--username" }, data.post.username)));
@@ -42200,6 +42202,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
+var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
 var Result = function (props) {
     var _a = react_1.useState(), currentPostDataList = _a[0], setCurrentPostDataList = _a[1];
     var _b = react_1.useState(1), activePage = _b[0], setActivePage = _b[1];
@@ -42236,7 +42239,7 @@ var Result = function (props) {
                             react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
                                 react_1.default.createElement("p", { className: "result-ideas__item--title" }, data.title),
                                 react_1.default.createElement("p", { className: "result-ideas__item--result" }, data.category.category_name),
-                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, data.content)),
+                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, OmitContent_1.default(data.content))),
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
                             react_1.default.createElement("p", { className: "result-ideas__item--username" }, data.username)));
@@ -42465,6 +42468,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_slick_1 = __importDefault(__webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
+var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
 __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
 __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
 var Top = function () {
@@ -42495,7 +42499,7 @@ var Top = function () {
                         react_1.default.createElement("div", { className: "top-ideas__item--balloon" },
                             react_1.default.createElement("p", { className: "top-ideas__item--title" }, post.title),
                             react_1.default.createElement("p", { className: "top-ideas__item--category" }, post.category.category_name),
-                            react_1.default.createElement("p", { className: "top-ideas__item--content" }, post.content)),
+                            react_1.default.createElement("p", { className: "top-ideas__item--content" }, OmitContent_1.default(post.content))),
                         react_1.default.createElement("div", null,
                             react_1.default.createElement("i", { className: "far fa-user fa-5x top-ideas__item--icon" })),
                         react_1.default.createElement("p", { className: "top-ideas__item--username" }, post.username)));
@@ -42594,6 +42598,28 @@ var getCategoryIcon = function (category_id) {
     }
 };
 exports.default = getCategoryIcon;
+
+
+/***/ }),
+
+/***/ "./resources/ts/util/OmitContent.ts":
+/*!******************************************!*\
+  !*** ./resources/ts/util/OmitContent.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var OmitContent = function (content) {
+    var maxLength_char = 40;
+    if (content.length > maxLength_char) {
+        return content.substr(0, maxLength_char) + '...';
+    }
+    return content;
+};
+exports.default = OmitContent;
 
 
 /***/ }),

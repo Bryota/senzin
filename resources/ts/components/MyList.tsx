@@ -5,6 +5,8 @@ import axios from 'axios';
 import * as History from 'history';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
+import OmitContent from '../util/OmitContent';
+
 
 interface PropsType {
     history: History.History;
@@ -115,7 +117,7 @@ const MyList= (props: PropsType) => {
                                         <div className="mylist-ideas__item--balloon">
                                             <p className="mylist-ideas__item--title">{data.post.title}</p>
                                             <p className="mylist-ideas__item--category">{data.post.category.category_name}</p>
-                                            <p className="mylist-ideas__item--content">{data.post.content}</p>
+                                            <p className="mylist-ideas__item--content">{OmitContent(data.post.content)}</p>
                                         </div>
                                         <div>
                                             <i className="far fa-user fa-5x mylist-ideas__item--icon"></i>
