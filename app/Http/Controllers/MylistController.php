@@ -54,4 +54,15 @@ class MylistController extends Controller
         $mylistData = json_encode($mylistData,JSON_UNESCAPED_UNICODE);
         return $mylistData;
     }
+
+    public function checkMylistData($user_id, $post_id) {
+        $mylistData = Mylist::where('user_id', $user_id)
+        ->where('post_id', $post_id)
+        ->get(['mylist_id']);
+        if ($mylistData->isEmpty()) {
+            return 'notSaved';
+        } else {
+            return 'saved';
+        }
+    }
 }

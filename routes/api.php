@@ -33,3 +33,4 @@ Route::get('/getMylistDataTotalNum/{user_id}', 'MylistController@getMylistDataTo
 Route::get('/getMylistData/{user_id}', 'MylistController@getMylistData');
 Route::get('/getMylistDataFromCategoryIdTotalNum/{user_id}/{category_id}', 'MylistController@getMylistDataFromCategoryIdTotalNum');
 Route::get('/getMylistDataFromCategoryId/{user_id}/{category_id}', 'MylistController@getMylistDataFromCategoryId');
+Route::get('/checkMylistData/{user_id}/{post_id}', 'MylistController@checkMylistData');

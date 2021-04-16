@@ -42375,6 +42375,12 @@ var Single = function (props) {
         if (cookies.loginState) {
             setCanSetMylist(true);
         }
+        axios_1.default.get("/api/checkMylistData/" + cookies.userId + "/" + id.id)
+            .then(function (res) {
+            if (res.data === "saved") {
+                setCanSetMylist(false);
+            }
+        });
     }, []);
     var sendMylistDataToDB = function () {
         axios_1.default.post('/api/setMylistData', {

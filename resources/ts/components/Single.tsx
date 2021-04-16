@@ -37,6 +37,12 @@ const Single:React.FC<PropsType> = (props) => {
         if (cookies.loginState) {
             setCanSetMylist(true);
         }
+        axios.get(`/api/checkMylistData/${cookies.userId}/${id.id}`)
+        .then((res) => {
+            if (res.data === "saved") {
+                setCanSetMylist(false);
+            }
+        })
     },[]);
 
     const sendMylistDataToDB = () => {
