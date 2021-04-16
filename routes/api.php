@@ -31,3 +31,5 @@ Route::post('/checkLoginUser', 'LoginController@checkLoginUser');
 Route::post('/setMylistData', 'MylistController@setMylistData');
 Route::get('/getMylistDataTotalNum/{user_id}', 'MylistController@getMylistDataTotalNum');
 Route::get('/getMylistData/{user_id}', 'MylistController@getMylistData');
+Route::get('/getMylistDataFromCategoryIdTotalNum/{user_id}/{category_id}', 'MylistController@getMylistDataFromCategoryIdTotalNum');
+Route::get('/getMylistDataFromCategoryId/{user_id}/{category_id}', 'MylistController@getMylistDataFromCategoryId');

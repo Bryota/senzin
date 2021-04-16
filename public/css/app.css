@@ -12700,6 +12700,7 @@ template {
 
 .mylist-nav__item {
   display: inline-block;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 414px) {

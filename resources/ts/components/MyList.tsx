@@ -33,6 +33,8 @@ const MyList= (props: PropsType) => {
     const [cookies] = useCookies();
     const [activePage, setActivePage] = useState<number>(1);
     const [totalItemsCount, setTotalItemsCount] = useState<number>(0);
+    const [isCategoryData, setIsCategoryData] = useState<boolean>(false);
+    const [categoryId, setCategoryId] = useState<number>();
 
     useEffect(() => {
         if (cookies.loginState !== 'logined') {
@@ -48,12 +50,34 @@ const MyList= (props: PropsType) => {
         })
     },[]);
 
-    const pageChange = (pageNum: number) => {
-        axios.get(`/api/getMylistData/${cookies.userId}}?page=${pageNum}`)
+    const changeMylistData = async(category_id: number) => {
+        setIsCategoryData(true);
+        setCategoryId(category_id);
+        setActivePage(1);
+        await axios.get(`/api/getMylistDataFromCategoryIdTotalNum/${cookies.userId}/${category_id}`)
+        .then((res) => {
+            setTotalItemsCount(res.data);
+        })
+        await axios.get(`/api/getMylistDataFromCategoryId/${cookies.userId}/${category_id}?page=1`)
         .then((res) => {
             setCurrentDataList(res.data.data);
-            setActivePage(pageNum);
-        });
+        })
+    }
+
+    const pageChange = async(pageNum: number) => {
+        if (isCategoryData) {
+            await axios.get(`/api/getMylistDataFromCategoryId/${cookies.userId}/${categoryId}?page=${pageNum}`)
+            .then((res) => {
+                setCurrentDataList(res.data.data);
+                setActivePage(pageNum);
+            });
+        } else {
+            axios.get(`/api/getMylistData/${cookies.userId}}?page=${pageNum}`)
+            .then((res) => {
+                setCurrentDataList(res.data.data);
+                setActivePage(pageNum);
+            });
+        }
     }
     return (
         <>
@@ -62,22 +86,22 @@ const MyList= (props: PropsType) => {
                 <h1 className="mylist__title">マイリスト</h1>
                 <div className="mylist-nav">
                     <ul className="mylist-nav__items">
-                        <li className="mylist-nav__item">
+                        <li className="mylist-nav__item" onClick={() => changeMylistData(1)}>
                             <p className="mylist-nav__title"><span className="mylist-nav__icon--food"><i className="fas fa-utensils"></i></span>食べ物</p>
                         </li>
-                        <li className="mylist-nav__item">
+                        <li className="mylist-nav__item" onClick={() => changeMylistData(2)}>
                             <p className="mylist-nav__title"><span className="mylist-nav__icon--clean"><i className="fas fa-broom"></i></span>掃除</p>
                         </li>
-                        <li className="mylist-nav__item">
+                        <li className="mylist-nav__item" onClick={() => changeMylistData(3)}>
                             <p className="mylist-nav__title"><span className="mylist-nav__icon--health"><i className="fas fa-plus-square"></i></span>健康</p>
                         </li>
-                        <li className="mylist-nav__item">
+                        <li className="mylist-nav__item" onClick={() => changeMylistData(4)}>
                             <p className="mylist-nav__title"><span className="mylist-nav__icon--sport"><i className="fas fa-running"></i></span>スポーツ</p>
                         </li>
-                        <li className="mylist-nav__item">
+                        <li className="mylist-nav__item" onClick={() => changeMylistData(5)}>
                             <p className="mylist-nav__title"><span className="mylist-nav__icon--machine"><i className="fas fa-tv"></i></span>機械</p>
                         </li>
-                        <li className="mylist-nav__item">
+                        <li className="mylist-nav__item" onClick={() => changeMylistData(6)}>
                             <p className="mylist-nav__title"><span className="mylist-nav__icon--other"><i className="fas fa-ellipsis-h"></i></span>その他</p>
                         </li>
                     </ul>
@@ -86,7 +110,6 @@ const MyList= (props: PropsType) => {
                     <div className="container">
                         <div className="row mylist-ideas__items">
                             {currentDataList?.map((data) => {
-                                console.log(data);
                                 return (
                                     <Link className="mylist-ideas__item col-12 col-md-4" to={'/single/' + data.post.post_id} key={data.mylist_id}>
                                         <div className="mylist-ideas__item--balloon">
