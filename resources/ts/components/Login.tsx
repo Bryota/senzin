@@ -26,8 +26,10 @@ const Login= (props: PropsType) => {
     useEffect(() => {
         switch (loginState) {
             case 'logined':
-                setCookie('loginState', loginState);
-                setCookie('userId', userId);
+                let cookieDate = new Date();
+                cookieDate  = new Date(cookieDate.setDate(cookieDate.getDate() + 1));
+                setCookie('loginState', loginState, { expires: cookieDate });
+                setCookie('userId', userId, { expires: cookieDate });
                 props.history.push('/mylist');
                 break;
             case 'invalid-email':

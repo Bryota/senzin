@@ -51222,8 +51222,10 @@ var Login = function (props) {
     react_1.useEffect(function () {
         switch (loginState) {
             case 'logined':
-                setCookie('loginState', loginState);
-                setCookie('userId', userId);
+                var cookieDate = new Date();
+                cookieDate = new Date(cookieDate.setDate(cookieDate.getDate() + 1));
+                setCookie('loginState', loginState, { expires: cookieDate });
+                setCookie('userId', userId, { expires: cookieDate });
                 props.history.push('/mylist');
                 break;
             case 'invalid-email':
@@ -51365,11 +51367,11 @@ var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/
 var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
 var MyList = function (props) {
     var _a = react_1.useState(), currentDataList = _a[0], setCurrentDataList = _a[1];
-    var cookies = react_cookie_1.useCookies()[0];
-    var _b = react_1.useState(1), activePage = _b[0], setActivePage = _b[1];
-    var _c = react_1.useState(0), totalItemsCount = _c[0], setTotalItemsCount = _c[1];
-    var _d = react_1.useState(false), isCategoryData = _d[0], setIsCategoryData = _d[1];
-    var _e = react_1.useState(), categoryId = _e[0], setCategoryId = _e[1];
+    var _b = react_cookie_1.useCookies(), cookies = _b[0], setCookies = _b[1], removeCookies = _b[2];
+    var _c = react_1.useState(1), activePage = _c[0], setActivePage = _c[1];
+    var _d = react_1.useState(0), totalItemsCount = _d[0], setTotalItemsCount = _d[1];
+    var _e = react_1.useState(false), isCategoryData = _e[0], setIsCategoryData = _e[1];
+    var _f = react_1.useState(), categoryId = _f[0], setCategoryId = _f[1];
     react_1.useEffect(function () {
         if (cookies.loginState !== 'logined') {
             props.history.push('/login');
@@ -51430,11 +51432,17 @@ var MyList = function (props) {
             }
         });
     }); };
-    console.log(currentDataList);
+    var logOut = function () {
+        removeCookies('loginState');
+        removeCookies('userId');
+        props.history.push('/login');
+    };
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement("div", { className: "mylist" },
-            react_1.default.createElement("h1", { className: "mylist__title" }, "\u30DE\u30A4\u30EA\u30B9\u30C8"),
+            react_1.default.createElement("h1", { className: "mylist__title" },
+                "\u30DE\u30A4\u30EA\u30B9\u30C8",
+                react_1.default.createElement("span", { className: "mylist__logout", onClick: logOut }, "\u30ED\u30B0\u30A2\u30A6\u30C8")),
             react_1.default.createElement("div", { className: "mylist-nav" },
                 react_1.default.createElement("ul", { className: "mylist-nav__items" },
                     react_1.default.createElement("li", { className: "mylist-nav__item", onClick: function () { return changeMylistData(1); } },
@@ -51927,7 +51935,6 @@ var Single = function (props) {
             userId: cookies.userId
         })
             .then(function () {
-            console.log('hoge');
             setCanSetMylist(false);
         });
     };

@@ -12709,6 +12709,23 @@ template {
   padding: 20px 0;
 }
 
+.mylist__logout {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 2px 2px 4px #eee;
+  color: red;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 20px;
+  padding: 5px 10px;
+}
+
+.mylist__logout:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
 .mylist-nav {
   background-color: #fff;
   padding: 10px 0;

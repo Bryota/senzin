@@ -32,7 +32,7 @@ interface DataListType {
 
 const MyList= (props: PropsType) => {
     const [currentDataList, setCurrentDataList] = useState<DataListType[]>();
-    const [cookies] = useCookies();
+    const [cookies, setCookies, removeCookies] = useCookies();
     const [activePage, setActivePage] = useState<number>(1);
     const [totalItemsCount, setTotalItemsCount] = useState<number>(0);
     const [isCategoryData, setIsCategoryData] = useState<boolean>(false);
@@ -81,12 +81,17 @@ const MyList= (props: PropsType) => {
             });
         }
     }
-    console.log(currentDataList);
+
+    const logOut = () => {
+        removeCookies('loginState');
+        removeCookies('userId');
+        props.history.push('/login');
+    }
     return (
         <>
             <Header />
             <div className="mylist">
-                <h1 className="mylist__title">マイリスト</h1>
+                <h1 className="mylist__title">マイリスト<span className="mylist__logout" onClick={logOut}>ログアウト</span></h1>
                 <div className="mylist-nav">
                     <ul className="mylist-nav__items">
                         <li className="mylist-nav__item" onClick={() => changeMylistData(1)}>

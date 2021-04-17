@@ -6,4 +6,21 @@
         font-size: 48px;
         padding: 20px 0;
     }
+
+    &__logout {
+        background-color: #fff;
+        border-radius: 30px;
+        box-shadow: 2px 2px 4px #eee;
+        color: red;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 20px;
+        padding: 5px 10px;
+    }
+
+    &__logout:active {
+        box-shadow: none;
+        transform: translateY(2px);
+    }
 }
