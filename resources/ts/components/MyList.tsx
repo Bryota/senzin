@@ -81,6 +81,7 @@ const MyList= (props: PropsType) => {
             });
         }
     }
+    console.log(currentDataList);
     return (
         <>
             <Header />

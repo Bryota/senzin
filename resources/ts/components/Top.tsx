@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Slider from 'react-slick';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Header from './Header';
 import OmitContent from '../util/OmitContent';
 import "slick-carousel/slick/slick.css";
@@ -21,11 +22,13 @@ interface PostListType {
 
 const Top:React.FC = () => {
     const [postList, setPostList] = useState<PostListType[]>();
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     useEffect(() => {
         axios.get('/api/getPostData')
         .then((res) => {
             setPostList(res.data);
-        })
+        });
+        setIsLoading(false);
     },[]);
     const sliderSettings = {
         dots: false,
@@ -38,6 +41,11 @@ const Top:React.FC = () => {
     }
     return (
         <>
+            {isLoading ?
+                <CircularProgress />
+                :
+                <></>
+            }
             <Header />
             <div className="top-bgimg">
                 <h1 className="top-bgimg__title">先人の知恵</h1>

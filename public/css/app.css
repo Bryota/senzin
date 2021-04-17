@@ -11471,6 +11471,12 @@ template {
   display: none;
 }
 
+.validation {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .icon__food {
   color: #dd3737;
 }
@@ -12162,7 +12168,7 @@ template {
 .search__input {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 145px;
+  margin-left: 95px;
   padding: 5px 15px;
   width: 50%;
 }
@@ -12381,6 +12387,29 @@ template {
   }
 }
 
+.single__button--back {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: #6f6152;
+  display: inline-block;
+  text-align: center;
+  margin-top: 60px;
+  padding: 10px 20px;
+  width: 40%;
+}
+
+@media only screen and (max-width: 414px) {
+  .single__button--back {
+    width: 60%;
+  }
+}
+
+.single__button--back:hover {
+  color: #6f6152;
+  text-decoration: none;
+}
+
 .single__button--disable {
   background-color: #eee;
   border-radius: 30px;
@@ -12562,7 +12591,7 @@ template {
 .register__input {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 145px;
+  margin-left: 85px;
   padding: 5px 15px;
   width: 50%;
 }
@@ -12583,7 +12612,7 @@ template {
 .register__input--name {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 195px;
+  margin-left: 140px;
   padding: 5px 15px;
   width: 50%;
 }
@@ -12604,7 +12633,7 @@ template {
 .register__input--password {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 195px;
+  margin-left: 140px;
   padding: 5px 15px;
   width: 50%;
 }

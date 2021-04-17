@@ -20,8 +20,8 @@ const Login= (props: PropsType) => {
     const [userId, setUserId] = useState<number>(0);
     const [loginState, setLoginState] = useState<string>('');
     const [cookies, setCookie] = useCookies(['userId', 'authState']);
-    const [invalidEmail, setInvalidEmail] = useState<boolean>(false);
-    const [invalidPassword, setInvalidPassword] = useState<boolean>(false);
+    const [emailValidationFlg, setEmailValidationFlg] = useState<boolean>(false);
+    const [passwordValidationFlg, setPasswordValidationFlg] = useState<boolean>(false);
 
     useEffect(() => {
         switch (loginState) {
@@ -31,19 +31,17 @@ const Login= (props: PropsType) => {
                 props.history.push('/mylist');
                 break;
             case 'invalid-email':
-                setInvalidEmail(true);
-                setInvalidPassword(false);
+                setEmailValidationFlg(true);
                 break;
             case 'invalid-password':
-                setInvalidEmail(false);
-                setInvalidPassword(true);
+                setPasswordValidationFlg(true);
                 break;
             default:
-                setInvalidEmail(false);
-                setInvalidPassword(false);
+                setEmailValidationFlg(false);
+                setPasswordValidationFlg(false);
                 break;
         }
-    },[loginState]);
+    },[loginState, email, password]);
 
     const sendLoginUserDataToDB = (data: LoginDataType) => {
         axios.post('/api/checkLoginUser', data)
@@ -59,6 +57,8 @@ const Login= (props: PropsType) => {
 
     const submitLoginData = (e: FormEvent) => {
         e.preventDefault();
+        setEmailValidationFlg(false);
+        setPasswordValidationFlg(false);
         sendLoginUserDataToDB({
             email: email,
             password: password
@@ -74,10 +74,20 @@ const Login= (props: PropsType) => {
                         <div className="login__item">
                             <label htmlFor="email" className="login__label">メールアドレス</label>
                             <input type="email" id="email" className="login__input" value={email} onChange={e => setEmail(e.target.value)}/>
+                            {  emailValidationFlg ?
+                                <p className="validation">メールアドレスを正しく入力してください</p>
+                                :
+                                <></>
+                            }
                         </div>
                         <div className="login__item">
                             <label htmlFor="password" className="login__label">パスワード</label>
                             <input type="password" id="password" className="login__input--password" value={password} onChange={e => setPassword(e.target.value)}/>
+                            {  passwordValidationFlg ?
+                                <p className="validation">パスワードを正しく入力してください</p>
+                                :
+                                <></>
+                            }
                         </div>
                         <div className="text-center">
                             <input type="submit" value="ログイン" className="login__button"/>

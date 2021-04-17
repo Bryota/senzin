@@ -1,7 +1,8 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 import axios from 'axios';
 import * as History from 'history';
 import Header from './Header';
+import Validation from '../util/Validation';
 
 interface PropsType {
     history: History.History;
@@ -22,6 +23,20 @@ const Form = (props: PropsType) => {
     const [category, setCotegory] = useState<CategoryType | string>("1");
     const [username, setUsername] = useState<string>('匿名希望');
     const [content, setContent] = useState<string>();
+    const [titleValidationFlg, setTitleValidationFlg] = useState<boolean>(false);
+    const [categoryValidationFlg, setCategoryValidationFlg] = useState<boolean>(false);
+    const [usernameValidationFlg, setUsernameValidationFlg] = useState<boolean>(false);
+    const [contentValidationFlg, setContentValidationFlg] = useState<boolean>(false);
+
+    useEffect(() => {
+        checkValidation();
+    },[title, category, username, content])
+    const checkValidation = () => {
+        Validation('required', title as string, setTitleValidationFlg);
+        Validation('required', category as string, setCategoryValidationFlg);
+        Validation('required', username as string, setUsernameValidationFlg);
+        Validation('required', content as string, setContentValidationFlg);
+    }
     const sendPostDataToDB = async(data: PostType) => {
         await axios.post('/api/setPostData', data)
         .then(() => {
@@ -31,9 +46,9 @@ const Form = (props: PropsType) => {
             setContent('');
         })
     }
-    const submitPostData = (e: FormEvent) => {
+    const submitPostData = async(e: FormEvent) => {
         e.preventDefault();
-        sendPostDataToDB({
+        await sendPostDataToDB({
             title: title as string,
             category: category as CategoryType,
             username: username as string,
@@ -45,12 +60,17 @@ const Form = (props: PropsType) => {
         <>
             <Header />
             <div className="form">
-                <h1 className="form__title">稿フォーム</h1>
+                <h1 className="form__title">登稿フォーム</h1>
                 <form className="form__wrap" onSubmit={(e) => {submitPostData(e)}}>
                     <div className="form__items">
                         <div className="form__item">
                             <label htmlFor="title" className="form__label">投稿タイトル<span className="form__required">必須</span></label>
                             <input type="text" id="title" className="form__input--title" value={title} onChange={e => setTitle(e.target.value)} />
+                            { titleValidationFlg ?
+                                <p className="validation">投稿タイトルを入力してください</p>
+                                :
+                                <></>
+                            }
                         </div>
                         <div className="form__item">
                             <label htmlFor="category" className="form__label">カテゴリ<span className="form__required">必須</span></label>
@@ -62,14 +82,29 @@ const Form = (props: PropsType) => {
                                 <option value="5">機械</option>
                                 <option value="6">その他</option>
                             </select>
+                            { categoryValidationFlg ?
+                                <p className="validation">カテゴリを選択してください</p>
+                                :
+                                <></>
+                            }
                         </div>
                         <div className="form__item">
                             <label htmlFor="username" className="form__label">投稿者名<span className="form__required">必須</span></label>
                             <input type="text" id="username" className="form__input--username" value={username} onChange={e => setUsername(e.target.value)} />
+                            { usernameValidationFlg ?
+                                <p className="validation">投稿者名を入力してください</p>
+                                :
+                                <></>
+                            }
                         </div>
                         <div className="form__item">
                             <label htmlFor="content" className="form__label">内容<span className="form__required">必須</span></label>
                             <textarea name="content" id="content" className="form__textarea" value={content} onChange={e => setContent(e.target.value)}></textarea>
+                            { contentValidationFlg ?
+                                <p className="validation">内容を入力してください</p>
+                                :
+                                <></>
+                            }
                         </div>
                         <div className="text-center">
                             <input type="submit" value="投稿する" className="form__button" />

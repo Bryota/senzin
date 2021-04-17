@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as History from 'history';
 import Header from './Header';
+import Validation from '../util/Validation';
 
 interface PropsType {
     history: History.History;
 }
 
 const Search = (props: PropsType) => {
-    const [categoryId, setCategoryId] = useState<string>();
+    const [categoryId, setCategoryId] = useState<string>("1");
     const [freeword, setFreeword] = useState<string>();
+    const [categoryIdValidationFlg, setCategoryIdValidationFlg] = useState<boolean>(false);
+    const [freewordValidationFlg, setFreewordValidationFlg] = useState<boolean>(false);
+
+    useEffect(() => {
+        checkValidation();
+    },[categoryId, freeword]);
+
+    const checkValidation = () => {
+        Validation('required', categoryId, setCategoryIdValidationFlg);
+        Validation('required', freeword as string, setFreewordValidationFlg);
+    }
 
     const sendSearchDataToResultPage = () => {
+        if (categoryIdValidationFlg || freewordValidationFlg) {
+            return;
+        }
         props.history.push({
             pathname: '/result',
             state: {
@@ -36,10 +51,20 @@ const Search = (props: PropsType) => {
                                 <option value="5">機械</option>
                                 <option value="6">その他</option>
                             </select>
+                            { categoryIdValidationFlg ?
+                                <p className="validation">カテゴリを選択してください</p>
+                                :
+                                <></>
+                            }
                         </div>
                         <div className="search__item">
-                            <label htmlFor="freeword" className="search__label">フリーワード</label>
+                            <label htmlFor="freeword" className="search__label">フリーワード<span className="search__required">必須</span></label>
                             <input type="text" id="freeword" value={freeword} className="search__input" onChange={e => setFreeword(e.target.value)}/>
+                            { freewordValidationFlg ?
+                                <p className="validation">フリーワードを入力してください</p>
+                                :
+                                <></>
+                            }
                         </div>
                         <div className="text-center">
                             <input type="button" value="検索する" className="search__button" onClick={sendSearchDataToResultPage}/>

@@ -55,6 +55,26 @@
         }
     }
 
+    &__button--back {
+        background-color: #fff;
+        border-radius: 30px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        color: $font-color;
+        display: inline-block;
+        text-align: center;
+        margin-top: 60px;
+        padding: 10px 20px;
+        width: 40%;
+        @include sp {
+            width: 60%;
+        }
+    }
+
+    &__button--back:hover {
+        color: $font-color;
+        text-decoration: none;
+    }
+
     &__button--disable {
         background-color: #eee;
         border-radius: 30px;

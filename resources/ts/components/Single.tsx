@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, Link } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import Header from './Header';
@@ -51,7 +51,6 @@ const Single:React.FC<PropsType> = (props) => {
             userId: cookies.userId
         })
         .then(() => {
-            console.log('hoge');
             setCanSetMylist(false);
         })
     }
@@ -72,7 +71,9 @@ const Single:React.FC<PropsType> = (props) => {
                     }
                 </p>                
                 <p className="text-center">
-                    <input type="button" className="single__button" value="戻る"/>
+                    <Link className="single__button--back" to="/">
+                        戻る
+                    </Link>
                 </p>
             </div>
         </>

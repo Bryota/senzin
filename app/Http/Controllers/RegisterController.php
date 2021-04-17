@@ -66,6 +66,10 @@ class RegisterController extends Controller
      */
     public function create(Request $request)
     {
+        $isAlreadyEmail = User::where('email', $request['email'])->get();
+        if (!$isAlreadyEmail->isEmpty()) {
+            return 'invalid-email';
+        }
         return User::create([
             'name' => $request['name'],
             'email' => $request['email'],
