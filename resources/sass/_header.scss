@@ -46,9 +46,17 @@
         line-height: 76px;
     }
 
+    .header__nav p {
+        cursor: pointer;
+    }
+
     .header__nav a:hover {
         color: $font-color;
         text-decoration: none;
     }
+}
 
+.header__nav--button:hover {
+    color: $font-color;
+    text-decoration: none;
 }

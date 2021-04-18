@@ -11556,7 +11556,16 @@ template {
   line-height: 76px;
 }
 
+.header__wrap .header__nav p {
+  cursor: pointer;
+}
+
 .header__wrap .header__nav a:hover {
+  color: #6f6152;
+  text-decoration: none;
+}
+
+.header__nav--button:hover {
   color: #6f6152;
   text-decoration: none;
 }

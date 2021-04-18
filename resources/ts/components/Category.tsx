@@ -20,7 +20,7 @@ interface PostListType {
 }
 
 const Category: React.FC<PropsType> = (props) => {
-    const category_id = {category_id: props.match.params.category_id};
+    const [categoryId, setCategoryId] = useState({category_id: props.match.params.category_id});
     const [categoryIcon, setCategoryIcon] = useState<string>();
     const [categoryName, setCategoryName] = useState<string>();
     const [currentPostList, setCurrentPostList] = useState<PostListType[]>();
@@ -28,26 +28,28 @@ const Category: React.FC<PropsType> = (props) => {
     const [totalItemsCount, setTotalItemsCount] = useState<number>(0);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
-
+    if (categoryId.category_id !== props.match.params.category_id) {
+        setCategoryId({ category_id: props.match.params.category_id });
+    }
     useEffect(() => {
-        axios.get(`/api/getCategoryName/${category_id.category_id}`)
+        axios.get(`/api/getCategoryName/${categoryId.category_id}`)
         .then((res) => {
             setCategoryName(res.data.category_name);
         });
-        setCategoryIcon(getCategoryIcon(category_id.category_id));
-        axios.get(`/api/getPostDataInCategory/${category_id.category_id}?page=${activePage}`)
+        setCategoryIcon(getCategoryIcon(categoryId.category_id));
+        axios.get(`/api/getPostDataInCategory/${categoryId.category_id}?page=${activePage}`)
         .then((res) => {
             setCurrentPostList(res.data.data);
         });
-        axios.get(`/api/getPostDataTotalNumInCategory/${category_id.category_id}`)
+        axios.get(`/api/getPostDataTotalNumInCategory/${categoryId.category_id}`)
         .then((res) => {
             setTotalItemsCount(res.data);
         });
         setIsLoading(false);
-    },[]);
+    },[categoryId]);
 
     const pageChange = (pageNum: number) => {
-        axios.get(`/api/getPostDataInCategory/${category_id.category_id}?page=${pageNum}`)
+        axios.get(`/api/getPostDataInCategory/${categoryId.category_id}?page=${pageNum}`)
         .then((res) => {
             setCurrentPostList(res.data.data);
             setActivePage(pageNum);
