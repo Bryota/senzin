@@ -83,45 +83,53 @@ const Register = (props: PropsType) => {
                 <div className="register__wrap">
                     <form className="register__items" onSubmit={submitRegisterData}>
                         <div className="register__item">
-                            <label htmlFor="email" className="register__label">メールアドレス<span className="form__required">必須</span></label>
-                            <input type="email" id="email" className="register__input" value={email} onChange={e => setEmail(e.target.value)}/>
-                            {  emailValidationFlg ?
+                            <label htmlFor="email" className="register__label">
+                                メールアドレス<span className="form__required">必須</span>
+                                {  emailValidationFlg ?
                                 <p className="validation">メールアドレスを入力してください</p>
                                 :
                                 <></>
-                            }
-                            {  uniqueEmailFlg ?
-                                <p className="validation">メールアドレスが既に使われています</p>
-                                :
-                                <></>
-                            }
+                                }
+                                {  uniqueEmailFlg ?
+                                    <p className="validation">メールアドレスが既に使われています</p>
+                                    :
+                                    <></>
+                                }
+                            </label>
+                            <input type="email" id="email" className="register__input" value={email} onChange={e => setEmail(e.target.value)}/>
                         </div>
                         <div className="register__item">
-                            <label htmlFor="name" className="register__label">ユーザー名<span className="form__required">必須</span></label>
-                            <input type="text" id="name" className="register__input--name" value={name} onChange={e => setName(e.target.value)}/>
-                            {  nameValidationFlg ?
+                            <label htmlFor="name" className="register__label">
+                                ユーザー名<span className="form__required">必須</span>
+                                {  nameValidationFlg ?
                                 <p className="validation">ユーザー名を入力してください</p>
                                 :
                                 <></>
-                            }
+                                }
+                            </label>
+                            <input type="text" id="name" className="register__input--name" value={name} onChange={e => setName(e.target.value)}/>
                         </div>
                         <div className="register__item">
-                            <label htmlFor="password" className="register__label">パスワード<span className="form__required">必須</span></label>
-                            <input type="password" id="password" className="register__input--password" value={password} onChange={e => setPassword(e.target.value)}/>
-                            {  passwordValidationFlg ?
+                            <label htmlFor="password" className="register__label">
+                                パスワード<span className="form__required">必須</span>
+                                {  passwordValidationFlg ?
                                 <p className="validation">パスワードを入力してください</p>
                                 :
                                 <></>
-                            }
+                                }
+                            </label>
+                            <input type="password" id="password" className="register__input--password" value={password} onChange={e => setPassword(e.target.value)}/>
                         </div>
                         <div className="register__item">
-                            <label htmlFor="passwordComfire" className="register__label">パスワード確認</label>
-                            <input type="password" id="passwordComfire" className="register__input--passwordComfire" value={passwordComfire} onChange={e => setPasswordComfire(e.target.value)}/>
-                            {  passwordComfireValidationFlg ?
+                            <label htmlFor="passwordComfire" className="register__label">
+                                パスワード確認
+                                {  passwordComfireValidationFlg ?
                                 <p className="validation">パスワードが一致しません。</p>
                                 :
                                 <></>
-                            }
+                                }
+                            </label>
+                            <input type="password" id="passwordComfire" className="register__input--passwordComfire" value={passwordComfire} onChange={e => setPasswordComfire(e.target.value)}/>
                         </div>
                         <div className="text-center">
                             <input type="submit" value="新規登録" className="register__button" />

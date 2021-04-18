@@ -74,22 +74,26 @@ const Login= (props: PropsType) => {
                 <form className="login__wrap" onSubmit={submitLoginData}>
                     <div className="login__items">
                         <div className="login__item">
-                            <label htmlFor="email" className="login__label">メールアドレス</label>
-                            <input type="email" id="email" className="login__input" value={email} onChange={e => setEmail(e.target.value)}/>
-                            {  emailValidationFlg ?
+                            <label htmlFor="email" className="login__label">
+                                メールアドレス
+                                {  emailValidationFlg ?
                                 <p className="validation">メールアドレスを正しく入力してください</p>
                                 :
                                 <></>
-                            }
+                                }
+                            </label>
+                            <input type="email" id="email" className="login__input" value={email} onChange={e => setEmail(e.target.value)}/>
                         </div>
                         <div className="login__item">
-                            <label htmlFor="password" className="login__label">パスワード</label>
-                            <input type="password" id="password" className="login__input--password" value={password} onChange={e => setPassword(e.target.value)}/>
-                            {  passwordValidationFlg ?
+                            <label htmlFor="password" className="login__label">
+                                パスワード
+                                {  passwordValidationFlg ?
                                 <p className="validation">パスワードを正しく入力してください</p>
                                 :
                                 <></>
-                            }
+                                }
+                            </label>
+                            <input type="password" id="password" className="login__input--password" value={password} onChange={e => setPassword(e.target.value)}/>
                         </div>
                         <div className="text-center">
                             <input type="submit" value="ログイン" className="login__button"/>

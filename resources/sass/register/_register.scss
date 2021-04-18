@@ -18,14 +18,16 @@
     &__items {
         margin: 0 auto;
         padding: 30px 0;
-        width: 60%;
-        @include tab {
-            width: 80%;
-        }
+        width: 80%;
     }
 
     &__item {
+        display: flex;
+        justify-content: space-between;
         margin-bottom: 50px;
+        @include sp {
+            display: block;
+        }
     }
 
     &__label {
@@ -41,14 +43,9 @@
     &__input {
         background-color: #fff;
         border-radius: 30px;
-        margin-left: 85px;
         padding: 5px 15px;
         width: 50%;
-        @include tab {
-            margin-left: 65px;
-        }
         @include sp {
-            margin-left: 0;
             width: 90%;
         }
     }
@@ -56,14 +53,9 @@
     &__input--name {
         background-color: #fff;
         border-radius: 30px;
-        margin-left: 140px;
         padding: 5px 15px;
         width: 50%;
-        @include tab {
-            margin-left: 120px;
-        }
         @include sp {
-            margin-left: 0;
             width: 90%;
         }
     }
@@ -71,14 +63,9 @@
     &__input--password {
         background-color: #fff;
         border-radius: 30px;
-        margin-left: 140px;
         padding: 5px 15px;
         width: 50%;
-        @include tab {
-            margin-left: 120px;
-        }
         @include sp {
-            margin-left: 0;
             width: 90%;
         }
     }
@@ -86,14 +73,9 @@
     &__input--passwordComfire {
         background-color: #fff;
         border-radius: 30px;
-        margin-left: 137px;
         padding: 5px 15px;
         width: 50%;
-        @include tab {
-            margin-left: 63px;
-        }
         @include sp {
-            margin-left: 0;
             width: 90%;
         }
     }

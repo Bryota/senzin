@@ -60654,47 +60654,47 @@ var Form = function (props) {
             react_1.default.createElement("form", { className: "form__wrap", onSubmit: function (e) { submitPostData(e); } },
                 react_1.default.createElement("div", { className: "form__items" },
                     react_1.default.createElement("div", { className: "form__item" },
-                        react_1.default.createElement("label", { htmlFor: "title", className: "form__label" },
+                        react_1.default.createElement("label", { htmlFor: "title", className: "form__label " },
                             "\u6295\u7A3F\u30BF\u30A4\u30C8\u30EB",
-                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
-                        react_1.default.createElement("input", { type: "text", id: "title", className: "form__input--title", value: title, onChange: function (e) { return setTitle(e.target.value); } }),
-                        titleValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u6295\u7A3F\u30BF\u30A4\u30C8\u30EB\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808"),
+                            titleValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u6295\u7A3F\u30BF\u30A4\u30C8\u30EB\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("input", { type: "text", id: "title", className: "form__input--title", value: title, onChange: function (e) { return setTitle(e.target.value); } })),
                     react_1.default.createElement("div", { className: "form__item" },
                         react_1.default.createElement("label", { htmlFor: "category", className: "form__label" },
                             "\u30AB\u30C6\u30B4\u30EA",
-                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
+                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808"),
+                            categoryValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30AB\u30C6\u30B4\u30EA\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
                         react_1.default.createElement("select", { name: "category", id: "category", className: "form__select", onChange: function (e) { return setCotegory(e.target.value); }, defaultValue: "1" },
                             react_1.default.createElement("option", { value: "1" }, "\u98DF\u3079\u7269"),
                             react_1.default.createElement("option", { value: "2" }, "\u6383\u9664"),
                             react_1.default.createElement("option", { value: "3" }, "\u5065\u5EB7"),
                             react_1.default.createElement("option", { value: "4" }, "\u30B9\u30DD\u30FC\u30C4"),
                             react_1.default.createElement("option", { value: "5" }, "\u6A5F\u68B0"),
-                            react_1.default.createElement("option", { value: "6" }, "\u305D\u306E\u4ED6")),
-                        categoryValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30AB\u30C6\u30B4\u30EA\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                            react_1.default.createElement("option", { value: "6" }, "\u305D\u306E\u4ED6"))),
                     react_1.default.createElement("div", { className: "form__item" },
                         react_1.default.createElement("label", { htmlFor: "username", className: "form__label" },
                             "\u6295\u7A3F\u8005\u540D",
-                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
-                        react_1.default.createElement("input", { type: "text", id: "username", className: "form__input--username", value: username, onChange: function (e) { return setUsername(e.target.value); } }),
-                        usernameValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u6295\u7A3F\u8005\u540D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808"),
+                            usernameValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u6295\u7A3F\u8005\u540D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("input", { type: "text", id: "username", className: "form__input--username", value: username, onChange: function (e) { return setUsername(e.target.value); } })),
                     react_1.default.createElement("div", { className: "form__item" },
                         react_1.default.createElement("label", { htmlFor: "content", className: "form__label" },
                             "\u5185\u5BB9",
-                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
-                        react_1.default.createElement("textarea", { name: "content", id: "content", className: "form__textarea", value: content, onChange: function (e) { return setContent(e.target.value); } }),
-                        contentValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u5185\u5BB9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808"),
+                            contentValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u5185\u5BB9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("textarea", { name: "content", id: "content", className: "form__textarea", value: content, onChange: function (e) { return setContent(e.target.value); } })),
                     react_1.default.createElement("div", { className: "text-center" },
                         react_1.default.createElement("input", { type: "submit", value: "\u6295\u7A3F\u3059\u308B", className: "form__button" })))))));
 };
@@ -60741,11 +60741,25 @@ var Menu_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Menu */ "
 var MenuItem_1 = __importDefault(__webpack_require__(/*! @material-ui/core/MenuItem */ "./node_modules/@material-ui/core/esm/MenuItem/index.js"));
 var Header = function () {
     var _a = react_1.useState(null), anchorEl = _a[0], setAnchorEl = _a[1];
+    var _b = react_1.useState(null), anchorElSp = _b[0], setAnchorElSp = _b[1];
+    var _c = react_1.useState(null), anchorElSpCategory = _c[0], setAnchorElSpCategory = _c[1];
     var openCategoryMenu = function (e) {
         setAnchorEl(e.currentTarget);
     };
     var closeCategoryMenu = function () {
         setAnchorEl(null);
+    };
+    var openHamMenu = function (e) {
+        setAnchorElSp(e.currentTarget);
+    };
+    var closeHamMenu = function () {
+        setAnchorElSp(null);
+    };
+    var openSpCateogryMenu = function (e) {
+        setAnchorElSpCategory(e.currentTarget);
+    };
+    var closeSpCategoryMenu = function () {
+        setAnchorElSpCategory(null);
     };
     return (react_1.default.createElement("header", { className: "header__wrap" },
         react_1.default.createElement("div", { className: "container" },
@@ -60783,7 +60797,33 @@ var Header = function () {
                                     react_1.default.createElement("span", { className: "ml-3" },
                                         react_1.default.createElement("i", { className: "fas fa-sign-in-alt" })))))),
                     react_1.default.createElement("div", { className: "sp__nav" },
-                        react_1.default.createElement("i", { className: "fas fa-bars fa-3x" })))))));
+                        react_1.default.createElement("i", { className: "fas fa-bars fa-3x", onClick: openHamMenu }),
+                        react_1.default.createElement(Menu_1.default, { anchorEl: anchorElSp, open: Boolean(anchorElSp), onClose: closeHamMenu },
+                            react_1.default.createElement(MenuItem_1.default, null,
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/" }, "\u30C8\u30C3\u30D7")),
+                            react_1.default.createElement(MenuItem_1.default, null,
+                                react_1.default.createElement("p", { onClick: openSpCateogryMenu }, "\u30AB\u30C6\u30B4\u30EA"),
+                                react_1.default.createElement(Menu_1.default, { anchorEl: anchorElSpCategory, open: Boolean(anchorElSpCategory), onClose: closeSpCategoryMenu },
+                                    react_1.default.createElement(MenuItem_1.default, null,
+                                        react_1.default.createElement(react_router_dom_1.Link, { className: "header__nav--button", to: "/category/1" }, "\u98DF\u3079\u7269")),
+                                    react_1.default.createElement(MenuItem_1.default, null,
+                                        react_1.default.createElement(react_router_dom_1.Link, { className: "header__nav--button", to: "/category/2" }, "\u6383\u9664")),
+                                    react_1.default.createElement(MenuItem_1.default, null,
+                                        react_1.default.createElement(react_router_dom_1.Link, { className: "header__nav--button", to: "/category/3" }, "\u5065\u5EB7")),
+                                    react_1.default.createElement(MenuItem_1.default, null,
+                                        react_1.default.createElement(react_router_dom_1.Link, { className: "header__nav--button", to: "/category/4" }, "\u30B9\u30DD\u30FC\u30C4")),
+                                    react_1.default.createElement(MenuItem_1.default, null,
+                                        react_1.default.createElement(react_router_dom_1.Link, { className: "header__nav--button", to: "/category/5" }, "\u6A5F\u68B0")),
+                                    react_1.default.createElement(MenuItem_1.default, null,
+                                        react_1.default.createElement(react_router_dom_1.Link, { className: "header__nav--button", to: "/category/6" }, "\u305D\u306E\u4ED6")))),
+                            react_1.default.createElement(MenuItem_1.default, null,
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/post" }, "\u6295\u7A3F")),
+                            react_1.default.createElement(MenuItem_1.default, null,
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/search" }, "\u691C\u7D22")),
+                            react_1.default.createElement(MenuItem_1.default, null,
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/mylist" }, "\u30DE\u30A4\u30EA\u30B9\u30C8")),
+                            react_1.default.createElement(MenuItem_1.default, null,
+                                react_1.default.createElement(react_router_dom_1.Link, { to: "/login" }, "\u30ED\u30B0\u30A4\u30F3")))))))));
 };
 exports.default = Header;
 
@@ -60883,19 +60923,21 @@ var Login = function (props) {
             react_1.default.createElement("form", { className: "login__wrap", onSubmit: submitLoginData },
                 react_1.default.createElement("div", { className: "login__items" },
                     react_1.default.createElement("div", { className: "login__item" },
-                        react_1.default.createElement("label", { htmlFor: "email", className: "login__label" }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"),
-                        react_1.default.createElement("input", { type: "email", id: "email", className: "login__input", value: email, onChange: function (e) { return setEmail(e.target.value); } }),
-                        emailValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u6B63\u3057\u304F\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("label", { htmlFor: "email", className: "login__label" },
+                            "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
+                            emailValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u6B63\u3057\u304F\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("input", { type: "email", id: "email", className: "login__input", value: email, onChange: function (e) { return setEmail(e.target.value); } })),
                     react_1.default.createElement("div", { className: "login__item" },
-                        react_1.default.createElement("label", { htmlFor: "password", className: "login__label" }, "\u30D1\u30B9\u30EF\u30FC\u30C9"),
-                        react_1.default.createElement("input", { type: "password", id: "password", className: "login__input--password", value: password, onChange: function (e) { return setPassword(e.target.value); } }),
-                        passwordValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u6B63\u3057\u304F\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("label", { htmlFor: "password", className: "login__label" },
+                            "\u30D1\u30B9\u30EF\u30FC\u30C9",
+                            passwordValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u6B63\u3057\u304F\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("input", { type: "password", id: "password", className: "login__input--password", value: password, onChange: function (e) { return setPassword(e.target.value); } })),
                     react_1.default.createElement("div", { className: "text-center" },
                         react_1.default.createElement("input", { type: "submit", value: "\u30ED\u30B0\u30A4\u30F3", className: "login__button" })),
                     react_1.default.createElement("p", { className: "login__register" },
@@ -61456,27 +61498,27 @@ var Search = function (props) {
                     react_1.default.createElement("div", { className: "search__item" },
                         react_1.default.createElement("label", { htmlFor: "category", className: "search__label" },
                             "\u30AB\u30C6\u30B4\u30EA",
-                            react_1.default.createElement("span", { className: "search__required" }, "\u5FC5\u9808")),
+                            react_1.default.createElement("span", { className: "search__required" }, "\u5FC5\u9808"),
+                            categoryIdValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30AB\u30C6\u30B4\u30EA\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
                         react_1.default.createElement("select", { name: "category", id: "category", className: "search__select", onChange: function (e) { return setCategoryId(e.target.value); } },
                             react_1.default.createElement("option", { value: "1" }, "\u98DF\u3079\u7269"),
                             react_1.default.createElement("option", { value: "2" }, "\u6383\u9664"),
                             react_1.default.createElement("option", { value: "3" }, "\u5065\u5EB7"),
                             react_1.default.createElement("option", { value: "4" }, "\u30B9\u30DD\u30FC\u30C4"),
                             react_1.default.createElement("option", { value: "5" }, "\u6A5F\u68B0"),
-                            react_1.default.createElement("option", { value: "6" }, "\u305D\u306E\u4ED6")),
-                        categoryIdValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30AB\u30C6\u30B4\u30EA\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                            react_1.default.createElement("option", { value: "6" }, "\u305D\u306E\u4ED6"))),
                     react_1.default.createElement("div", { className: "search__item" },
                         react_1.default.createElement("label", { htmlFor: "freeword", className: "search__label" },
                             "\u30D5\u30EA\u30FC\u30EF\u30FC\u30C9",
-                            react_1.default.createElement("span", { className: "search__required" }, "\u5FC5\u9808")),
-                        react_1.default.createElement("input", { type: "text", id: "freeword", value: freeword, className: "search__input", onChange: function (e) { return setFreeword(e.target.value); } }),
-                        freewordValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30D5\u30EA\u30FC\u30EF\u30FC\u30C9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                            react_1.default.createElement("span", { className: "search__required" }, "\u5FC5\u9808"),
+                            freewordValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30D5\u30EA\u30FC\u30EF\u30FC\u30C9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("input", { type: "text", id: "freeword", value: freeword, className: "search__input", onChange: function (e) { return setFreeword(e.target.value); } })),
                     react_1.default.createElement("div", { className: "text-center" },
                         react_1.default.createElement("input", { type: "button", value: "\u691C\u7D22\u3059\u308B", className: "search__button", onClick: sendSearchDataToResultPage })))))));
 };
@@ -61636,13 +61678,11 @@ __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-
 __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
 var Top = function () {
     var _a = react_1.useState(), postList = _a[0], setPostList = _a[1];
-    var _b = react_1.useState(true), isLoading = _b[0], setIsLoading = _b[1];
     react_1.useEffect(function () {
         axios_1.default.get('/api/getPostData')
             .then(function (res) {
             setPostList(res.data);
         });
-        setIsLoading(false);
     }, []);
     var sliderSettings = {
         dots: false,
@@ -61653,11 +61693,16 @@ var Top = function () {
         autoplay: true,
         autoplaySpeed: 2000,
     };
+    var sliderSettingsForSp = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+    };
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        isLoading ?
-            react_1.default.createElement(CircularProgress, null)
-            :
-                react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement("div", { className: "top-bgimg" },
             react_1.default.createElement("h1", { className: "top-bgimg__title" }, "\u5148\u4EBA\u306E\u77E5\u6075")),
@@ -61673,15 +61718,16 @@ var Top = function () {
                             react_1.default.createElement("i", { className: "far fa-user fa-5x top-ideas__item--icon" })),
                         react_1.default.createElement("p", { className: "top-ideas__item--username" }, post.username)));
                 })),
-                react_1.default.createElement("div", { className: "row top-ideas__items sp" },
-                    react_1.default.createElement("div", { className: "top-ideas__item col-12" },
+                react_1.default.createElement(react_slick_1.default, __assign({ className: "row top-ideas__items sp" }, sliderSettingsForSp), postList === null || postList === void 0 ? void 0 : postList.map(function (post) {
+                    return (react_1.default.createElement(react_router_dom_1.Link, { className: "top-ideas__item", key: post.post_id, to: '/single/' + post.post_id },
                         react_1.default.createElement("div", { className: "top-ideas__item--balloon" },
-                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, "\u30C6\u30B9\u30C8\u6295\u7A3F"),
-                            react_1.default.createElement("p", { className: "top-ideas__item--category" }, "\u98DF\u3079\u7269"),
-                            react_1.default.createElement("p", { className: "top-ideas__item--content" }, "\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u3066\u3059\u3068\u30FB\u30FB\u30FB")),
+                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, post.title),
+                            react_1.default.createElement("p", { className: "top-ideas__item--category" }, post.category.category_name),
+                            react_1.default.createElement("p", { className: "top-ideas__item--content" }, OmitContent_1.default(post.content))),
                         react_1.default.createElement("div", null,
                             react_1.default.createElement("i", { className: "far fa-user fa-5x top-ideas__item--icon" })),
-                        react_1.default.createElement("p", { className: "top-ideas__item--username" }, "\u30C6\u30B9\u30C8\u30E6\u30FC\u30B6\u30FC"))))),
+                        react_1.default.createElement("p", { className: "top-ideas__item--username" }, post.username)));
+                })))),
         react_1.default.createElement("div", { className: "top-category" },
             react_1.default.createElement("div", { className: "container" },
                 react_1.default.createElement("h2", { className: "top-category__title" }, "\uFF1C\u30AB\u30C6\u30B4\u30EA\uFF1E"),
@@ -61713,11 +61759,31 @@ var Top = function () {
                                 react_1.default.createElement("i", { className: "fas fa-ellipsis-h" })),
                             react_1.default.createElement("p", { className: "top-category__name" }, "\u305D\u306E\u4ED6")))),
                 react_1.default.createElement("div", { className: "top-category__items sp" },
-                    react_1.default.createElement("div", { className: "row" },
-                        react_1.default.createElement("div", { className: "col-11 top-category__item" },
+                    react_1.default.createElement(react_slick_1.default, __assign({ className: "row" }, sliderSettingsForSp),
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-11 top-category__item", to: "/category/1" },
                             react_1.default.createElement("p", { className: "top-category__icon--food" },
                                 react_1.default.createElement("i", { className: "fas fa-utensils" })),
-                            react_1.default.createElement("p", { className: "top-category__name" }, "\u98DF\u3079\u7269")))))),
+                            react_1.default.createElement("p", { className: "top-category__name" }, "\u98DF\u3079\u7269")),
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-11 top-category__item", to: "/category/2" },
+                            react_1.default.createElement("p", { className: "top-category__icon--clean" },
+                                react_1.default.createElement("i", { className: "fas fa-broom" })),
+                            react_1.default.createElement("p", { className: "top-category__name" }, "\u6383\u9664")),
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-11 top-category__item", to: "/category/3" },
+                            react_1.default.createElement("p", { className: "top-category__icon--health" },
+                                react_1.default.createElement("i", { className: "fas fa-plus-square" })),
+                            react_1.default.createElement("p", { className: "top-category__name" }, "\u5065\u5EB7")),
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-11 top-category__item", to: "/category/4" },
+                            react_1.default.createElement("p", { className: "top-category__icon--sport" },
+                                react_1.default.createElement("i", { className: "fas fa-running" })),
+                            react_1.default.createElement("p", { className: "top-category__name" }, "\u30B9\u30DD\u30FC\u30C4")),
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-11 top-category__item", to: "/category/5" },
+                            react_1.default.createElement("p", { className: "top-category__icon--machine" },
+                                react_1.default.createElement("i", { className: "fas fa-tv" })),
+                            react_1.default.createElement("p", { className: "top-category__name" }, "\u6A5F\u68B0")),
+                        react_1.default.createElement(react_router_dom_1.Link, { className: "col-11 top-category__item", to: "/category/6" },
+                            react_1.default.createElement("p", { className: "top-category__icon--other" },
+                                react_1.default.createElement("i", { className: "fas fa-ellipsis-h" })),
+                            react_1.default.createElement("p", { className: "top-category__name" }, "\u305D\u306E\u4ED6")))))),
         react_1.default.createElement("div", { className: "top-use" },
             react_1.default.createElement("h2", { className: "top-use__title" }, "\uFF1C\u4F7F\u3044\u65B9\uFF1E"),
             react_1.default.createElement("p", { className: "top-use__content" }, "\u5148\u4EBA\u306E\u77E5\u6075\u3068\u3057\u3066\u3001\u7686\u3055\u3093\u304C\u69D8\u3005\u306A\u30A2\u30A4\u30C7\u30A2\u30FB\u8C46\u77E5\u8B58\u3092\u6295\u7A3F\u3057\u3066\u3044\u304F\u30B5\u30FC\u30D3\u30B9\u3067\u3059\u3002"),

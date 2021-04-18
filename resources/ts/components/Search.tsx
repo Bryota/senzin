@@ -42,7 +42,14 @@ const Search = (props: PropsType) => {
                 <div className="search__wrap">
                     <div className="search__items">
                         <div className="search__item">
-                            <label htmlFor="category" className="search__label">カテゴリ<span className="search__required">必須</span></label>
+                            <label htmlFor="category" className="search__label">
+                                カテゴリ<span className="search__required">必須</span>
+                                { categoryIdValidationFlg ?
+                                <p className="validation">カテゴリを選択してください</p>
+                                :
+                                <></>
+                                }
+                            </label>
                             <select name="category" id="category" className="search__select" onChange={e => setCategoryId(e.target.value)}>
                                 <option value="1">食べ物</option>
                                 <option value="2">掃除</option>
@@ -51,20 +58,17 @@ const Search = (props: PropsType) => {
                                 <option value="5">機械</option>
                                 <option value="6">その他</option>
                             </select>
-                            { categoryIdValidationFlg ?
-                                <p className="validation">カテゴリを選択してください</p>
-                                :
-                                <></>
-                            }
                         </div>
                         <div className="search__item">
-                            <label htmlFor="freeword" className="search__label">フリーワード<span className="search__required">必須</span></label>
-                            <input type="text" id="freeword" value={freeword} className="search__input" onChange={e => setFreeword(e.target.value)}/>
-                            { freewordValidationFlg ?
+                            <label htmlFor="freeword" className="search__label">
+                                フリーワード<span className="search__required">必須</span>
+                                { freewordValidationFlg ?
                                 <p className="validation">フリーワードを入力してください</p>
                                 :
                                 <></>
-                            }
+                                }
+                            </label>
+                            <input type="text" id="freeword" value={freeword} className="search__input" onChange={e => setFreeword(e.target.value)}/>
                         </div>
                         <div className="text-center">
                             <input type="button" value="検索する" className="search__button" onClick={sendSearchDataToResultPage}/>

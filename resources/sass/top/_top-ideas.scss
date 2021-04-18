@@ -1,11 +1,8 @@
 .top-ideas {
     background-color: $bg-color;
     padding: 50px 0;
-    @include tab {
-        height: 50vh;
-    }
     @include sp {
-        padding: 0;
+        padding-bottom: 30px;
     }
 
     .pc {

@@ -36,6 +36,15 @@ const Top:React.FC = () => {
         autoplay:true,
         autoplaySpeed: 2000,
     }
+    const sliderSettingsForSp = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay:true,
+        autoplaySpeed: 3000,
+    }
     return (
         <>
             <Header />
@@ -61,19 +70,23 @@ const Top:React.FC = () => {
                             )
                         })}
                     </Slider>
-                    <div className="row top-ideas__items sp">
-                        <div className="top-ideas__item col-12">
-                            <div className="top-ideas__item--balloon">
-                                <p className="top-ideas__item--title">テスト投稿</p>
-                                <p className="top-ideas__item--category">食べ物</p>
-                                <p className="top-ideas__item--content">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと・・・</p>
-                            </div>
-                            <div>
-                                <i className="far fa-user fa-5x top-ideas__item--icon"></i>
-                            </div>
-                            <p className="top-ideas__item--username">テストユーザー</p>
-                        </div>
-                    </div>
+                    <Slider className="row top-ideas__items sp" { ...sliderSettingsForSp }>
+                        {postList?.map((post) => {
+                            return (
+                                <Link className="top-ideas__item" key={post.post_id} to={'/single/' + post.post_id}>
+                                    <div className="top-ideas__item--balloon">
+                                        <p className="top-ideas__item--title">{post.title}</p>
+                                        <p className="top-ideas__item--category">{post.category.category_name}</p>
+                                        <p className="top-ideas__item--content">{OmitContent(post.content)}</p>
+                                    </div>
+                                    <div>
+                                        <i className="far fa-user fa-5x top-ideas__item--icon"></i>
+                                    </div>
+                                    <p className="top-ideas__item--username">{post.username}</p>
+                                </Link>
+                            )
+                        })}
+                    </Slider>
                 </div>
             </div>
             <div className="top-category">
@@ -110,12 +123,32 @@ const Top:React.FC = () => {
                         </div>
                     </div>
                     <div className="top-category__items sp">
-                        <div className="row">
-                            <div className="col-11 top-category__item">
+                        <Slider className="row" { ...sliderSettingsForSp }>
+                            <Link className="col-11 top-category__item" to="/category/1">
                                 <p className="top-category__icon--food"><i className="fas fa-utensils"></i></p>
                                 <p className="top-category__name">食べ物</p>
-                            </div>
-                        </div>
+                            </Link>
+                            <Link className="col-11 top-category__item" to="/category/2">
+                                <p className="top-category__icon--clean"><i className="fas fa-broom"></i></p>
+                                <p className="top-category__name">掃除</p>
+                            </Link>
+                            <Link className="col-11 top-category__item" to="/category/3">
+                                <p className="top-category__icon--health"><i className="fas fa-plus-square"></i></p>
+                                <p className="top-category__name">健康</p>
+                            </Link>
+                            <Link className="col-11 top-category__item" to="/category/4">
+                                <p className="top-category__icon--sport"><i className="fas fa-running"></i></p>
+                                <p className="top-category__name">スポーツ</p>
+                            </Link>
+                            <Link className="col-11 top-category__item" to="/category/5">
+                                <p className="top-category__icon--machine"><i className="fas fa-tv"></i></p>
+                                <p className="top-category__name">機械</p>
+                            </Link>
+                            <Link className="col-11 top-category__item" to="/category/6">
+                                <p className="top-category__icon--other"><i className="fas fa-ellipsis-h"></i></p>
+                                <p className="top-category__name">その他</p>
+                            </Link>
+                        </Slider>
                     </div>
                 </div>
             </div>

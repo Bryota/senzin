@@ -5,11 +5,26 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 const Header:React.FC = () => {
     const [anchorEl, setAnchorEl] =useState(null);
+    const [anchorElSp, setAnchorElSp] =useState(null);
+    const [anchorElSpCategory, setAnchorElSpCategory] = useState(null);
     const openCategoryMenu = (e: any) => {
         setAnchorEl(e.currentTarget);
     }
     const closeCategoryMenu = () => {
         setAnchorEl(null);
+    }
+
+    const openHamMenu = (e: any) => {
+        setAnchorElSp(e.currentTarget);
+    }
+    const closeHamMenu = () => {
+        setAnchorElSp(null);
+    }
+    const openSpCateogryMenu = (e: any) => {
+        setAnchorElSpCategory(e.currentTarget);
+    }
+    const closeSpCategoryMenu = () => {
+        setAnchorElSpCategory(null);
     }
     return (
         <header className="header__wrap">
@@ -46,7 +61,33 @@ const Header:React.FC = () => {
                             </ul>
                         </nav>
                         <div className="sp__nav">
-                            <i className="fas fa-bars fa-3x"></i>
+                            <i className="fas fa-bars fa-3x" onClick={openHamMenu}></i>
+                            <Menu
+                                anchorEl={anchorElSp}
+                                open={Boolean(anchorElSp)}
+                                onClose={closeHamMenu}
+                            >
+                                <MenuItem><Link to="/">トップ</Link></MenuItem>
+                                <MenuItem>
+                                    <p onClick={openSpCateogryMenu}>カテゴリ</p>
+                                    <Menu
+                                        anchorEl={anchorElSpCategory}
+                                        open={Boolean(anchorElSpCategory)}
+                                        onClose={closeSpCategoryMenu}
+                                    >
+                                        <MenuItem><Link className="header__nav--button" to="/category/1">食べ物</Link></MenuItem>
+                                        <MenuItem><Link className="header__nav--button" to="/category/2">掃除</Link></MenuItem>
+                                        <MenuItem><Link className="header__nav--button" to="/category/3">健康</Link></MenuItem>
+                                        <MenuItem><Link className="header__nav--button" to="/category/4">スポーツ</Link></MenuItem>
+                                        <MenuItem><Link className="header__nav--button" to="/category/5">機械</Link></MenuItem>
+                                        <MenuItem><Link className="header__nav--button" to="/category/6">その他</Link></MenuItem>
+                                    </Menu>
+                                </MenuItem>
+                                <MenuItem><Link to="/post">投稿</Link></MenuItem>
+                                <MenuItem><Link to="/search">検索</Link></MenuItem>
+                                <MenuItem><Link to="/mylist">マイリスト</Link></MenuItem>
+                                <MenuItem><Link to="/login">ログイン</Link></MenuItem>
+                            </Menu>
                         </div>
                     </div>
                 </div>

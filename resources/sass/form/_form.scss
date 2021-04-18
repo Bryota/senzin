@@ -18,14 +18,16 @@
     &__items {
         margin: 0 auto;
         padding: 30px 0;
-        width: 60%;
-        @include tab {
-            width: 80%;
-        }
+        width: 80%;
     }
 
     &__item {
+        display: flex;
+        justify-content: space-between;
         margin-bottom: 30px;
+        @include sp {
+            display: block;
+        }
     }
 
     &__label {
@@ -41,16 +43,11 @@
     &__select{
         background-color: #fff;
         border-radius: 30px;
-        margin-left: 150px;
         padding: 5px 15px;
         width: 50%;
         -moz-appearance: menulist;
         -webkit-appearance: menulist;
-        @include tab {
-            margin-left: 95px;
-        }
         @include sp {
-            margin-left: 0;
             width: 90%;
         }
     }
@@ -61,39 +58,25 @@
         padding: 5px 15px;
         width: 50%;
         @include sp {
-            margin-left: 0;
             width: 90%;
         }
     }
 
     &__input--title {
         @extend %__input;
-        margin-left: 95px;
-        @include tab {
-            margin-left: 40px;
-        }
     }
 
     &__input--username {
         @extend %__input;
-        margin-left: 145px;
-        @include tab {
-            margin-left: 90px;
-        }
     }
 
     &__textarea {
         background-color: #fff;
         border-radius: 30px;
         height: 370px;
-        margin-left: 200px;
         padding: 15px 25px;
         width: 50%;
-        @include tab {
-            margin-left: 147px;
-        }
         @include sp {
-            margin-left: 0;
             width: 100%;
         }
     }

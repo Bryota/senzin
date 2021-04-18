@@ -11513,7 +11513,7 @@ template {
   font-size: 48px;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .header__wrap .header__title {
     font-size: 35px;
     height: 76px;
@@ -11526,7 +11526,7 @@ template {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .header__wrap .pc__nav {
     display: none;
   }
@@ -11540,7 +11540,7 @@ template {
   text-align: center;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .header__wrap .sp__nav {
     display: block;
   }
@@ -11598,7 +11598,7 @@ template {
   }
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .top-bgimg__title {
     font-size: 50px;
   }
@@ -11609,19 +11609,13 @@ template {
   padding: 50px 0;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .top-ideas {
-    height: 50vh;
+    padding-bottom: 30px;
   }
 }
 
-@media only screen and (max-width: 414px) {
-  .top-ideas {
-    padding: 0;
-  }
-}
-
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .top-ideas .pc {
     display: none;
   }
@@ -11631,7 +11625,7 @@ template {
   display: none;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .top-ideas .sp {
     display: block;
   }
@@ -11712,7 +11706,7 @@ template {
   padding: 80px 0;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .top-category .pc {
     display: none;
   }
@@ -11722,7 +11716,7 @@ template {
   display: none;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .top-category .sp {
     display: block;
   }
@@ -11840,7 +11834,7 @@ template {
   }
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .top-use__content {
     font-size: 20px;
     width: 85%;
@@ -11982,17 +11976,19 @@ template {
 .form__items {
   margin: 0 auto;
   padding: 30px 0;
-  width: 60%;
-}
-
-@media only screen and (max-width: 1025px) {
-  .form__items {
-    width: 80%;
-  }
+  width: 80%;
 }
 
 .form__item {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 750px) {
+  .form__item {
+    display: block;
+  }
 }
 
 .form__label {
@@ -12008,22 +12004,14 @@ template {
 .form__select {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 150px;
   padding: 5px 15px;
   width: 50%;
   -moz-appearance: menulist;
   -webkit-appearance: menulist;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .form__select {
-    margin-left: 95px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .form__select {
-    margin-left: 0;
     width: 90%;
   }
 }
@@ -12036,31 +12024,10 @@ template {
   width: 50%;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .form .form__input--username,
   .form .form__input--title {
-    margin-left: 0;
     width: 90%;
-  }
-}
-
-.form__input--title {
-  margin-left: 95px;
-}
-
-@media only screen and (max-width: 1025px) {
-  .form__input--title {
-    margin-left: 40px;
-  }
-}
-
-.form__input--username {
-  margin-left: 145px;
-}
-
-@media only screen and (max-width: 1025px) {
-  .form__input--username {
-    margin-left: 90px;
   }
 }
 
@@ -12068,20 +12035,12 @@ template {
   background-color: #fff;
   border-radius: 30px;
   height: 370px;
-  margin-left: 200px;
   padding: 15px 25px;
   width: 50%;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .form__textarea {
-    margin-left: 147px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .form__textarea {
-    margin-left: 0;
     width: 100%;
   }
 }
@@ -12096,7 +12055,7 @@ template {
   width: 40%;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .form__button {
     width: 60%;
   }
@@ -12128,17 +12087,19 @@ template {
 .search__items {
   margin: 0 auto;
   padding: 30px 0;
-  width: 60%;
-}
-
-@media only screen and (max-width: 1025px) {
-  .search__items {
-    width: 80%;
-  }
+  width: 80%;
 }
 
 .search__item {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 750px) {
+  .search__item {
+    display: block;
+  }
 }
 
 .search__label {
@@ -12154,22 +12115,14 @@ template {
 .search__select {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 150px;
   padding: 5px 15px;
   width: 50%;
   -moz-appearance: menulist;
   -webkit-appearance: menulist;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .search__select {
-    margin-left: 95px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .search__select {
-    margin-left: 0;
     width: 90%;
   }
 }
@@ -12177,20 +12130,12 @@ template {
 .search__input {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 95px;
   padding: 5px 15px;
   width: 50%;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .search__input {
-    margin-left: 89px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .search__input {
-    margin-left: 0;
     width: 90%;
   }
 }
@@ -12206,7 +12151,7 @@ template {
   width: 40%;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .search__button {
     width: 60%;
   }
@@ -12335,7 +12280,7 @@ template {
   display: none;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .single .sp {
     display: block;
   }
@@ -12348,7 +12293,7 @@ template {
   padding: 50px 0 20px;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .single__title {
     font-size: 35px;
   }
@@ -12376,7 +12321,7 @@ template {
   width: 80%;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .single__content {
     font-size: 18px;
     line-height: 45px;
@@ -12394,7 +12339,7 @@ template {
   width: 40%;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .single__button {
     width: 60%;
   }
@@ -12412,7 +12357,7 @@ template {
   width: 40%;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .single__button--back {
     width: 60%;
   }
@@ -12433,7 +12378,7 @@ template {
   width: 40%;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .single__button--disable {
     width: 60%;
   }
@@ -12465,17 +12410,19 @@ template {
 .login__items {
   margin: 0 auto;
   padding: 30px 0;
-  width: 60%;
-}
-
-@media only screen and (max-width: 1025px) {
-  .login__items {
-    width: 80%;
-  }
+  width: 80%;
 }
 
 .login__item {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 750px) {
+  .login__item {
+    display: block;
+  }
 }
 
 .login__label {
@@ -12491,20 +12438,12 @@ template {
 .login__input {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 145px;
   padding: 5px 15px;
   width: 50%;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .login__input {
-    margin-left: 65px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .login__input {
-    margin-left: 0;
     width: 90%;
   }
 }
@@ -12512,20 +12451,12 @@ template {
 .login__input--password {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 195px;
   padding: 5px 15px;
   width: 50%;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .login__input--password {
-    margin-left: 115px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .login__input--password {
-    margin-left: 0;
     width: 90%;
   }
 }
@@ -12541,7 +12472,7 @@ template {
   width: 40%;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .login__button {
     width: 60%;
   }
@@ -12578,17 +12509,19 @@ template {
 .register__items {
   margin: 0 auto;
   padding: 30px 0;
-  width: 60%;
-}
-
-@media only screen and (max-width: 1025px) {
-  .register__items {
-    width: 80%;
-  }
+  width: 80%;
 }
 
 .register__item {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 750px) {
+  .register__item {
+    display: block;
+  }
 }
 
 .register__label {
@@ -12604,20 +12537,12 @@ template {
 .register__input {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 85px;
   padding: 5px 15px;
   width: 50%;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .register__input {
-    margin-left: 65px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .register__input {
-    margin-left: 0;
     width: 90%;
   }
 }
@@ -12625,20 +12550,12 @@ template {
 .register__input--name {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 140px;
   padding: 5px 15px;
   width: 50%;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .register__input--name {
-    margin-left: 120px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .register__input--name {
-    margin-left: 0;
     width: 90%;
   }
 }
@@ -12646,20 +12563,12 @@ template {
 .register__input--password {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 140px;
   padding: 5px 15px;
   width: 50%;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .register__input--password {
-    margin-left: 120px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .register__input--password {
-    margin-left: 0;
     width: 90%;
   }
 }
@@ -12667,20 +12576,12 @@ template {
 .register__input--passwordComfire {
   background-color: #fff;
   border-radius: 30px;
-  margin-left: 137px;
   padding: 5px 15px;
   width: 50%;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 750px) {
   .register__input--passwordComfire {
-    margin-left: 63px;
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  .register__input--passwordComfire {
-    margin-left: 0;
     width: 90%;
   }
 }
@@ -12696,7 +12597,7 @@ template {
   width: 40%;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .register__button {
     width: 60%;
   }
@@ -12751,7 +12652,7 @@ template {
   white-space: nowrap;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .mylist-nav__items {
     justify-content: start;
   }
@@ -12762,7 +12663,7 @@ template {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 750px) {
   .mylist-nav__item {
     margin-right: 15px;
   }

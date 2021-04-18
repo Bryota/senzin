@@ -64,16 +64,25 @@ const Form = (props: PropsType) => {
                 <form className="form__wrap" onSubmit={(e) => {submitPostData(e)}}>
                     <div className="form__items">
                         <div className="form__item">
-                            <label htmlFor="title" className="form__label">投稿タイトル<span className="form__required">必須</span></label>
-                            <input type="text" id="title" className="form__input--title" value={title} onChange={e => setTitle(e.target.value)} />
-                            { titleValidationFlg ?
+                            <label htmlFor="title" className="form__label ">
+                                投稿タイトル<span className="form__required">必須</span>
+                                { titleValidationFlg ?
                                 <p className="validation">投稿タイトルを入力してください</p>
                                 :
                                 <></>
-                            }
+                                }
+                            </label>
+                            <input type="text" id="title" className="form__input--title" value={title} onChange={e => setTitle(e.target.value)} />
                         </div>
                         <div className="form__item">
-                            <label htmlFor="category" className="form__label">カテゴリ<span className="form__required">必須</span></label>
+                            <label htmlFor="category" className="form__label">
+                                カテゴリ<span className="form__required">必須</span>
+                                { categoryValidationFlg ?
+                                <p className="validation">カテゴリを選択してください</p>
+                                :
+                                <></>
+                                }
+                            </label>
                             <select name="category" id="category" className="form__select" onChange={e => setCotegory(e.target.value)} defaultValue="1">
                                 <option value="1">食べ物</option>
                                 <option value="2">掃除</option>
@@ -82,29 +91,28 @@ const Form = (props: PropsType) => {
                                 <option value="5">機械</option>
                                 <option value="6">その他</option>
                             </select>
-                            { categoryValidationFlg ?
-                                <p className="validation">カテゴリを選択してください</p>
-                                :
-                                <></>
-                            }
                         </div>
                         <div className="form__item">
-                            <label htmlFor="username" className="form__label">投稿者名<span className="form__required">必須</span></label>
-                            <input type="text" id="username" className="form__input--username" value={username} onChange={e => setUsername(e.target.value)} />
-                            { usernameValidationFlg ?
+                            <label htmlFor="username" className="form__label">
+                                投稿者名<span className="form__required">必須</span>
+                                { usernameValidationFlg ?
                                 <p className="validation">投稿者名を入力してください</p>
                                 :
                                 <></>
-                            }
+                                }
+                            </label>
+                            <input type="text" id="username" className="form__input--username" value={username} onChange={e => setUsername(e.target.value)} />
                         </div>
                         <div className="form__item">
-                            <label htmlFor="content" className="form__label">内容<span className="form__required">必須</span></label>
-                            <textarea name="content" id="content" className="form__textarea" value={content} onChange={e => setContent(e.target.value)}></textarea>
-                            { contentValidationFlg ?
+                            <label htmlFor="content" className="form__label">
+                                内容<span className="form__required">必須</span>
+                                { contentValidationFlg ?
                                 <p className="validation">内容を入力してください</p>
                                 :
                                 <></>
-                            }
+                                }
+                            </label>
+                            <textarea name="content" id="content" className="form__textarea" value={content} onChange={e => setContent(e.target.value)}></textarea>
                         </div>
                         <div className="text-center">
                             <input type="submit" value="投稿する" className="form__button" />
