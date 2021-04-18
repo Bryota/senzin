@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import axios from 'axios';
 import Pagination from 'react-js-pagination';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import Header from './Header';
 import getCategoryIcon from '../util/CategoryIcon';
 import OmitContent from '../util/OmitContent';
@@ -26,7 +25,6 @@ const Category: React.FC<PropsType> = (props) => {
     const [currentPostList, setCurrentPostList] = useState<PostListType[]>();
     const [activePage, setActivePage] = useState<number>(1);
     const [totalItemsCount, setTotalItemsCount] = useState<number>(0);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     if (categoryId.category_id !== props.match.params.category_id) {
         setCategoryId({ category_id: props.match.params.category_id });
@@ -45,7 +43,6 @@ const Category: React.FC<PropsType> = (props) => {
         .then((res) => {
             setTotalItemsCount(res.data);
         });
-        setIsLoading(false);
     },[categoryId]);
 
     const pageChange = (pageNum: number) => {
@@ -57,11 +54,6 @@ const Category: React.FC<PropsType> = (props) => {
     }
     return (
         <>
-            {/* {isLoading ?
-                <CircularProgress />
-                :
-                <></>
-            } */}
             <Header />
             <div className="category">
                 <h1 className="category__title"><span className="category__icon"><i className={categoryIcon}></i></span>{categoryName}</h1>
