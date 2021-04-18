@@ -12345,6 +12345,10 @@ template {
   }
 }
 
+.single__twitter {
+  margin-left: 10px;
+}
+
 .single__category {
   font-size: 28px;
   font-weight: bold;

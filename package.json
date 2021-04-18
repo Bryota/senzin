@@ -38,6 +38,7 @@
         "react-cookie": "^4.0.3",
         "react-js-pagination": "^3.0.3",
         "react-router-dom": "^5.2.0",
+        "react-share": "^4.4.0",
         "react-slick": "^0.28.1",
         "slick-carousel": "^1.8.1"
     }
