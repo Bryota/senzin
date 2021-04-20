@@ -12,4 +12,4 @@
 */
 Route::get('/{any}','HomeController@app')->where('any', '.*');
 
-Auth::routes();
+// Auth::routes();
