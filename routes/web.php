@@ -10,4 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/{any}','HomeController@app')->where('any', '.*')->name('login');
+Route::get('/{any}','HomeController@app')->where('any', '.*');
+
+Auth::routes();
