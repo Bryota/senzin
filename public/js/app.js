@@ -60465,6 +60465,7 @@ var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pag
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var CategoryIcon_1 = __importDefault(__webpack_require__(/*! ../util/CategoryIcon */ "./resources/ts/util/CategoryIcon.ts"));
 var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
+var OmitTitle_1 = __importDefault(__webpack_require__(/*! ../util/OmitTitle */ "./resources/ts/util/OmitTitle.ts"));
 var Category = function (props) {
     var _a = react_1.useState({ category_id: props.match.params.category_id }), categoryId = _a[0], setCategoryId = _a[1];
     var _b = react_1.useState(), categoryIcon = _b[0], setCategoryIcon = _b[1];
@@ -60509,7 +60510,7 @@ var Category = function (props) {
                     react_1.default.createElement("div", { className: "row category-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (data) {
                         return (react_1.default.createElement(react_router_dom_1.Link, { className: "category-ideas__item col-12 col-md-4", key: data.post_id, to: '/single/' + data.post_id },
                             react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, data.title),
+                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, OmitTitle_1.default(data.title)),
                                 react_1.default.createElement("p", { className: "category-ideas__item--content" }, OmitContent_1.default(data.content))),
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
@@ -61023,6 +61024,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
+var OmitTitle_1 = __importDefault(__webpack_require__(/*! ../util/OmitTitle */ "./resources/ts/util/OmitTitle.ts"));
 var MyList = function (props) {
     var _a = react_1.useState(), currentDataList = _a[0], setCurrentDataList = _a[1];
     var _b = react_cookie_1.useCookies(), cookies = _b[0], setCookies = _b[1], removeCookies = _b[2];
@@ -61138,7 +61140,7 @@ var MyList = function (props) {
                     react_1.default.createElement("div", { className: "row mylist-ideas__items" }, currentDataList === null || currentDataList === void 0 ? void 0 : currentDataList.map(function (data) {
                         return (react_1.default.createElement(react_router_dom_1.Link, { className: "mylist-ideas__item col-12 col-md-4", to: '/single/' + data.post.post_id, key: data.mylist_id },
                             react_1.default.createElement("div", { className: "mylist-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "mylist-ideas__item--title" }, data.post.title),
+                                react_1.default.createElement("p", { className: "mylist-ideas__item--title" }, OmitTitle_1.default(data.post.title)),
                                 react_1.default.createElement("p", { className: "mylist-ideas__item--category" }, data.post.category.category_name),
                                 react_1.default.createElement("p", { className: "mylist-ideas__item--content" }, OmitContent_1.default(data.post.content))),
                             react_1.default.createElement("div", null,
@@ -61298,41 +61300,42 @@ var Register = function (props) {
                     react_1.default.createElement("div", { className: "register__item" },
                         react_1.default.createElement("label", { htmlFor: "email", className: "register__label" },
                             "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
-                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
-                        react_1.default.createElement("input", { type: "email", id: "email", className: "register__input", value: email, onChange: function (e) { return setEmail(e.target.value); } }),
-                        emailValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null),
-                        uniqueEmailFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u304C\u65E2\u306B\u4F7F\u308F\u308C\u3066\u3044\u307E\u3059")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808"),
+                            emailValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null),
+                            uniqueEmailFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u304C\u65E2\u306B\u4F7F\u308F\u308C\u3066\u3044\u307E\u3059")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("input", { type: "email", id: "email", className: "register__input", value: email, onChange: function (e) { return setEmail(e.target.value); } })),
                     react_1.default.createElement("div", { className: "register__item" },
                         react_1.default.createElement("label", { htmlFor: "name", className: "register__label" },
                             "\u30E6\u30FC\u30B6\u30FC\u540D",
-                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
-                        react_1.default.createElement("input", { type: "text", id: "name", className: "register__input--name", value: name, onChange: function (e) { return setName(e.target.value); } }),
-                        nameValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30E6\u30FC\u30B6\u30FC\u540D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808"),
+                            nameValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30E6\u30FC\u30B6\u30FC\u540D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("input", { type: "text", id: "name", className: "register__input--name", value: name, onChange: function (e) { return setName(e.target.value); } })),
                     react_1.default.createElement("div", { className: "register__item" },
                         react_1.default.createElement("label", { htmlFor: "password", className: "register__label" },
                             "\u30D1\u30B9\u30EF\u30FC\u30C9",
-                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808")),
-                        react_1.default.createElement("input", { type: "password", id: "password", className: "register__input--password", value: password, onChange: function (e) { return setPassword(e.target.value); } }),
-                        passwordValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                            react_1.default.createElement("span", { className: "form__required" }, "\u5FC5\u9808"),
+                            passwordValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("input", { type: "password", id: "password", className: "register__input--password", value: password, onChange: function (e) { return setPassword(e.target.value); } })),
                     react_1.default.createElement("div", { className: "register__item" },
-                        react_1.default.createElement("label", { htmlFor: "passwordComfire", className: "register__label" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u78BA\u8A8D"),
-                        react_1.default.createElement("input", { type: "password", id: "passwordComfire", className: "register__input--passwordComfire", value: passwordComfire, onChange: function (e) { return setPasswordComfire(e.target.value); } }),
-                        passwordComfireValidationFlg ?
-                            react_1.default.createElement("p", { className: "validation" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u304C\u4E00\u81F4\u3057\u307E\u305B\u3093\u3002")
-                            :
-                                react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("label", { htmlFor: "passwordComfire", className: "register__label" },
+                            "\u30D1\u30B9\u30EF\u30FC\u30C9\u78BA\u8A8D",
+                            passwordComfireValidationFlg ?
+                                react_1.default.createElement("p", { className: "validation" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u304C\u4E00\u81F4\u3057\u307E\u305B\u3093\u3002")
+                                :
+                                    react_1.default.createElement(react_1.default.Fragment, null)),
+                        react_1.default.createElement("input", { type: "password", id: "passwordComfire", className: "register__input--passwordComfire", value: passwordComfire, onChange: function (e) { return setPasswordComfire(e.target.value); } })),
                     react_1.default.createElement("div", { className: "text-center" },
                         react_1.default.createElement("input", { type: "submit", value: "\u65B0\u898F\u767B\u9332", className: "register__button" })),
                     react_1.default.createElement("p", { className: "register__register" },
@@ -61381,6 +61384,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
+var OmitTitle_1 = __importDefault(__webpack_require__(/*! ../util/OmitTitle */ "./resources/ts/util/OmitTitle.ts"));
 var Result = function (props) {
     var _a = react_1.useState(), currentPostDataList = _a[0], setCurrentPostDataList = _a[1];
     var _b = react_1.useState(1), activePage = _b[0], setActivePage = _b[1];
@@ -61415,7 +61419,7 @@ var Result = function (props) {
                     react_1.default.createElement("div", { className: "row result-ideas__items" }, currentPostDataList === null || currentPostDataList === void 0 ? void 0 : currentPostDataList.map(function (data) {
                         return (react_1.default.createElement(react_router_dom_1.Link, { className: "result-ideas__item col-12 col-md-4", key: data.post_id, to: '/single/' + data.post_id },
                             react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, data.title),
+                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, OmitTitle_1.default(data.title)),
                                 react_1.default.createElement("p", { className: "result-ideas__item--result" }, data.category.category_name),
                                 react_1.default.createElement("p", { className: "result-ideas__item--content" }, OmitContent_1.default(data.content))),
                             react_1.default.createElement("div", null,
@@ -61674,6 +61678,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var react_slick_1 = __importDefault(__webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
+var OmitTitle_1 = __importDefault(__webpack_require__(/*! ../util/OmitTitle */ "./resources/ts/util/OmitTitle.ts"));
 __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
 __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
 var Top = function () {
@@ -61711,7 +61716,7 @@ var Top = function () {
                 react_1.default.createElement(react_slick_1.default, __assign({ className: "row top-ideas__items pc" }, sliderSettings), postList === null || postList === void 0 ? void 0 : postList.map(function (post) {
                     return (react_1.default.createElement(react_router_dom_1.Link, { className: "top-ideas__item", key: post.post_id, to: '/single/' + post.post_id },
                         react_1.default.createElement("div", { className: "top-ideas__item--balloon" },
-                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, post.title),
+                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, OmitTitle_1.default(post.title)),
                             react_1.default.createElement("p", { className: "top-ideas__item--category" }, post.category.category_name),
                             react_1.default.createElement("p", { className: "top-ideas__item--content" }, OmitContent_1.default(post.content))),
                         react_1.default.createElement("div", null,
@@ -61721,7 +61726,7 @@ var Top = function () {
                 react_1.default.createElement(react_slick_1.default, __assign({ className: "row top-ideas__items sp" }, sliderSettingsForSp), postList === null || postList === void 0 ? void 0 : postList.map(function (post) {
                     return (react_1.default.createElement(react_router_dom_1.Link, { className: "top-ideas__item", key: post.post_id, to: '/single/' + post.post_id },
                         react_1.default.createElement("div", { className: "top-ideas__item--balloon" },
-                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, post.title),
+                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, OmitTitle_1.default(post.title)),
                             react_1.default.createElement("p", { className: "top-ideas__item--category" }, post.category.category_name),
                             react_1.default.createElement("p", { className: "top-ideas__item--content" }, OmitContent_1.default(post.content))),
                         react_1.default.createElement("div", null,
@@ -61855,6 +61860,28 @@ var OmitContent = function (content) {
     return content;
 };
 exports.default = OmitContent;
+
+
+/***/ }),
+
+/***/ "./resources/ts/util/OmitTitle.ts":
+/*!****************************************!*\
+  !*** ./resources/ts/util/OmitTitle.ts ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var OmitTitle = function (content) {
+    var maxLength_char = 6;
+    if (content.length > maxLength_char) {
+        return content.substr(0, maxLength_char) + '...';
+    }
+    return content;
+};
+exports.default = OmitTitle;
 
 
 /***/ }),
