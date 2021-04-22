@@ -4,6 +4,7 @@ import axios from 'axios';
 import Slider from 'react-slick';
 import Header from './Header';
 import OmitContent from '../util/OmitContent';
+import OmitTitle from '../util/OmitTitle';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -58,7 +59,7 @@ const Top:React.FC = () => {
                             return (
                                 <Link className="top-ideas__item" key={post.post_id} to={'/single/' + post.post_id}>
                                     <div className="top-ideas__item--balloon">
-                                        <p className="top-ideas__item--title">{post.title}</p>
+                                        <p className="top-ideas__item--title">{OmitTitle(post.title)}</p>
                                         <p className="top-ideas__item--category">{post.category.category_name}</p>
                                         <p className="top-ideas__item--content">{OmitContent(post.content)}</p>
                                     </div>
@@ -75,7 +76,7 @@ const Top:React.FC = () => {
                             return (
                                 <Link className="top-ideas__item" key={post.post_id} to={'/single/' + post.post_id}>
                                     <div className="top-ideas__item--balloon">
-                                        <p className="top-ideas__item--title">{post.title}</p>
+                                        <p className="top-ideas__item--title">{OmitTitle(post.title)}</p>
                                         <p className="top-ideas__item--category">{post.category.category_name}</p>
                                         <p className="top-ideas__item--content">{OmitContent(post.content)}</p>
                                     </div>

@@ -6,6 +6,7 @@ import * as History from 'history';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
 import OmitContent from '../util/OmitContent';
+import OmitTitle from '../util/OmitTitle';
 
 
 interface PropsType {
@@ -121,7 +122,7 @@ const MyList= (props: PropsType) => {
                                 return (
                                     <Link className="mylist-ideas__item col-12 col-md-4" to={'/single/' + data.post.post_id} key={data.mylist_id}>
                                         <div className="mylist-ideas__item--balloon">
-                                            <p className="mylist-ideas__item--title">{data.post.title}</p>
+                                            <p className="mylist-ideas__item--title">{OmitTitle(data.post.title)}</p>
                                             <p className="mylist-ideas__item--category">{data.post.category.category_name}</p>
                                             <p className="mylist-ideas__item--content">{OmitContent(data.post.content)}</p>
                                         </div>

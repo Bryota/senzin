@@ -5,6 +5,7 @@ import Pagination from 'react-js-pagination';
 import Header from './Header';
 import getCategoryIcon from '../util/CategoryIcon';
 import OmitContent from '../util/OmitContent';
+import OmitTitle from '../util/OmitTitle';
 
 type PropsType = RouteComponentProps<{
     category_id: string;
@@ -64,7 +65,7 @@ const Category: React.FC<PropsType> = (props) => {
                                 return (
                                     <Link className="category-ideas__item col-12 col-md-4" key={data.post_id} to={'/single/' + data.post_id}>
                                         <div className="category-ideas__item--balloon">
-                                            <p className="category-ideas__item--title">{data.title}</p>
+                                            <p className="category-ideas__item--title">{OmitTitle(data.title)}</p>
                                             <p className="category-ideas__item--content">{OmitContent(data.content)}</p>
                                         </div>
                                         <div>

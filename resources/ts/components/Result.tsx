@@ -4,6 +4,7 @@ import axios from 'axios';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
 import OmitContent from '../util/OmitContent';
+import OmitTitle from '../util/OmitTitle';
 
 
 interface PropsType {
@@ -65,7 +66,7 @@ const Result= (props: PropsType) => {
                                 return (
                                     <Link className="result-ideas__item col-12 col-md-4" key={data.post_id} to={'/single/' + data.post_id}>
                                         <div className="result-ideas__item--balloon">
-                                            <p className="result-ideas__item--title">{data.title}</p>
+                                            <p className="result-ideas__item--title">{OmitTitle(data.title)}</p>
                                             <p className="result-ideas__item--result">{data.category.category_name}</p>
                                             <p className="result-ideas__item--content">{OmitContent(data.content)}</p>
                                         </div>
