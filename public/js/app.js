@@ -60515,7 +60515,12 @@ var Category = function (props) {
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
                             react_1.default.createElement("p", { className: "category-ideas__item--username" }, data.username)));
-                    })))),
+                    })),
+                    (function () {
+                        if ((currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.length) === 0) {
+                            return react_1.default.createElement("p", { className: "category-ideas__noposts" }, "\u6295\u7A3F\u304C\u3042\u308A\u307E\u305B\u3093");
+                        }
+                    })())),
             react_1.default.createElement("div", { className: "category-pager" },
                 react_1.default.createElement(react_js_pagination_1.default, { activePage: activePage, itemsCountPerPage: 6, pageRangeDisplayed: 5, totalItemsCount: totalItemsCount, onChange: pageChange, itemClass: 'page-item', linkClass: 'page-link' })))));
 };
@@ -61146,7 +61151,12 @@ var MyList = function (props) {
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x mylist-ideas__item--icon" })),
                             react_1.default.createElement("p", { className: "mylist-ideas__item--username" }, data.post.username)));
-                    })))),
+                    })),
+                    (function () {
+                        if ((currentDataList === null || currentDataList === void 0 ? void 0 : currentDataList.length) === 0) {
+                            return react_1.default.createElement("p", { className: "mylist-ideas__noposts" }, "\u30DE\u30A4\u30EA\u30B9\u30C8\u304C\u3042\u308A\u307E\u305B\u3093");
+                        }
+                    })())),
             react_1.default.createElement("div", { className: "category-pager" },
                 react_1.default.createElement(react_js_pagination_1.default, { activePage: activePage, itemsCountPerPage: 6, pageRangeDisplayed: 5, totalItemsCount: totalItemsCount, onChange: pageChange, itemClass: 'page-item', linkClass: 'page-link' })))));
 };
@@ -61425,7 +61435,12 @@ var Result = function (props) {
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
                             react_1.default.createElement("p", { className: "result-ideas__item--username" }, data.username)));
-                    })))),
+                    })),
+                    (function () {
+                        if ((currentPostDataList === null || currentPostDataList === void 0 ? void 0 : currentPostDataList.length) === 0) {
+                            return react_1.default.createElement("p", { className: "result-ideas__noposts" }, "\u8A72\u5F53\u3059\u308B\u6295\u7A3F\u304C\u3042\u308A\u307E\u305B\u3093");
+                        }
+                    })())),
             react_1.default.createElement("div", { className: "result-pager" },
                 react_1.default.createElement(react_js_pagination_1.default, { activePage: activePage, itemsCountPerPage: 6, pageRangeDisplayed: 5, totalItemsCount: totalItemsCount, onChange: pageChange, itemClass: 'page-item', linkClass: 'page-link' })))));
 };

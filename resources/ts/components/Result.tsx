@@ -78,6 +78,11 @@ const Result= (props: PropsType) => {
                                 )
                             })}
                         </div>
+                        {(() => {
+                            if (currentPostDataList?.length === 0) {
+                                return <p className="result-ideas__noposts">該当する投稿がありません</p>
+                            }
+                        })()}
                     </div>
                 </div>
                 <div className="result-pager">

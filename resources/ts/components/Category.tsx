@@ -76,6 +76,11 @@ const Category: React.FC<PropsType> = (props) => {
                                 )
                             })}
                         </div>
+                        {(() => {
+                            if (currentPostList?.length === 0) {
+                                return <p className="category-ideas__noposts">投稿がありません</p>
+                            }
+                        })()}
                     </div>
                 </div>
                 <div className="category-pager">

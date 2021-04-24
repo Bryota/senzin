@@ -134,6 +134,11 @@ const MyList= (props: PropsType) => {
                                 )
                             })}
                         </div>
+                        {(() => {
+                            if (currentDataList?.length === 0) {
+                                return <p className="mylist-ideas__noposts">マイリストがありません</p>
+                            }
+                        })()}
                     </div>
                 </div>
                 <div className="category-pager">

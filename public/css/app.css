@@ -11935,6 +11935,13 @@ template {
   color: #6f6152 !important;
 }
 
+.category-ideas__noposts {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -30px;
+}
+
 .category-pager {
   padding: 30px 0 50px 0;
   text-align: center;
@@ -12249,6 +12256,13 @@ template {
 
 .result-ideas__item:hover {
   color: #6f6152 !important;
+}
+
+.result-ideas__noposts {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -30px;
 }
 
 .result-pager {
@@ -12794,6 +12808,13 @@ template {
 
 .mylist-ideas__item:hover {
   color: #6f6152 !important;
+}
+
+.mylist-ideas__noposts {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -30px;
 }
 
 .mylist-pager {

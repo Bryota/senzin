@@ -63,4 +63,11 @@
     &__item:hover {
         color: $font-color !important;
     }
+
+    &__noposts {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: -30px;
+    }
 }
