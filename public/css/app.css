@@ -11471,6 +11471,10 @@ template {
   display: none;
 }
 
+#app {
+  overflow: hidden;
+}
+
 .validation {
   color: red;
   font-size: 18px;
