@@ -5,9 +5,7 @@ import axios from 'axios';
 import * as History from 'history';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
-import OmitContent from '../util/OmitContent';
-import OmitTitle from '../util/OmitTitle';
-
+import OmitValue from '../util/OmitValue';
 
 interface PropsType {
     history: History.History;
@@ -118,18 +116,18 @@ const MyList= (props: PropsType) => {
                 <div className="mylist-ideas">
                     <div className="container">
                         <div className="row mylist-ideas__items">
-                            {currentPostList?.map((data) => {
+                            {currentPostList?.map((post) => {
                                 return (
-                                    <Link className="mylist-ideas__item col-12 col-md-4" to={'/single/' + data.post.post_id} key={data.mylist_id}>
+                                    <Link className="mylist-ideas__item col-12 col-md-4" to={'/single/' + post.post.post_id} key={post.mylist_id}>
                                         <div className="mylist-ideas__item--balloon">
-                                            <p className="mylist-ideas__item--title">{OmitTitle(data.post.title)}</p>
-                                            <p className="mylist-ideas__item--category">{data.post.category.category_name}</p>
-                                            <p className="mylist-ideas__item--content">{OmitContent(data.post.content)}</p>
+                                            <p className="mylist-ideas__item--title">{OmitValue(post.post.title, 6)}</p>
+                                            <p className="mylist-ideas__item--category">{post.post.category.category_name}</p>
+                                            <p className="mylist-ideas__item--content">{OmitValue(post.post.content, 40)}</p>
                                         </div>
                                         <div>
                                             <i className="far fa-user fa-5x mylist-ideas__item--icon"></i>
                                         </div>
-                                        <p className="mylist-ideas__item--username">{data.post.username}</p>
+                                        <p className="mylist-ideas__item--username">{post.post.username}</p>
                                     </Link>
                                 )
                             })}

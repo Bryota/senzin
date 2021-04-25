@@ -60464,8 +60464,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
 var CategoryIcon_1 = __importDefault(__webpack_require__(/*! ../util/CategoryIcon */ "./resources/ts/util/CategoryIcon.ts"));
-var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
-var OmitTitle_1 = __importDefault(__webpack_require__(/*! ../util/OmitTitle */ "./resources/ts/util/OmitTitle.ts"));
+var OmitValue_1 = __importDefault(__webpack_require__(/*! ../util/OmitValue */ "./resources/ts/util/OmitValue.ts"));
 var Category = function (props) {
     var _a = react_1.useState({ category_id: props.match.params.category_id }), categoryId = _a[0], setCategoryId = _a[1];
     var _b = react_1.useState(), categoryIcon = _b[0], setCategoryIcon = _b[1];
@@ -60507,14 +60506,14 @@ var Category = function (props) {
                 categoryName),
             react_1.default.createElement("div", { className: "category-ideas" },
                 react_1.default.createElement("div", { className: "container" },
-                    react_1.default.createElement("div", { className: "row category-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (data) {
-                        return (react_1.default.createElement(react_router_dom_1.Link, { className: "category-ideas__item col-12 col-md-4", key: data.post_id, to: '/single/' + data.post_id },
+                    react_1.default.createElement("div", { className: "row category-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (post) {
+                        return (react_1.default.createElement(react_router_dom_1.Link, { className: "category-ideas__item col-12 col-md-4", key: post.post_id, to: '/single/' + post.post_id },
                             react_1.default.createElement("div", { className: "category-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, OmitTitle_1.default(data.title)),
-                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, OmitContent_1.default(data.content))),
+                                react_1.default.createElement("p", { className: "category-ideas__item--title" }, OmitValue_1.default(post.title, 6)),
+                                react_1.default.createElement("p", { className: "category-ideas__item--content" }, OmitValue_1.default(post.content, 40))),
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x category-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, data.username)));
+                            react_1.default.createElement("p", { className: "category-ideas__item--username" }, post.username)));
                     })),
                     (function () {
                         if ((currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.length) === 0) {
@@ -61028,10 +61027,9 @@ var react_cookie_1 = __webpack_require__(/*! react-cookie */ "./node_modules/rea
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
-var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
-var OmitTitle_1 = __importDefault(__webpack_require__(/*! ../util/OmitTitle */ "./resources/ts/util/OmitTitle.ts"));
+var OmitValue_1 = __importDefault(__webpack_require__(/*! ../util/OmitValue */ "./resources/ts/util/OmitValue.ts"));
 var MyList = function (props) {
-    var _a = react_1.useState(), currentDataList = _a[0], setCurrentDataList = _a[1];
+    var _a = react_1.useState(), currentPostList = _a[0], setCurrentPostList = _a[1];
     var _b = react_cookie_1.useCookies(), cookies = _b[0], setCookies = _b[1], removeCookies = _b[2];
     var _c = react_1.useState(1), activePage = _c[0], setActivePage = _c[1];
     var _d = react_1.useState(0), totalItemsCount = _d[0], setTotalItemsCount = _d[1];
@@ -61047,7 +61045,7 @@ var MyList = function (props) {
         });
         axios_1.default.get("/api/getMylistData/" + cookies.userId + "?page=" + activePage)
             .then(function (res) {
-            setCurrentDataList(res.data.data);
+            setCurrentPostList(res.data.data);
         });
     }, []);
     var changeMylistData = function (category_id) { return __awaiter(void 0, void 0, void 0, function () {
@@ -61065,7 +61063,7 @@ var MyList = function (props) {
                     _a.sent();
                     return [4 /*yield*/, axios_1.default.get("/api/getMylistDataFromCategoryId/" + cookies.userId + "/" + category_id + "?page=1")
                             .then(function (res) {
-                            setCurrentDataList(res.data.data);
+                            setCurrentPostList(res.data.data);
                         })];
                 case 2:
                     _a.sent();
@@ -61080,7 +61078,7 @@ var MyList = function (props) {
                     if (!isCategoryData) return [3 /*break*/, 2];
                     return [4 /*yield*/, axios_1.default.get("/api/getMylistDataFromCategoryId/" + cookies.userId + "/" + categoryId + "?page=" + pageNum)
                             .then(function (res) {
-                            setCurrentDataList(res.data.data);
+                            setCurrentPostList(res.data.data);
                             setActivePage(pageNum);
                         })];
                 case 1:
@@ -61089,7 +61087,7 @@ var MyList = function (props) {
                 case 2:
                     axios_1.default.get("/api/getMylistData/" + cookies.userId + "}?page=" + pageNum)
                         .then(function (res) {
-                        setCurrentDataList(res.data.data);
+                        setCurrentPostList(res.data.data);
                         setActivePage(pageNum);
                     });
                     _a.label = 3;
@@ -61142,18 +61140,18 @@ var MyList = function (props) {
                             "\u305D\u306E\u4ED6")))),
             react_1.default.createElement("div", { className: "mylist-ideas" },
                 react_1.default.createElement("div", { className: "container" },
-                    react_1.default.createElement("div", { className: "row mylist-ideas__items" }, currentDataList === null || currentDataList === void 0 ? void 0 : currentDataList.map(function (data) {
-                        return (react_1.default.createElement(react_router_dom_1.Link, { className: "mylist-ideas__item col-12 col-md-4", to: '/single/' + data.post.post_id, key: data.mylist_id },
+                    react_1.default.createElement("div", { className: "row mylist-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (post) {
+                        return (react_1.default.createElement(react_router_dom_1.Link, { className: "mylist-ideas__item col-12 col-md-4", to: '/single/' + post.post.post_id, key: post.mylist_id },
                             react_1.default.createElement("div", { className: "mylist-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "mylist-ideas__item--title" }, OmitTitle_1.default(data.post.title)),
-                                react_1.default.createElement("p", { className: "mylist-ideas__item--category" }, data.post.category.category_name),
-                                react_1.default.createElement("p", { className: "mylist-ideas__item--content" }, OmitContent_1.default(data.post.content))),
+                                react_1.default.createElement("p", { className: "mylist-ideas__item--title" }, OmitValue_1.default(post.post.title, 6)),
+                                react_1.default.createElement("p", { className: "mylist-ideas__item--category" }, post.post.category.category_name),
+                                react_1.default.createElement("p", { className: "mylist-ideas__item--content" }, OmitValue_1.default(post.post.content, 40))),
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x mylist-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "mylist-ideas__item--username" }, data.post.username)));
+                            react_1.default.createElement("p", { className: "mylist-ideas__item--username" }, post.post.username)));
                     })),
                     (function () {
-                        if ((currentDataList === null || currentDataList === void 0 ? void 0 : currentDataList.length) === 0) {
+                        if ((currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.length) === 0) {
                             return react_1.default.createElement("p", { className: "mylist-ideas__noposts" }, "\u30DE\u30A4\u30EA\u30B9\u30C8\u304C\u3042\u308A\u307E\u305B\u3093");
                         }
                     })())),
@@ -61393,8 +61391,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_js_pagination_1 = __importDefault(__webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
-var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
-var OmitTitle_1 = __importDefault(__webpack_require__(/*! ../util/OmitTitle */ "./resources/ts/util/OmitTitle.ts"));
+var OmitValue_1 = __importDefault(__webpack_require__(/*! ../util/OmitValue */ "./resources/ts/util/OmitValue.ts"));
 var Result = function (props) {
     var _a = react_1.useState(), currentPostList = _a[0], setCurrentPostList = _a[1];
     var _b = react_1.useState(1), activePage = _b[0], setActivePage = _b[1];
@@ -61426,15 +61423,15 @@ var Result = function (props) {
             react_1.default.createElement("h1", { className: "result__title" }, "\u691C\u7D22\u7D50\u679C"),
             react_1.default.createElement("div", { className: "result-ideas" },
                 react_1.default.createElement("div", { className: "container" },
-                    react_1.default.createElement("div", { className: "row result-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (data) {
-                        return (react_1.default.createElement(react_router_dom_1.Link, { className: "result-ideas__item col-12 col-md-4", key: data.post_id, to: '/single/' + data.post_id },
+                    react_1.default.createElement("div", { className: "row result-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (post) {
+                        return (react_1.default.createElement(react_router_dom_1.Link, { className: "result-ideas__item col-12 col-md-4", key: post.post_id, to: '/single/' + post.post_id },
                             react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
-                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, OmitTitle_1.default(data.title)),
-                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, data.category.category_name),
-                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, OmitContent_1.default(data.content))),
+                                react_1.default.createElement("p", { className: "result-ideas__item--title" }, OmitValue_1.default(post.title, 6)),
+                                react_1.default.createElement("p", { className: "result-ideas__item--result" }, post.category.category_name),
+                                react_1.default.createElement("p", { className: "result-ideas__item--content" }, OmitValue_1.default(post.content, 40))),
                             react_1.default.createElement("div", null,
                                 react_1.default.createElement("i", { className: "far fa-user fa-5x result-ideas__item--icon" })),
-                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, data.username)));
+                            react_1.default.createElement("p", { className: "result-ideas__item--username" }, post.username)));
                     })),
                     (function () {
                         if ((currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.length) === 0) {
@@ -61692,8 +61689,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_slick_1 = __importDefault(__webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/ts/components/Header.tsx"));
-var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
-var OmitTitle_1 = __importDefault(__webpack_require__(/*! ../util/OmitTitle */ "./resources/ts/util/OmitTitle.ts"));
+var OmitValue_1 = __importDefault(__webpack_require__(/*! ../util/OmitValue */ "./resources/ts/util/OmitValue.ts"));
 __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
 __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
 var Top = function () {
@@ -61731,9 +61727,9 @@ var Top = function () {
                 react_1.default.createElement(react_slick_1.default, __assign({ className: "row top-ideas__items pc" }, sliderSettings), postList === null || postList === void 0 ? void 0 : postList.map(function (post) {
                     return (react_1.default.createElement(react_router_dom_1.Link, { className: "top-ideas__item", key: post.post_id, to: '/single/' + post.post_id },
                         react_1.default.createElement("div", { className: "top-ideas__item--balloon" },
-                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, OmitTitle_1.default(post.title)),
+                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, OmitValue_1.default(post.title, 6)),
                             react_1.default.createElement("p", { className: "top-ideas__item--category" }, post.category.category_name),
-                            react_1.default.createElement("p", { className: "top-ideas__item--content" }, OmitContent_1.default(post.content))),
+                            react_1.default.createElement("p", { className: "top-ideas__item--content" }, OmitValue_1.default(post.content, 40))),
                         react_1.default.createElement("div", null,
                             react_1.default.createElement("i", { className: "far fa-user fa-5x top-ideas__item--icon" })),
                         react_1.default.createElement("p", { className: "top-ideas__item--username" }, post.username)));
@@ -61741,9 +61737,9 @@ var Top = function () {
                 react_1.default.createElement(react_slick_1.default, __assign({ className: "row top-ideas__items sp" }, sliderSettingsForSp), postList === null || postList === void 0 ? void 0 : postList.map(function (post) {
                     return (react_1.default.createElement(react_router_dom_1.Link, { className: "top-ideas__item", key: post.post_id, to: '/single/' + post.post_id },
                         react_1.default.createElement("div", { className: "top-ideas__item--balloon" },
-                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, OmitTitle_1.default(post.title)),
+                            react_1.default.createElement("p", { className: "top-ideas__item--title" }, OmitValue_1.default(post.title, 6)),
                             react_1.default.createElement("p", { className: "top-ideas__item--category" }, post.category.category_name),
-                            react_1.default.createElement("p", { className: "top-ideas__item--content" }, OmitContent_1.default(post.content))),
+                            react_1.default.createElement("p", { className: "top-ideas__item--content" }, OmitValue_1.default(post.content, 40))),
                         react_1.default.createElement("div", null,
                             react_1.default.createElement("i", { className: "far fa-user fa-5x top-ideas__item--icon" })),
                         react_1.default.createElement("p", { className: "top-ideas__item--username" }, post.username)));
@@ -61857,31 +61853,9 @@ exports.default = getCategoryIcon;
 
 /***/ }),
 
-/***/ "./resources/ts/util/OmitContent.ts":
-/*!******************************************!*\
-  !*** ./resources/ts/util/OmitContent.ts ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var OmitContent = function (content) {
-    var maxLength_char = 40;
-    if (content.length > maxLength_char) {
-        return content.substr(0, maxLength_char) + '...';
-    }
-    return content;
-};
-exports.default = OmitContent;
-
-
-/***/ }),
-
-/***/ "./resources/ts/util/OmitTitle.ts":
+/***/ "./resources/ts/util/OmitValue.ts":
 /*!****************************************!*\
-  !*** ./resources/ts/util/OmitTitle.ts ***!
+  !*** ./resources/ts/util/OmitValue.ts ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -61889,14 +61863,14 @@ exports.default = OmitContent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var OmitTitle = function (content) {
-    var maxLength_char = 6;
-    if (content.length > maxLength_char) {
-        return content.substr(0, maxLength_char) + '...';
+var OmitValue = function (value, maxLength) {
+    var maxLength_char = maxLength;
+    if (value.length > maxLength_char) {
+        return value.substr(0, maxLength_char) + '...';
     }
-    return content;
+    return value;
 };
-exports.default = OmitTitle;
+exports.default = OmitValue;
 
 
 /***/ }),

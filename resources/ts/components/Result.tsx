@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
-import OmitContent from '../util/OmitContent';
-import OmitTitle from '../util/OmitTitle';
+import OmitValue from '../util/OmitValue';
 import PostListType from '../util/PostListType';
 
 interface PropsType {
@@ -50,18 +49,18 @@ const Result= (props: PropsType) => {
                 <div className="result-ideas">
                     <div className="container">
                         <div className="row result-ideas__items">
-                            {currentPostList?.map((data) => {
+                            {currentPostList?.map((post) => {
                                 return (
-                                    <Link className="result-ideas__item col-12 col-md-4" key={data.post_id} to={'/single/' + data.post_id}>
+                                    <Link className="result-ideas__item col-12 col-md-4" key={post.post_id} to={'/single/' + post.post_id}>
                                         <div className="result-ideas__item--balloon">
-                                            <p className="result-ideas__item--title">{OmitTitle(data.title)}</p>
-                                            <p className="result-ideas__item--result">{data.category.category_name}</p>
-                                            <p className="result-ideas__item--content">{OmitContent(data.content)}</p>
+                                            <p className="result-ideas__item--title">{OmitValue(post.title, 6)}</p>
+                                            <p className="result-ideas__item--result">{post.category.category_name}</p>
+                                            <p className="result-ideas__item--content">{OmitValue(post.content, 40)}</p>
                                         </div>
                                         <div>
                                             <i className="far fa-user fa-5x result-ideas__item--icon"></i>
                                         </div>
-                                        <p className="result-ideas__item--username">{data.username}</p>
+                                        <p className="result-ideas__item--username">{post.username}</p>
                                     </Link>
                                 )
                             })}

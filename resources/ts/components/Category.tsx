@@ -4,8 +4,7 @@ import axios from 'axios';
 import Pagination from 'react-js-pagination';
 import Header from './Header';
 import getCategoryIcon from '../util/CategoryIcon';
-import OmitContent from '../util/OmitContent';
-import OmitTitle from '../util/OmitTitle';
+import OmitValue from '../util/OmitValue';
 import PostListType from '../util/PostListType';
 
 type PropsType = RouteComponentProps<{
@@ -54,17 +53,17 @@ const Category: React.FC<PropsType> = (props) => {
                 <div className="category-ideas">
                     <div className="container">
                         <div className="row category-ideas__items">
-                            {currentPostList?.map((data) => {
+                            {currentPostList?.map((post) => {
                                 return (
-                                    <Link className="category-ideas__item col-12 col-md-4" key={data.post_id} to={'/single/' + data.post_id}>
+                                    <Link className="category-ideas__item col-12 col-md-4" key={post.post_id} to={'/single/' + post.post_id}>
                                         <div className="category-ideas__item--balloon">
-                                            <p className="category-ideas__item--title">{OmitTitle(data.title)}</p>
-                                            <p className="category-ideas__item--content">{OmitContent(data.content)}</p>
+                                            <p className="category-ideas__item--title">{OmitValue(post.title, 6)}</p>
+                                            <p className="category-ideas__item--content">{OmitValue(post.content, 40)}</p>
                                         </div>
                                         <div>
                                             <i className="far fa-user fa-5x category-ideas__item--icon"></i>
                                         </div>
-                                        <p className="category-ideas__item--username">{data.username}</p>
+                                        <p className="category-ideas__item--username">{post.username}</p>
                                     </Link>
                                 )
                             })}

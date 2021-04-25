@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Slider from 'react-slick';
 import Header from './Header';
-import OmitContent from '../util/OmitContent';
-import OmitTitle from '../util/OmitTitle';
+import OmitValue from '../util/OmitValue';
 import PostListType from '../util/PostListType';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -48,9 +47,9 @@ const Top:React.FC = () => {
                             return (
                                 <Link className="top-ideas__item" key={post.post_id} to={'/single/' + post.post_id}>
                                     <div className="top-ideas__item--balloon">
-                                        <p className="top-ideas__item--title">{OmitTitle(post.title)}</p>
+                                        <p className="top-ideas__item--title">{OmitValue(post.title, 6)}</p>
                                         <p className="top-ideas__item--category">{post.category.category_name}</p>
-                                        <p className="top-ideas__item--content">{OmitContent(post.content)}</p>
+                                        <p className="top-ideas__item--content">{OmitValue(post.content, 40)}</p>
                                     </div>
                                     <div>
                                         <i className="far fa-user fa-5x top-ideas__item--icon"></i>
@@ -65,9 +64,9 @@ const Top:React.FC = () => {
                             return (
                                 <Link className="top-ideas__item" key={post.post_id} to={'/single/' + post.post_id}>
                                     <div className="top-ideas__item--balloon">
-                                        <p className="top-ideas__item--title">{OmitTitle(post.title)}</p>
+                                        <p className="top-ideas__item--title">{OmitValue(post.title, 6)}</p>
                                         <p className="top-ideas__item--category">{post.category.category_name}</p>
-                                        <p className="top-ideas__item--content">{OmitContent(post.content)}</p>
+                                        <p className="top-ideas__item--content">{OmitValue(post.content, 40)}</p>
                                     </div>
                                     <div>
                                         <i className="far fa-user fa-5x top-ideas__item--icon"></i>
