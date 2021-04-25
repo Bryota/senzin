@@ -60667,7 +60667,7 @@ var Form = function (props) {
                                 react_1.default.createElement("p", { className: "validation" }, "\u6295\u7A3F\u30BF\u30A4\u30C8\u30EB\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
                                 :
                                     react_1.default.createElement(react_1.default.Fragment, null)),
-                        react_1.default.createElement("input", { type: "text", id: "title", className: "form__input--title", value: title, onChange: function (e) { return setTitle(e.target.value); } })),
+                        react_1.default.createElement("input", { type: "text", id: "title", className: "form__input", value: title, onChange: function (e) { return setTitle(e.target.value); } })),
                     react_1.default.createElement("div", { className: "form__item" },
                         react_1.default.createElement("label", { htmlFor: "category", className: "form__label" },
                             "\u30AB\u30C6\u30B4\u30EA",
@@ -60691,7 +60691,7 @@ var Form = function (props) {
                                 react_1.default.createElement("p", { className: "validation" }, "\u6295\u7A3F\u8005\u540D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
                                 :
                                     react_1.default.createElement(react_1.default.Fragment, null)),
-                        react_1.default.createElement("input", { type: "text", id: "username", className: "form__input--username", value: username, onChange: function (e) { return setUsername(e.target.value); } })),
+                        react_1.default.createElement("input", { type: "text", id: "username", className: "form__input", value: username, onChange: function (e) { return setUsername(e.target.value); } })),
                     react_1.default.createElement("div", { className: "form__item" },
                         react_1.default.createElement("label", { htmlFor: "content", className: "form__label" },
                             "\u5185\u5BB9",
@@ -60943,7 +60943,7 @@ var Login = function (props) {
                                 react_1.default.createElement("p", { className: "validation" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u6B63\u3057\u304F\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
                                 :
                                     react_1.default.createElement(react_1.default.Fragment, null)),
-                        react_1.default.createElement("input", { type: "password", id: "password", className: "login__input--password", value: password, onChange: function (e) { return setPassword(e.target.value); } })),
+                        react_1.default.createElement("input", { type: "password", id: "password", className: "login__input", value: password, onChange: function (e) { return setPassword(e.target.value); } })),
                     react_1.default.createElement("div", { className: "text-center" },
                         react_1.default.createElement("input", { type: "submit", value: "\u30ED\u30B0\u30A4\u30F3", className: "login__button" })),
                     react_1.default.createElement("p", { className: "login__register" },
@@ -61328,7 +61328,7 @@ var Register = function (props) {
                                 react_1.default.createElement("p", { className: "validation" }, "\u30E6\u30FC\u30B6\u30FC\u540D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
                                 :
                                     react_1.default.createElement(react_1.default.Fragment, null)),
-                        react_1.default.createElement("input", { type: "text", id: "name", className: "register__input--name", value: name, onChange: function (e) { return setName(e.target.value); } })),
+                        react_1.default.createElement("input", { type: "text", id: "name", className: "register__input", value: name, onChange: function (e) { return setName(e.target.value); } })),
                     react_1.default.createElement("div", { className: "register__item" },
                         react_1.default.createElement("label", { htmlFor: "password", className: "register__label" },
                             "\u30D1\u30B9\u30EF\u30FC\u30C9",
@@ -61337,7 +61337,7 @@ var Register = function (props) {
                                 react_1.default.createElement("p", { className: "validation" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044")
                                 :
                                     react_1.default.createElement(react_1.default.Fragment, null)),
-                        react_1.default.createElement("input", { type: "password", id: "password", className: "register__input--password", value: password, onChange: function (e) { return setPassword(e.target.value); } })),
+                        react_1.default.createElement("input", { type: "password", id: "password", className: "register__input", value: password, onChange: function (e) { return setPassword(e.target.value); } })),
                     react_1.default.createElement("div", { className: "register__item" },
                         react_1.default.createElement("label", { htmlFor: "passwordComfire", className: "register__label" },
                             "\u30D1\u30B9\u30EF\u30FC\u30C9\u78BA\u8A8D",
@@ -61345,7 +61345,7 @@ var Register = function (props) {
                                 react_1.default.createElement("p", { className: "validation" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u304C\u4E00\u81F4\u3057\u307E\u305B\u3093\u3002")
                                 :
                                     react_1.default.createElement(react_1.default.Fragment, null)),
-                        react_1.default.createElement("input", { type: "password", id: "passwordComfire", className: "register__input--passwordComfire", value: passwordComfire, onChange: function (e) { return setPasswordComfire(e.target.value); } })),
+                        react_1.default.createElement("input", { type: "password", id: "passwordComfire", className: "register__input", value: passwordComfire, onChange: function (e) { return setPasswordComfire(e.target.value); } })),
                     react_1.default.createElement("div", { className: "text-center" },
                         react_1.default.createElement("input", { type: "submit", value: "\u65B0\u898F\u767B\u9332", className: "register__button" })),
                     react_1.default.createElement("p", { className: "register__register" },
@@ -61396,7 +61396,7 @@ var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./resources/
 var OmitContent_1 = __importDefault(__webpack_require__(/*! ../util/OmitContent */ "./resources/ts/util/OmitContent.ts"));
 var OmitTitle_1 = __importDefault(__webpack_require__(/*! ../util/OmitTitle */ "./resources/ts/util/OmitTitle.ts"));
 var Result = function (props) {
-    var _a = react_1.useState(), currentPostDataList = _a[0], setCurrentPostDataList = _a[1];
+    var _a = react_1.useState(), currentPostList = _a[0], setCurrentPostList = _a[1];
     var _b = react_1.useState(1), activePage = _b[0], setActivePage = _b[1];
     var _c = react_1.useState(0), totalItemsCount = _c[0], setTotalItemsCount = _c[1];
     var searchData = {
@@ -61410,13 +61410,13 @@ var Result = function (props) {
         });
         axios_1.default.post("api/getResultPostData?page=" + activePage, searchData)
             .then(function (res) {
-            setCurrentPostDataList(res.data.data);
+            setCurrentPostList(res.data.data);
         });
     }, []);
     var pageChange = function (pageNum) {
         axios_1.default.post("api/getResultPostData?page=" + pageNum, searchData)
             .then(function (res) {
-            setCurrentPostDataList(res.data.data);
+            setCurrentPostList(res.data.data);
             setActivePage(pageNum);
         });
     };
@@ -61426,7 +61426,7 @@ var Result = function (props) {
             react_1.default.createElement("h1", { className: "result__title" }, "\u691C\u7D22\u7D50\u679C"),
             react_1.default.createElement("div", { className: "result-ideas" },
                 react_1.default.createElement("div", { className: "container" },
-                    react_1.default.createElement("div", { className: "row result-ideas__items" }, currentPostDataList === null || currentPostDataList === void 0 ? void 0 : currentPostDataList.map(function (data) {
+                    react_1.default.createElement("div", { className: "row result-ideas__items" }, currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.map(function (data) {
                         return (react_1.default.createElement(react_router_dom_1.Link, { className: "result-ideas__item col-12 col-md-4", key: data.post_id, to: '/single/' + data.post_id },
                             react_1.default.createElement("div", { className: "result-ideas__item--balloon" },
                                 react_1.default.createElement("p", { className: "result-ideas__item--title" }, OmitTitle_1.default(data.title)),
@@ -61437,7 +61437,7 @@ var Result = function (props) {
                             react_1.default.createElement("p", { className: "result-ideas__item--username" }, data.username)));
                     })),
                     (function () {
-                        if ((currentPostDataList === null || currentPostDataList === void 0 ? void 0 : currentPostDataList.length) === 0) {
+                        if ((currentPostList === null || currentPostList === void 0 ? void 0 : currentPostList.length) === 0) {
                             return react_1.default.createElement("p", { className: "result-ideas__noposts" }, "\u8A72\u5F53\u3059\u308B\u6295\u7A3F\u304C\u3042\u308A\u307E\u305B\u3093");
                         }
                     })())),

@@ -72,7 +72,7 @@ const Form = (props: PropsType) => {
                                 <></>
                                 }
                             </label>
-                            <input type="text" id="title" className="form__input--title" value={title} onChange={e => setTitle(e.target.value)} />
+                            <input type="text" id="title" className="form__input" value={title} onChange={e => setTitle(e.target.value)} />
                         </div>
                         <div className="form__item">
                             <label htmlFor="category" className="form__label">
@@ -101,7 +101,7 @@ const Form = (props: PropsType) => {
                                 <></>
                                 }
                             </label>
-                            <input type="text" id="username" className="form__input--username" value={username} onChange={e => setUsername(e.target.value)} />
+                            <input type="text" id="username" className="form__input" value={username} onChange={e => setUsername(e.target.value)} />
                         </div>
                         <div className="form__item">
                             <label htmlFor="content" className="form__label">

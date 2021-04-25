@@ -13,7 +13,6 @@ const Header:React.FC = () => {
     const closeCategoryMenu = () => {
         setAnchorEl(null);
     }
-
     const openHamMenu = (e: any) => {
         setAnchorElSp(e.currentTarget);
     }

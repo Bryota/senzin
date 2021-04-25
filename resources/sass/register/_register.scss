@@ -50,36 +50,6 @@
         }
     }
 
-    &__input--name {
-        background-color: #fff;
-        border-radius: 30px;
-        padding: 5px 15px;
-        width: 50%;
-        @include sp {
-            width: 90%;
-        }
-    }
-
-    &__input--password {
-        background-color: #fff;
-        border-radius: 30px;
-        padding: 5px 15px;
-        width: 50%;
-        @include sp {
-            width: 90%;
-        }
-    }
-
-    &__input--passwordComfire {
-        background-color: #fff;
-        border-radius: 30px;
-        padding: 5px 15px;
-        width: 50%;
-        @include sp {
-            width: 90%;
-        }
-    }
-
     &__button {
         background-color: #fff;
         border-radius: 30px;

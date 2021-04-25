@@ -107,7 +107,7 @@ const Register = (props: PropsType) => {
                                 <></>
                                 }
                             </label>
-                            <input type="text" id="name" className="register__input--name" value={name} onChange={e => setName(e.target.value)}/>
+                            <input type="text" id="name" className="register__input" value={name} onChange={e => setName(e.target.value)}/>
                         </div>
                         <div className="register__item">
                             <label htmlFor="password" className="register__label">
@@ -118,7 +118,7 @@ const Register = (props: PropsType) => {
                                 <></>
                                 }
                             </label>
-                            <input type="password" id="password" className="register__input--password" value={password} onChange={e => setPassword(e.target.value)}/>
+                            <input type="password" id="password" className="register__input" value={password} onChange={e => setPassword(e.target.value)}/>
                         </div>
                         <div className="register__item">
                             <label htmlFor="passwordComfire" className="register__label">
@@ -129,7 +129,7 @@ const Register = (props: PropsType) => {
                                 <></>
                                 }
                             </label>
-                            <input type="password" id="passwordComfire" className="register__input--passwordComfire" value={passwordComfire} onChange={e => setPasswordComfire(e.target.value)}/>
+                            <input type="password" id="passwordComfire" className="register__input" value={passwordComfire} onChange={e => setPasswordComfire(e.target.value)}/>
                         </div>
                         <div className="text-center">
                             <input type="submit" value="新規登録" className="register__button" />

@@ -12012,11 +12012,24 @@ template {
   margin-left: 5px;
 }
 
-.form__select {
+.form .form__textarea,
+.form .form__input,
+.form .form__select {
   background-color: #fff;
   border-radius: 30px;
   padding: 5px 15px;
   width: 50%;
+}
+
+@media only screen and (max-width: 750px) {
+  .form .form__textarea,
+  .form .form__input,
+  .form .form__select {
+    width: 90%;
+  }
+}
+
+.form__select {
   -moz-appearance: menulist;
   -webkit-appearance: menulist;
 }
@@ -12027,27 +12040,9 @@ template {
   }
 }
 
-.form .form__input--username,
-.form .form__input--title {
-  background-color: #fff;
-  border-radius: 30px;
-  padding: 5px 15px;
-  width: 50%;
-}
-
-@media only screen and (max-width: 750px) {
-  .form .form__input--username,
-  .form .form__input--title {
-    width: 90%;
-  }
-}
-
 .form__textarea {
-  background-color: #fff;
-  border-radius: 30px;
   height: 370px;
   padding: 15px 25px;
-  width: 50%;
 }
 
 @media only screen and (max-width: 750px) {
@@ -12466,19 +12461,6 @@ template {
   }
 }
 
-.login__input--password {
-  background-color: #fff;
-  border-radius: 30px;
-  padding: 5px 15px;
-  width: 50%;
-}
-
-@media only screen and (max-width: 750px) {
-  .login__input--password {
-    width: 90%;
-  }
-}
-
 .login__button {
   background-color: #fff;
   border-radius: 30px;
@@ -12561,45 +12543,6 @@ template {
 
 @media only screen and (max-width: 750px) {
   .register__input {
-    width: 90%;
-  }
-}
-
-.register__input--name {
-  background-color: #fff;
-  border-radius: 30px;
-  padding: 5px 15px;
-  width: 50%;
-}
-
-@media only screen and (max-width: 750px) {
-  .register__input--name {
-    width: 90%;
-  }
-}
-
-.register__input--password {
-  background-color: #fff;
-  border-radius: 30px;
-  padding: 5px 15px;
-  width: 50%;
-}
-
-@media only screen and (max-width: 750px) {
-  .register__input--password {
-    width: 90%;
-  }
-}
-
-.register__input--passwordComfire {
-  background-color: #fff;
-  border-radius: 30px;
-  padding: 5px 15px;
-  width: 50%;
-}
-
-@media only screen and (max-width: 750px) {
-  .register__input--passwordComfire {
     width: 90%;
   }
 }

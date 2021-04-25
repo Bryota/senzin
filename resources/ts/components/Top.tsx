@@ -5,20 +5,9 @@ import Slider from 'react-slick';
 import Header from './Header';
 import OmitContent from '../util/OmitContent';
 import OmitTitle from '../util/OmitTitle';
+import PostListType from '../util/PostListType';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-interface PostListType {
-    title: string;
-    post_id: number;
-    category_id: number;
-    username: string;
-    content: string;
-    category: {
-        category_id: number,
-        category_name: string
-    }
-}
 
 const Top:React.FC = () => {
     const [postList, setPostList] = useState<PostListType[]>();

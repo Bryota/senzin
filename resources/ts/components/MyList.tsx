@@ -32,7 +32,7 @@ interface DataListType {
 }
 
 const MyList= (props: PropsType) => {
-    const [currentDataList, setCurrentDataList] = useState<DataListType[]>();
+    const [currentPostList, setCurrentPostList] = useState<DataListType[]>();
     const [cookies, setCookies, removeCookies] = useCookies();
     const [activePage, setActivePage] = useState<number>(1);
     const [totalItemsCount, setTotalItemsCount] = useState<number>(0);
@@ -49,7 +49,7 @@ const MyList= (props: PropsType) => {
         })
         axios.get(`/api/getMylistData/${cookies.userId}?page=${activePage}`)
         .then((res) => {
-            setCurrentDataList(res.data.data);
+            setCurrentPostList(res.data.data);
         })
     },[]);
 
@@ -63,7 +63,7 @@ const MyList= (props: PropsType) => {
         })
         await axios.get(`/api/getMylistDataFromCategoryId/${cookies.userId}/${category_id}?page=1`)
         .then((res) => {
-            setCurrentDataList(res.data.data);
+            setCurrentPostList(res.data.data);
         })
     }
 
@@ -71,13 +71,13 @@ const MyList= (props: PropsType) => {
         if (isCategoryData) {
             await axios.get(`/api/getMylistDataFromCategoryId/${cookies.userId}/${categoryId}?page=${pageNum}`)
             .then((res) => {
-                setCurrentDataList(res.data.data);
+                setCurrentPostList(res.data.data);
                 setActivePage(pageNum);
             });
         } else {
             axios.get(`/api/getMylistData/${cookies.userId}}?page=${pageNum}`)
             .then((res) => {
-                setCurrentDataList(res.data.data);
+                setCurrentPostList(res.data.data);
                 setActivePage(pageNum);
             });
         }
@@ -118,7 +118,7 @@ const MyList= (props: PropsType) => {
                 <div className="mylist-ideas">
                     <div className="container">
                         <div className="row mylist-ideas__items">
-                            {currentDataList?.map((data) => {
+                            {currentPostList?.map((data) => {
                                 return (
                                     <Link className="mylist-ideas__item col-12 col-md-4" to={'/single/' + data.post.post_id} key={data.mylist_id}>
                                         <div className="mylist-ideas__item--balloon">
@@ -135,7 +135,7 @@ const MyList= (props: PropsType) => {
                             })}
                         </div>
                         {(() => {
-                            if (currentDataList?.length === 0) {
+                            if (currentPostList?.length === 0) {
                                 return <p className="mylist-ideas__noposts">マイリストがありません</p>
                             }
                         })()}

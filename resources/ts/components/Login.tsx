@@ -93,7 +93,7 @@ const Login= (props: PropsType) => {
                                 <></>
                                 }
                             </label>
-                            <input type="password" id="password" className="login__input--password" value={password} onChange={e => setPassword(e.target.value)}/>
+                            <input type="password" id="password" className="login__input" value={password} onChange={e => setPassword(e.target.value)}/>
                         </div>
                         <div className="text-center">
                             <input type="submit" value="ログイン" className="login__button"/>

@@ -6,18 +6,11 @@ import Header from './Header';
 import getCategoryIcon from '../util/CategoryIcon';
 import OmitContent from '../util/OmitContent';
 import OmitTitle from '../util/OmitTitle';
+import PostListType from '../util/PostListType';
 
 type PropsType = RouteComponentProps<{
     category_id: string;
 }>;
-
-interface PostListType {
-    title: string;
-    post_id: number
-    category_id: number;
-    username: string;
-    content: string;
-}
 
 const Category: React.FC<PropsType> = (props) => {
     const [categoryId, setCategoryId] = useState({category_id: props.match.params.category_id});

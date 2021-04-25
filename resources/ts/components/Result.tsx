@@ -5,7 +5,7 @@ import Pagination from 'react-js-pagination';
 import Header from './Header';
 import OmitContent from '../util/OmitContent';
 import OmitTitle from '../util/OmitTitle';
-
+import PostListType from '../util/PostListType';
 
 interface PropsType {
     location: {
@@ -16,20 +16,8 @@ interface PropsType {
     }
 }
 
-interface PostDataType {
-    post_id: number;
-    title: string;
-    category_id: number;
-    username: string;
-    content: string;
-    category: {
-        category_id: number,
-        category_name: string
-    }
-}
-
 const Result= (props: PropsType) => {
-    const [currentPostDataList, setCurrentPostDataList] = useState<PostDataType[]>();
+    const [currentPostList, setCurrentPostList] = useState<PostListType[]>();
     const [activePage, setActivePage] = useState<number>(1);
     const [totalItemsCount, setTotalItemsCount] = useState<number>(0);
     const searchData = {
@@ -43,14 +31,14 @@ const Result= (props: PropsType) => {
         });
         axios.post(`api/getResultPostData?page=${activePage}`, searchData)
         .then((res) => {
-            setCurrentPostDataList(res.data.data);
+            setCurrentPostList(res.data.data);
         })
     },[]);
 
     const pageChange = (pageNum: number) => {
         axios.post(`api/getResultPostData?page=${pageNum}`, searchData)
         .then((res) => {
-            setCurrentPostDataList(res.data.data);
+            setCurrentPostList(res.data.data);
             setActivePage(pageNum);
         });
     }
@@ -62,7 +50,7 @@ const Result= (props: PropsType) => {
                 <div className="result-ideas">
                     <div className="container">
                         <div className="row result-ideas__items">
-                            {currentPostDataList?.map((data) => {
+                            {currentPostList?.map((data) => {
                                 return (
                                     <Link className="result-ideas__item col-12 col-md-4" key={data.post_id} to={'/single/' + data.post_id}>
                                         <div className="result-ideas__item--balloon">
@@ -79,7 +67,7 @@ const Result= (props: PropsType) => {
                             })}
                         </div>
                         {(() => {
-                            if (currentPostDataList?.length === 0) {
+                            if (currentPostList?.length === 0) {
                                 return <p className="result-ideas__noposts">該当する投稿がありません</p>
                             }
                         })()}

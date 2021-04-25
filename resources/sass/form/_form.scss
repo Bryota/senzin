@@ -40,11 +40,18 @@
         margin-left: 5px;
     }
 
-    &__select{
+    %__formstyle {
         background-color: #fff;
         border-radius: 30px;
         padding: 5px 15px;
         width: 50%;
+        @include sp {
+            width: 90%;
+        }
+    }
+
+    &__select{
+        @extend %__formstyle;
         -moz-appearance: menulist;
         -webkit-appearance: menulist;
         @include sp {
@@ -52,30 +59,14 @@
         }
     }
 
-    %__input {
-        background-color: #fff;
-        border-radius: 30px;
-        padding: 5px 15px;
-        width: 50%;
-        @include sp {
-            width: 90%;
-        }
-    }
-
-    &__input--title {
-        @extend %__input;
-    }
-
-    &__input--username {
-        @extend %__input;
+    &__input {
+        @extend %__formstyle;
     }
 
     &__textarea {
-        background-color: #fff;
-        border-radius: 30px;
+        @extend %__formstyle;
         height: 370px;
         padding: 15px 25px;
-        width: 50%;
         @include sp {
             width: 100%;
         }
