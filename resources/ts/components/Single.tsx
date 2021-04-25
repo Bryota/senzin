@@ -45,6 +45,7 @@ const Single:React.FC<PropsType> = (props) => {
             setCanSetMylist(false);
         })
     }
+
     return (
         <>
             <Header />

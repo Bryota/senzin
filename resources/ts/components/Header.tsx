@@ -7,24 +7,31 @@ const Header:React.FC = () => {
     const [anchorEl, setAnchorEl] =useState(null);
     const [anchorElSp, setAnchorElSp] =useState(null);
     const [anchorElSpCategory, setAnchorElSpCategory] = useState(null);
+
     const openCategoryMenu = (e: any) => {
         setAnchorEl(e.currentTarget);
     }
+
     const closeCategoryMenu = () => {
         setAnchorEl(null);
     }
+
     const openHamMenu = (e: any) => {
         setAnchorElSp(e.currentTarget);
     }
+
     const closeHamMenu = () => {
         setAnchorElSp(null);
     }
-    const openSpCateogryMenu = (e: any) => {
+
+    const openCateogryMenuForSp = (e: any) => {
         setAnchorElSpCategory(e.currentTarget);
     }
-    const closeSpCategoryMenu = () => {
+
+    const closeCategoryMenuForSp = () => {
         setAnchorElSpCategory(null);
     }
+
     return (
         <header className="header__wrap">
             <div className="container"> 
@@ -68,11 +75,11 @@ const Header:React.FC = () => {
                             >
                                 <MenuItem><Link to="/">トップ</Link></MenuItem>
                                 <MenuItem>
-                                    <p onClick={openSpCateogryMenu}>カテゴリ</p>
+                                    <p onClick={openCateogryMenuForSp}>カテゴリ</p>
                                     <Menu
                                         anchorEl={anchorElSpCategory}
                                         open={Boolean(anchorElSpCategory)}
-                                        onClose={closeSpCategoryMenu}
+                                        onClose={closeCategoryMenuForSp}
                                     >
                                         <MenuItem><Link className="header__nav--button" to="/category/1">食べ物</Link></MenuItem>
                                         <MenuItem><Link className="header__nav--button" to="/category/2">掃除</Link></MenuItem>

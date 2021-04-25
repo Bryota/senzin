@@ -31,9 +31,9 @@ const Register = (props: PropsType) => {
     },[email,name,password])
 
     const checkInputValidation = () => {
-        Validation('required', email, setEmailValidationFlg);
-        Validation('required', name, setNameValidationFlg);
-        Validation('required', password, setPasswordValidationFlg);
+        Validation(email, setEmailValidationFlg);
+        Validation(name, setNameValidationFlg);
+        Validation(password, setPasswordValidationFlg);
     }
 
     const checkSendValidation = () => {

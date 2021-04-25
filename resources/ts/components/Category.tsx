@@ -19,9 +19,6 @@ const Category: React.FC<PropsType> = (props) => {
     const [activePage, setActivePage] = useState<number>(1);
     const [totalItemsCount, setTotalItemsCount] = useState<number>(0);
 
-    if (categoryId.category_id !== props.match.params.category_id) {
-        setCategoryId({ category_id: props.match.params.category_id });
-    }
     useEffect(() => {
         axios.get(`/api/getCategoryName/${categoryId.category_id}`)
         .then((res) => {
@@ -38,6 +35,10 @@ const Category: React.FC<PropsType> = (props) => {
         });
     },[categoryId]);
 
+    if (categoryId.category_id !== props.match.params.category_id) {
+        setCategoryId({ category_id: props.match.params.category_id });
+    }
+
     const pageChange = (pageNum: number) => {
         axios.get(`/api/getPostDataInCategory/${categoryId.category_id}?page=${pageNum}`)
         .then((res) => {
@@ -45,6 +46,7 @@ const Category: React.FC<PropsType> = (props) => {
             setActivePage(pageNum);
         });
     }
+
     return (
         <>
             <Header />

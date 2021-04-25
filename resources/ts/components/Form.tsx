@@ -18,6 +18,7 @@ interface PostType {
     username: string;
     content: string;
 }
+
 const Form = (props: PropsType) => {
     const [title, setTitle] = useState<string>();
     const [category, setCotegory] = useState<CategoryType | string>("1");
@@ -31,12 +32,14 @@ const Form = (props: PropsType) => {
     useEffect(() => {
         checkValidation();
     },[title, category, username, content])
+
     const checkValidation = () => {
-        Validation('required', title as string, setTitleValidationFlg);
-        Validation('required', category as string, setCategoryValidationFlg);
-        Validation('required', username as string, setUsernameValidationFlg);
-        Validation('required', content as string, setContentValidationFlg);
+        Validation(title as string, setTitleValidationFlg);
+        Validation(category as string, setCategoryValidationFlg);
+        Validation(username as string, setUsernameValidationFlg);
+        Validation(content as string, setContentValidationFlg);
     }
+
     const sendPostDataToDB = async(data: PostType) => {
         await axios.post('/api/setPostData', data)
         .then(() => {
@@ -46,6 +49,7 @@ const Form = (props: PropsType) => {
             setContent('');
         })
     }
+
     const submitPostData = async(e: FormEvent) => {
         e.preventDefault();
         await sendPostDataToDB({
@@ -56,6 +60,7 @@ const Form = (props: PropsType) => {
         });
         props.history.push('/');
     }
+
     return (
         <>
             <Header />

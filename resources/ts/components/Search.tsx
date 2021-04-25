@@ -18,8 +18,8 @@ const Search = (props: PropsType) => {
     },[categoryId, freeword]);
 
     const checkValidation = () => {
-        Validation('required', categoryId, setCategoryIdValidationFlg);
-        Validation('required', freeword as string, setFreewordValidationFlg);
+        Validation(categoryId, setCategoryIdValidationFlg);
+        Validation(freeword as string, setFreewordValidationFlg);
     }
 
     const sendSearchDataToResultPage = () => {
@@ -34,6 +34,7 @@ const Search = (props: PropsType) => {
             }
         })
     }
+
     return (
         <>
             <Header />

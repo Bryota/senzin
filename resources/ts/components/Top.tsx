@@ -10,12 +10,14 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Top:React.FC = () => {
     const [postList, setPostList] = useState<PostListType[]>();
+
     useEffect(() => {
         axios.get('/api/getPostData')
         .then((res) => {
             setPostList(res.data);
         });
     },[]);
+
     const sliderSettings = {
         dots: false,
         infinite: true,
@@ -25,6 +27,7 @@ const Top:React.FC = () => {
         autoplay:true,
         autoplaySpeed: 2000,
     }
+
     const sliderSettingsForSp = {
         dots: false,
         infinite: true,
@@ -34,6 +37,7 @@ const Top:React.FC = () => {
         autoplay:true,
         autoplaySpeed: 3000,
     }
+
     return (
         <>
             <Header />

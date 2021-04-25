@@ -60472,9 +60472,6 @@ var Category = function (props) {
     var _d = react_1.useState(), currentPostList = _d[0], setCurrentPostList = _d[1];
     var _e = react_1.useState(1), activePage = _e[0], setActivePage = _e[1];
     var _f = react_1.useState(0), totalItemsCount = _f[0], setTotalItemsCount = _f[1];
-    if (categoryId.category_id !== props.match.params.category_id) {
-        setCategoryId({ category_id: props.match.params.category_id });
-    }
     react_1.useEffect(function () {
         axios_1.default.get("/api/getCategoryName/" + categoryId.category_id)
             .then(function (res) {
@@ -60490,6 +60487,9 @@ var Category = function (props) {
             setTotalItemsCount(res.data);
         });
     }, [categoryId]);
+    if (categoryId.category_id !== props.match.params.category_id) {
+        setCategoryId({ category_id: props.match.params.category_id });
+    }
     var pageChange = function (pageNum) {
         axios_1.default.get("/api/getPostDataInCategory/" + categoryId.category_id + "?page=" + pageNum)
             .then(function (res) {
@@ -60613,10 +60613,10 @@ var Form = function (props) {
         checkValidation();
     }, [title, category, username, content]);
     var checkValidation = function () {
-        Validation_1.default('required', title, setTitleValidationFlg);
-        Validation_1.default('required', category, setCategoryValidationFlg);
-        Validation_1.default('required', username, setUsernameValidationFlg);
-        Validation_1.default('required', content, setContentValidationFlg);
+        Validation_1.default(title, setTitleValidationFlg);
+        Validation_1.default(category, setCategoryValidationFlg);
+        Validation_1.default(username, setUsernameValidationFlg);
+        Validation_1.default(content, setContentValidationFlg);
     };
     var sendPostDataToDB = function (data) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -61250,9 +61250,9 @@ var Register = function (props) {
         checkInputValidation();
     }, [email, name, password]);
     var checkInputValidation = function () {
-        Validation_1.default('required', email, setEmailValidationFlg);
-        Validation_1.default('required', name, setNameValidationFlg);
-        Validation_1.default('required', password, setPasswordValidationFlg);
+        Validation_1.default(email, setEmailValidationFlg);
+        Validation_1.default(name, setNameValidationFlg);
+        Validation_1.default(password, setPasswordValidationFlg);
     };
     var checkSendValidation = function () {
         setPasswordComfireValidationFlg(false);
@@ -61396,10 +61396,6 @@ var Result = function (props) {
     var _a = react_1.useState(), currentPostList = _a[0], setCurrentPostList = _a[1];
     var _b = react_1.useState(1), activePage = _b[0], setActivePage = _b[1];
     var _c = react_1.useState(0), totalItemsCount = _c[0], setTotalItemsCount = _c[1];
-    var searchData = {
-        category_id: props.location.state.categoryId,
-        freeword: props.location.state.freeword
-    };
     react_1.useEffect(function () {
         axios_1.default.post('api/getResultPostDataTotalNum', searchData)
             .then(function (res) {
@@ -61410,6 +61406,10 @@ var Result = function (props) {
             setCurrentPostList(res.data.data);
         });
     }, []);
+    var searchData = {
+        category_id: props.location.state.categoryId,
+        freeword: props.location.state.freeword
+    };
     var pageChange = function (pageNum) {
         axios_1.default.post("api/getResultPostData?page=" + pageNum, searchData)
             .then(function (res) {
@@ -61490,8 +61490,8 @@ var Search = function (props) {
         checkValidation();
     }, [categoryId, freeword]);
     var checkValidation = function () {
-        Validation_1.default('required', categoryId, setCategoryIdValidationFlg);
-        Validation_1.default('required', freeword, setFreewordValidationFlg);
+        Validation_1.default(categoryId, setCategoryIdValidationFlg);
+        Validation_1.default(freeword, setFreewordValidationFlg);
     };
     var sendSearchDataToResultPage = function () {
         if (categoryIdValidationFlg || freewordValidationFlg) {
@@ -61885,16 +61885,12 @@ exports.default = OmitValue;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Validation = function (type, value, validationFlg) {
-    switch (type) {
-        case 'required':
-            if (value) {
-                validationFlg(false);
-            }
-            else {
-                validationFlg(true);
-            }
-            break;
+var Validation = function (value, validationFlg) {
+    if (value) {
+        validationFlg(false);
+    }
+    else {
+        validationFlg(true);
     }
 };
 exports.default = Validation;

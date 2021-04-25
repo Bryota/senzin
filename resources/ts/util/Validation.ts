@@ -1,12 +1,8 @@
-const Validation = (type: string, value: string, validationFlg: React.Dispatch<React.SetStateAction<boolean>>) => {
-    switch (type) {
-        case 'required':
-            if (value) {
-                validationFlg(false);
-            } else {
-                validationFlg(true);
-            }
-            break;
+const Validation = (value: string, validationFlg: React.Dispatch<React.SetStateAction<boolean>>) => {
+    if (value) {
+        validationFlg(false);
+    } else {
+        validationFlg(true);
     }
 }
 

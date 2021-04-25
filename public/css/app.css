@@ -12042,7 +12042,7 @@ template {
 
 .form__textarea {
   height: 370px;
-  padding: 15px 25px;
+  padding: 15px 25px !important;
 }
 
 @media only screen and (max-width: 750px) {

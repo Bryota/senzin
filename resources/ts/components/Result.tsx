@@ -19,10 +19,7 @@ const Result= (props: PropsType) => {
     const [currentPostList, setCurrentPostList] = useState<PostListType[]>();
     const [activePage, setActivePage] = useState<number>(1);
     const [totalItemsCount, setTotalItemsCount] = useState<number>(0);
-    const searchData = {
-        category_id: props.location.state.categoryId,
-        freeword: props.location.state.freeword
-    }
+
     useEffect(() => {
         axios.post('api/getResultPostDataTotalNum', searchData)
         .then((res) => {
@@ -34,6 +31,11 @@ const Result= (props: PropsType) => {
         })
     },[]);
 
+    const searchData = {
+        category_id: props.location.state.categoryId,
+        freeword: props.location.state.freeword
+    }
+
     const pageChange = (pageNum: number) => {
         axios.post(`api/getResultPostData?page=${pageNum}`, searchData)
         .then((res) => {
@@ -41,6 +43,7 @@ const Result= (props: PropsType) => {
             setActivePage(pageNum);
         });
     }
+
     return (
         <>
             <Header />

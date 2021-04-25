@@ -26,7 +26,6 @@ interface DataListType {
             category_name: string
         }
     }
-
 }
 
 const MyList= (props: PropsType) => {
@@ -86,6 +85,7 @@ const MyList= (props: PropsType) => {
         removeCookies('userId');
         props.history.push('/login');
     }
+
     return (
         <>
             <Header />
